@@ -1,0 +1,38 @@
+/* box.css */
+
+.box {
+    /* padding: 30px; */
+    border-radius: 8px;
+    vertical-align: top; /* Align boxes at the top */
+    min-height: 125px; 
+    overflow: hidden; /* Prevent content overflow */
+    background: var(--gradientBG1);
+    /* border: var(--buttonandIconborderStyle) var(--secondary-bg); */
+}
+
+.square-box {
+    min-height: 250px; 
+}
+
+.box:hover {
+    /* You can add a hover effect here if needed */
+
+}
+
+/* Styles for link boxes */
+.box-link {
+    text-decoration: none; /* Remove underline from links */
+    color: var(--maintext-color); /* Set text color for normal state */
+    /* flex-grow: 1; */
+}
+
+/* Set text color for visited state */
+.box-link:visited {
+    color: var(--maintext-color); /* Ensure visited links match the main text color */
+}
+
+
+.box-link .box:hover {
+    cursor: pointer; 
+    animation: hover-scale 1s;
+}

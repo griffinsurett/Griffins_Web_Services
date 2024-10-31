@@ -1,0 +1,22 @@
+/* testimonial-box.css */
+.testimonial-box {
+    padding: 20px;
+    margin: 20px;
+    min-height: 270px;
+  }
+  
+  .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: var(--maintext-color);
+  }
+  
+  .name {
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  
+  .position {
+    /* font-style: italic; */
+    color: var(--maintext-color);
+  }

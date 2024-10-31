@@ -1,0 +1,17 @@
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* Space between the columns */
+    justify-content: space-between;
+  }
+  
+  .project-item {
+    flex: 1 1 calc(50% - 20px); /* Two columns, with space between */
+  }
+  
+  @media (max-width: 768px) {
+    .project-item {
+      flex: 1 1 100%; /* Single column layout for small screens */
+    }
+  }
+  

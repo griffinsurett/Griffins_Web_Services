@@ -1,0 +1,33 @@
+/* service-box.css */
+.service-box {
+    flex: 1 1 calc(33.33% - 10px); /* Allow 3 equal columns while accounting for gap */
+    min-width: 250px; /* Set a minimum width to prevent them from getting too small */
+    max-width: 370px;
+    min-height: 350px;
+    box-sizing: border-box; /* Ensure padding and borders are included in total width */
+    padding: 30px; /* Adjust the padding as needed */
+  }
+
+  /* .box-link, .service-box .box {
+    flex-grow: 1;
+  } */
+
+  /* Responsive Styles */
+@media (min-width: 1200px) {
+.service-box {
+  flex: 1 1 calc(33% - 10px); /* Allow 3 equal columns while accounting for gap */
+}
+  }
+  
+  @media (max-width: 1200px) {
+    .service-box {
+        flex: 1 1 calc(50% - 10px); /* 2 columns on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .service-box {
+        flex: 1 1 100%; /* 1 column on small screens */
+    }
+  }
+  

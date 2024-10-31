@@ -1,0 +1,36 @@
+/* services.css */
+
+.services-section {
+  /* overflow-x: hidden; */
+}
+
+.services-boxes {
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+/* Responsive Styles */
+@media (min-width: 1200px) {
+  .services-boxes {
+    gap: 30px; /* Adjust the gap between service boxes as needed */
+  }
+}
+
+@media (max-width: 1200px) {
+  .services-boxes {
+    gap: 30px; /* Adjust the gap between service boxes as needed */
+  }
+}
+
+@media (min-width: 768px) {
+  .services-boxes {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-boxes {
+    /* width: 90%; */
+    margin: 0 auto;
+  }
+}

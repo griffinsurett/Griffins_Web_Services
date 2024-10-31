@@ -1,0 +1,27 @@
+/* ProjectItem.css */
+
+.project-item {
+    margin: 60px 0; /* Space between projects */
+}
+
+.project-link {
+    position: relative; /* For containing the image */
+}
+
+.project-image {
+    width: 100%; /* Take full width of the parent link */
+    height: 350px; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition */
+    border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+    .project-image {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+}
+
+.project-content {
+    flex: 1; /* Allow the content to take up remaining space */
+    padding: 20px;
+}
