@@ -3,26 +3,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "../../../../themeComponents/Buttons/Button"; // Adjust the path as necessary
 import "./project-item1.css"; // Assuming you have some CSS for styling
+import Box from "../../../../themeComponents/Box/Box";
 
 const ProjectItem = ({ project, isEven }) => {
   return (
-    <div
+    <Box
       className={`project-item flex items-align-center responsive responsive-center ${
         isEven ? "reverse" : ""
       }`}
+      href={project.link}
     >
-      <a
-        href={project.link}
-        className={`project-link half-column self-center ${
-          isEven ? "order-2" : ""
-        }`}
-      >
         <img
           src={project.image}
           alt={project.name}
           className="project-image grow"
         />
-      </a>
       <div
         className={`project-content flex column justify-center ${
           isEven ? "text-left" : "text-right"
@@ -34,7 +29,7 @@ const ProjectItem = ({ project, isEven }) => {
           <Button buttonLink={project.link} text="View Project" />
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
 

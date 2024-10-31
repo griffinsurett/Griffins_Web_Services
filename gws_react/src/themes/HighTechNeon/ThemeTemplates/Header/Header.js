@@ -17,6 +17,7 @@ const Header = ({ toggleMenu }) => {
               ContainerClassName="flex justify-center item-align-center logo"
               width="50px" // Width is set, and height will be 90% of this
               classname="responsive-logo"
+              // everdarkLogo={true}
             />
           </a>
         </div>

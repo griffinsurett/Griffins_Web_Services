@@ -32,7 +32,7 @@ const About = () => {
           "Griffin’s Web Services is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations."
         }
         paragraph2Class={
-          "bottom-paragraph text-left p-medium half-column self-right negative-top responsive-right"
+          "bottom-paragraph text-left half-column self-right negative-top responsive-right"
         }
         textSectionClass='smaller-bottom-space'
         buttonText="Learn More"
