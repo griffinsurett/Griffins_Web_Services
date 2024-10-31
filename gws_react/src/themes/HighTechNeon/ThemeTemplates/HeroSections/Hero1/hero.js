@@ -12,7 +12,7 @@ const Hero1 = () => {
       id="hero-section"
       className="flex item-align-center responsive hero-height section-gap"
     >
-        <div className="hero-left morethan-half-container w-90 text-left">
+        <div className="hero-left w60 text-left">
           {/* Use ContentTemplate for the hero section content */}
           <ContentTemplate
             isHero={true} // Ensure h1 is used for hero
@@ -31,7 +31,7 @@ const Hero1 = () => {
             titleClass="section-title"
           />
         </div>
-        <div className="hero-right lessthan-half-container flex column justify-center item-align-center">
+        <div className="hero-right w40 flex column justify-center item-align-center">
           <Logo
             ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
             width="460px" // Width is set, and height will be 90% of this

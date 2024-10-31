@@ -16,7 +16,7 @@ const About = () => {
           heading="Who We Are" // Large heading
           title="About Us" // Smaller title
           paragraphClass={
-            "flex justify-center column about-paragraphs morethan-half-container"
+            "flex justify-center column about-paragraphs w-60"
           }
           paragraph1={
             "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
@@ -31,7 +31,7 @@ const About = () => {
           buttonId="about-header-btn"
           buttonBottom={true}
           buttonClass={"responsive-spacing"}
-          className={"morethan-half-container bottom-space justify-center item-align-center column text-center"}
+          className={"w60 bottom-space justify-center item-align-center column text-center"}
         />
     </Section>
   );

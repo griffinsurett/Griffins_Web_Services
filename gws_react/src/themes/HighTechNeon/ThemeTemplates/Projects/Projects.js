@@ -61,6 +61,9 @@ const Projects = () => {
         buttonLink="#"
         buttonId="projects-header-btn"
         buttonSecClass="space"
+        // ifParagraph={true}
+        // paragraph1="Discover our recent projects and see how we've helped businesses like yours succeed."
+        // sideParagraph={true}
       >
         <ProjectContainer2 projects={projects} />
       </ContentTemplate>

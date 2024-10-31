@@ -9,6 +9,7 @@
   margin: var(--form-spacing);
   border-radius: var(--input-radius);
   transition: var(--primaryTransition);
+  border: var(--);
 }
 
 .accordion-item:last-child {

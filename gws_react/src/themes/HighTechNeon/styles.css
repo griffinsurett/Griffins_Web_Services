@@ -107,7 +107,7 @@
   --darkBG-dynamicIconBG: transparent;
   --lightBG-dynamicIconBG: var(--gradientBG1);
   --darkBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--primary-color);
-  --lightBG-dynamicIconHover: var(--buttonandIconborderStyle);
+  --lightBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--light-shadow1);
   --darkBG-dynamicButtonHover: var(--darkBG-dynamicIconHover);
   --lightBG-dynamicButtonHover: var(--buttonandIconborderStyle) transparent;
 }
