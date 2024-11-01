@@ -8,7 +8,7 @@ import Header from "./ThemeTemplates/Header/Header";
 import Footer from "./ThemeTemplates/Footer/footer1/Footer";
 // import Hero2 from "./ThemeTemplates/HeroSections/Hero2/ero";
 import Services from "./ThemeTemplates/Services/Services";
-import Hero1 from "./ThemeTemplates/HeroSections/Hero1/Hero";
+import Hero1 from "./ThemeTemplates/HeroSections/Hero1/hero";
 import About from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
 import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
