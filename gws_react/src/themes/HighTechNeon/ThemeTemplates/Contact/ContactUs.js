@@ -35,13 +35,11 @@ function ContactUs() {
       <div className="flex justify-center item-align-center bottom-space">
         <ContentTemplate
           className={"contact-sec-header column responsive-center"}
-          topSecClass="column"
+          contentWrapClass="column"
           ifButton={false}
           ifParagraph={true}
           heading="Contact Us."
-          paragraphClass={
-            "flex justify-center column about-paragraphs w90"
-          }
+          paragraphClass={"flex justify-center column about-paragraphs w90"}
           paragraph1={
             "Discover answers to common questions about Griffin's Web Services."
           }
@@ -77,7 +75,11 @@ function ContactUs() {
           </div>
           <div className="form-group subject-message">
             <InputField name="subject" placeholder="Subject" />
-            <TextareaField name="message" placeholder="Message" className="textarea-field" />
+            <TextareaField
+              name="message"
+              placeholder="Message"
+              className="textarea-field"
+            />
           </div>
         </div>
         <Button type="submit" text="Submit" className="p-large" />

@@ -12,35 +12,35 @@ const Hero1 = () => {
       id="hero-section"
       className="flex item-align-center responsive hero-height section-gap"
     >
-        <div className="hero-left w60 text-left">
-          {/* Use ContentTemplate for the hero section content */}
-          <ContentTemplate
-            isHero={true} // Ensure h1 is used for hero
-            ifParagraph={true}
-            topSecClass="column"
-            title="Griffin’s Web Services"
-            heading="Websites and All Things Digital."
-            paragraph1="Your premier one-stop shop for website design and development, expert social media and digital marketing, and creative graphic design services."
-            ifButton={true}
-            buttonText="Get Started"
-            buttonLink="#"
-            className="hero-content column"
-            headingClass="text-shadow-for-dark"
-            paragraphClass="p-small bottom-space"
-            buttonClass="p-small"
-            buttonSecClass="hero-btn-container smaller-top-space smaller-bottom-space"
-            titleClass="section-title"
-          />
-        </div>
-        <div className="hero-right w40 flex column justify-center item-align-center">
-          <Logo
-            ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
-            width="460px"
-            classname=""
-            responsive={true}
-            everdarkLogo={true}
-          />
-        </div>
+      <div className="hero-left w60 text-left">
+        {/* Use ContentTemplate for the hero section content */}
+        <ContentTemplate
+          isHero={true} // Ensure h1 is used for hero
+          ifParagraph={true}
+          contentWrapClass="column"
+          title="Griffin’s Web Services"
+          heading="Websites and All Things Digital."
+          paragraph1="Your premier one-stop shop for website design and development, expert social media and digital marketing, and creative graphic design services."
+          ifButton={true}
+          buttonText="Get Started"
+          buttonLink="#"
+          className="hero-content"
+          headingClass="text-shadow-for-dark"
+          paragraphClass="p-small bottom-space"
+          buttonClass="p-small"
+          buttonSecClass="hero-btn-container smaller-top-space smaller-bottom-space"
+          titleClass="section-title"
+        />
+      </div>
+      <div className="hero-right w40 flex column justify-center item-align-center">
+        <Logo
+          ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
+          width="460px"
+          classname=""
+          responsive={true}
+          everdarkLogo={true}
+        />
+      </div>
     </section>
   );
 };

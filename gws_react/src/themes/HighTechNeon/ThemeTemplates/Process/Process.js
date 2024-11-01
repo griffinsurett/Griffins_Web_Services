@@ -37,8 +37,10 @@ function Process() {
       shadowClass={"right-shadow bottom"}
     >
       <ContentTemplate
-        className={"bottom-space justify-between-section responsive responsive-center"}
-        ifButton={true}
+        // className={"bottom-space justify-between-section responsive responsive-center"}
+        contentWrapClass="justify-between-section responsive responsive-center"
+        ifButton={false}
+        textSectionClass={"w100"}
         heading="How We Do It"
         title="Our Process"
         buttonText="Get Started"

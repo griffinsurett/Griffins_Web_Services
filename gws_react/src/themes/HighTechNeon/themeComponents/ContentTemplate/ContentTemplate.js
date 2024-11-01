@@ -13,7 +13,7 @@ const ContentTemplate = ({
   buttonLink = "#",
   onClick,
   className,
-  topSecClass,
+  contentWrapClass,
   buttonId,
   titleClass,
   headingClass,
@@ -30,15 +30,15 @@ const ContentTemplate = ({
   children,
   isHero = false,
   paragraphSide = true, // Default to true for easier visibility
-  buttonSide = true,    // Default to true for easier visibility
+  buttonSide = true, // Default to true for easier visibility
 }) => {
-  const showSideContentContainer = paragraphSide || (buttonSide && ifButton && !buttonBottom);
+  const showSideContentContainer =
+    paragraphSide || (buttonSide && ifButton && !buttonBottom);
 
   return (
     <div className={`content-template ${className} flex column`}>
-      
       {/* Title, Heading, and Side Content */}
-      <div className={`content-top-section flex ${topSecClass}`}>
+      <div className={`content-top-section flex ${contentWrapClass}`}>
         {/* Title and Heading */}
         <div className={`title-heading-container column ${textSectionClass}`}>
           {title && (
@@ -46,8 +46,8 @@ const ContentTemplate = ({
               <Typewriter text={title} speed={100} />
             </h5>
           )}
-          {heading && (
-            isHero ? (
+          {heading &&
+            (isHero ? (
               <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h1>
@@ -55,8 +55,7 @@ const ContentTemplate = ({
               <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h2>
-            )
-          )}
+            ))}
 
           {/* Default Paragraph Content (if not side) */}
           {ifParagraph && !paragraphSide && (
@@ -80,7 +79,9 @@ const ContentTemplate = ({
           <div className="side-content-container flex column justify-center">
             {/* Side Paragraph Content */}
             {paragraphSide && ifParagraph && (
-              <div className={`content-template-paragraphs-side ${paragraphClass}`}>
+              <div
+                className={`content-template-paragraphs-side ${paragraphClass}`}
+              >
                 {paragraph1 && (
                   <p className={paragraph1Class}>
                     <Typewriter text={paragraph1} speed={10} />
@@ -96,7 +97,9 @@ const ContentTemplate = ({
 
             {/* Side Button Content */}
             {buttonSide && ifButton && !buttonBottom && (
-              <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}>
+              <div
+                className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
+              >
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}
@@ -115,7 +118,9 @@ const ContentTemplate = ({
 
       {/* Bottom Button */}
       {buttonBottom && ifButton && (
-        <div className={`content-template-btn-bottom top-space ${buttonSecClass}`}>
+        <div
+          className={`content-template-btn-bottom top-space ${buttonSecClass}`}
+        >
           <Button
             text={buttonText}
             buttonLink={buttonLink}

@@ -15,6 +15,7 @@ function Subscribe() {
       <div className="w80">
         <ContentTemplate
           ifButton={false}
+          textSectionClass={"w100"}
           heading="Subscribe Now"
           className={"top-space bottom-space text-center justify-center"}
         />

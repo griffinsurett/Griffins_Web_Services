@@ -61,13 +61,10 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <Section
-      className={"services-section justify-between-section full-height"}
-      shadowClass={"right-shadow bottom"}
-    >
+    <Section className={"services-section"}>
       <ContentTemplate
         ifButton={true}
-        topSecClass="justify-between-section responsive responsive-center"
+        contentWrapClass="justify-between-section responsive responsive-center"
         heading="What We Offer"
         title="Our Services"
         buttonText="Get Started"
@@ -91,8 +88,7 @@ const Services = () => {
             />
           ))}
         </div>
-        </ContentTemplate>
-
+      </ContentTemplate>
     </Section>
   );
 };

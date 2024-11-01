@@ -47,14 +47,15 @@ const Pricing = () => {
   return (
     <Section
       className={"pricing-section full-height column text-center"}
-      shadowClass={"right-shadow bottom"}
     >
       <ContentTemplate
-        className="pricing-header flex justify-center space-bottom"
+        className="pricing-header"
+        contentWrapClass="justify-between-section responsive responsive-center"
         heading="Our Pricing Plans"
         title="Choose a Plan"
         paragraph1="We offer flexible pricing plans for businesses of all sizes. Find the perfect plan for you."
         ifButton={false}
+        textSectionClass={"w100"}
       />
       {/* Pass the pricingData as a prop to PricingTable */}
       <PricingTable pricingData={pricingData} />

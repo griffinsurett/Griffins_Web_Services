@@ -1,6 +1,6 @@
 // About1 - About.js
 import React from "react";
-import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate"; 
+import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import "./about.css";
 import "../../../styled-circle.css";
 import Section from "../../../themeComponents/Section/Section"; // Import your Section component
@@ -8,7 +8,7 @@ import Section from "../../../themeComponents/Section/Section"; // Import your S
 const About = () => {
   return (
     <Section
-      id='about'
+      id="about"
       className={
         "about flex item-align-center justify-center full-height column responsive responsive-center responsive-spacing"
       }
@@ -19,7 +19,7 @@ const About = () => {
         ifParagraph={true}
         heading="Who We Are" // Large heading for the section
         title="About Us" // Smaller title for the section
-        topSecClass="column"
+        contentWrapClass="column"
         paragraphClass={
           "flex justify-center column about-paragraphs responsive-center"
         }
@@ -35,7 +35,7 @@ const About = () => {
         paragraph2Class={
           "bottom-paragraph text-left half-column self-right negative-top responsive-right"
         }
-        textSectionClass='smaller-bottom-space'
+        textSectionClass="smaller-bottom-space"
         buttonText="Learn More"
         buttonLink="#"
         buttonId="about-header-btn"
@@ -43,7 +43,6 @@ const About = () => {
         buttonBottom={true} // Ensures the button appears below the paragraphs
         buttonSecClass={"half-column self-right responsive-container top-space"}
         isHero={false} // Since this is a section, not a hero
-        
       />
     </Section>
   );

@@ -9,37 +9,43 @@ const Projects = () => {
   const projects = [
     {
       name: "i-75 CPA Review",
-      description: "Developed multiple e-commerce sites with landing pages, branding, and digital marketing solutions.",
+      description:
+        "Developed multiple e-commerce sites with landing pages, branding, and digital marketing solutions.",
       link: "https://i75cpareview.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
     {
       name: "Faria's Demolition",
-      description: "Created a comprehensive website showcasing demolition services, including project galleries and contact forms.",
+      description:
+        "Created a comprehensive website showcasing demolition services, including project galleries and contact forms.",
       link: "https://fariasdemolition.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
     {
       name: "Pronto Junk Removal",
-      description: "Built a service-oriented site with booking functionality and optimized for lead generation in junk removal.",
+      description:
+        "Built a service-oriented site with booking functionality and optimized for lead generation in junk removal.",
       link: "https://prontojunkremovalnj.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
     {
       name: "Koi Solar",
-      description: "Designed a clean, informative site to promote solar solutions, emphasizing brand trust and environmental impact.",
+      description:
+        "Designed a clean, informative site to promote solar solutions, emphasizing brand trust and environmental impact.",
       link: "https://koisolarofficial.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
     {
       name: "Certified Bag Chasers",
-      description: "Created a personal brand website for a best-selling author and course creator, featuring courses, testimonials, and community-building resources.",
+      description:
+        "Created a personal brand website for a best-selling author and course creator, featuring courses, testimonials, and community-building resources.",
       link: "https://certifiedbagchasers.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
     {
       name: "Koi Crest Marketing",
-      description: "Built a digital marketing agency website with case studies and service offerings, highlighting client success stories.",
+      description:
+        "Built a digital marketing agency website with case studies and service offerings, highlighting client success stories.",
       link: "https://koicrest.com/", // Placeholder image link
       image: "https://picsum.photos/200/300", // Image URL
     },
@@ -52,7 +58,7 @@ const Projects = () => {
     >
       <ContentTemplate
         className="column bottom-space responsive-center item-align-center"
-        // topSecClass="column"
+        // contentWrapClass="column"
         textSectionClass={"smaller-top-space"}
         ifButton={true}
         buttonBottom={true}
