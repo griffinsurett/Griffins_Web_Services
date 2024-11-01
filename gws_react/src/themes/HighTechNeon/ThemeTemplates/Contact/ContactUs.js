@@ -39,7 +39,7 @@ function ContactUs() {
           ifButton={false}
           ifParagraph={true}
           heading="Contact Us."
-          paragraphClass={"flex justify-center column about-paragraphs w90"}
+          paragraphClass={"flex justify-center column about-paragraphs"}
           paragraph1={
             "Discover answers to common questions about Griffin's Web Services."
           }

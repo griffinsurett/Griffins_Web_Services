@@ -39,15 +39,17 @@ function Process() {
       <ContentTemplate
         // className={"bottom-space justify-between-section responsive responsive-center"}
         contentWrapClass="justify-between-section responsive responsive-center"
-        ifButton={false}
+        ifButton={true}
         textSectionClass={"w100"}
         heading="How We Do It"
         title="Our Process"
         buttonText="Get Started"
         buttonLink="#"
         buttonId="process-header-btn"
-      />
+        buttonBottomMobile={true}
+      >
       <ProcessContainer2 steps={steps} />
+      </ContentTemplate>
     </Section>
   );
 }
