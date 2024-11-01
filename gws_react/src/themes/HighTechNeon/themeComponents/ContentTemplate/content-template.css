@@ -1,4 +1,4 @@
-/* General Section content styles */
+/* content-template.css */
   .content-template-inner {
     width: 100%;
     z-index: 4;
@@ -64,14 +64,9 @@
       align-items: center;
     }
 
-      /* Mobile styles */
-  /* .content-template-btn.top-button {
-    display: none;
+    .content-template-btn-bottom {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
   }
-  
-  .content-template-btn-bottom.mobile-only {
-    display: flex;
-  } */
-  }
-  
-  

@@ -1,3 +1,4 @@
+// Testimonials.js
 import React from "react";
 import Section from "../../themeComponents/Section/Section";
 import ContentTemplate from "../../themeComponents/ContentTemplate/ContentTemplate"; // Updated to ContentTemplate
@@ -62,7 +63,8 @@ const Testimonials = () => {
         buttonLink="#"
         buttonId="testimonials-header-btn"
         buttonSecClass={"responsive-center"}
-      />
+        buttonBottomMobile={true}
+      ></ContentTemplate>
       {/* Pass the testimonials content as a prop to the TestimonialCarousel */}
       <TestimonialCarousel testimonials={testimonials} />
     </Section>

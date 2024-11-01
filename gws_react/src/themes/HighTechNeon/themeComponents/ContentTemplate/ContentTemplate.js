@@ -1,5 +1,4 @@
-// ContentTemplate.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./content-template.css";
 import Button from "../Buttons/Button";
@@ -25,21 +24,30 @@ const ContentTemplate = ({
   textSectionClass,
   ifParagraph = false,
   buttonBottom = false,
+  buttonBottomMobile = false, // New prop for mobile-only bottom button
   buttonClass,
   buttonSecClass,
   children,
   isHero = false,
-  paragraphSide = true, // Default to true for easier visibility
-  buttonSide = true, // Default to true for easier visibility
+  paragraphSide = true,
+  buttonSide = true,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Update `isMobile` based on screen width
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const showSideContentContainer =
     paragraphSide || (buttonSide && ifButton && !buttonBottom);
 
   return (
     <div className={`content-template ${className} flex column`}>
-      {/* Title, Heading, and Side Content */}
       <div className={`content-top-section flex ${contentWrapClass}`}>
-        {/* Title and Heading */}
         <div className={`title-heading-container column ${textSectionClass}`}>
           {title && (
             <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
@@ -57,7 +65,6 @@ const ContentTemplate = ({
               </h2>
             ))}
 
-          {/* Default Paragraph Content (if not side) */}
           {ifParagraph && !paragraphSide && (
             <div className={`content-template-paragraphs ${paragraphClass}`}>
               {paragraph1 && (
@@ -74,10 +81,9 @@ const ContentTemplate = ({
           )}
         </div>
 
-        {/* Side Content: Paragraph and Button */}
+        {/* Side Content for Paragraph and Button */}
         {showSideContentContainer && (
           <div className="side-content-container flex column justify-center">
-            {/* Side Paragraph Content */}
             {paragraphSide && ifParagraph && (
               <div
                 className={`content-template-paragraphs-side ${paragraphClass}`}
@@ -95,8 +101,8 @@ const ContentTemplate = ({
               </div>
             )}
 
-            {/* Side Button Content */}
-            {buttonSide && ifButton && !buttonBottom && (
+            {/* Side Button Content - hides on mobile if buttonBottomMobile is true */}
+            {buttonSide && ifButton && !buttonBottom && (!isMobile || !buttonBottomMobile) && (
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
@@ -116,8 +122,8 @@ const ContentTemplate = ({
       {/* Children Content */}
       {children && <div className="content-template-children">{children}</div>}
 
-      {/* Bottom Button */}
-      {buttonBottom && ifButton && (
+      {/* Bottom Button - appears on mobile if buttonBottomMobile is true */}
+      {(buttonBottom || (buttonBottomMobile && isMobile)) && ifButton && (
         <div
           className={`content-template-btn-bottom top-space ${buttonSecClass}`}
         >
@@ -153,6 +159,7 @@ ContentTemplate.propTypes = {
   ifParagraph: PropTypes.bool,
   buttonClass: PropTypes.string,
   buttonBottom: PropTypes.bool,
+  buttonBottomMobile: PropTypes.bool, // New prop
   children: PropTypes.node,
   isHero: PropTypes.bool,
   paragraphSide: PropTypes.bool,

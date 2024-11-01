@@ -72,7 +72,7 @@ const Services = () => {
         buttonId="services-header-btn"
         paragraph1="Explore our wide range of services."
         paragraphSide={true}
-        // buttonBottomMobile={true}
+        buttonBottomMobile={true}
       >
         <div className="space"></div>
 
