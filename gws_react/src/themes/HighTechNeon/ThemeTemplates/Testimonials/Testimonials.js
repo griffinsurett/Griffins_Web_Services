@@ -46,12 +46,14 @@ const Testimonials = () => {
     >
       <ContentTemplate
         className={"testimonials-content flex item-align-center justify-between bottom-space responsive responsive-center"}
+        topSecClass="responsive responsive-center"
         ifButton={true}
         heading="Hear From Our Clients"
         title="Our Testimonials"
         buttonText="Get Started"
         buttonLink="#"
         buttonId="testimonials-header-btn"
+        buttonSecClass={"responsive-center"}
       />
       {/* Pass the testimonials content as a prop to the TestimonialCarousel */}
       <TestimonialCarousel testimonials={testimonials} />

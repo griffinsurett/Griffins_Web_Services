@@ -51,7 +51,8 @@ const Projects = () => {
       shadowClass={"left-shadow bottom"}
     >
       <ContentTemplate
-        className="column bottom-space text-center"
+        className="column bottom-space responsive-center item-align-center"
+        // topSecClass="column"
         textSectionClass={"smaller-top-space"}
         ifButton={true}
         buttonBottom={true}
@@ -61,9 +62,10 @@ const Projects = () => {
         buttonLink="#"
         buttonId="projects-header-btn"
         buttonSecClass="space"
-        // ifParagraph={true}
-        // paragraph1="Discover our recent projects and see how we've helped businesses like yours succeed."
-        // sideParagraph={true}
+        ifParagraph={true}
+        paragraph1="Discover our recent projects and see how we've helped businesses like yours succeed."
+        paragraphSide={true}
+        paragraph1Class={"p-large desktop-left-space"}
       >
         <ProjectContainer2 projects={projects} />
       </ContentTemplate>

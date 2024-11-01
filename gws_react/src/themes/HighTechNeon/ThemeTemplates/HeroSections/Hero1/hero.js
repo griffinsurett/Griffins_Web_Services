@@ -1,4 +1,4 @@
-// hero1.js
+// Hero1.js
 import React from "react";
 import "./hero.css";
 import Button from "../../../themeComponents/Buttons/Button";
@@ -17,6 +17,7 @@ const Hero1 = () => {
           <ContentTemplate
             isHero={true} // Ensure h1 is used for hero
             ifParagraph={true}
+            topSecClass="column"
             title="Griffin’s Web Services"
             heading="Websites and All Things Digital."
             paragraph1="Your premier one-stop shop for website design and development, expert social media and digital marketing, and creative graphic design services."
@@ -34,7 +35,7 @@ const Hero1 = () => {
         <div className="hero-right w40 flex column justify-center item-align-center">
           <Logo
             ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
-            width="460px" // Width is set, and height will be 90% of this
+            width="460px"
             classname=""
             responsive={true}
             everdarkLogo={true}

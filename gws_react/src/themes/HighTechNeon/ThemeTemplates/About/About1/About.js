@@ -19,6 +19,7 @@ const About = () => {
         ifParagraph={true}
         heading="Who We Are" // Large heading for the section
         title="About Us" // Smaller title for the section
+        topSecClass="column"
         paragraphClass={
           "flex justify-center column about-paragraphs responsive-center"
         }
@@ -42,7 +43,7 @@ const About = () => {
         buttonBottom={true} // Ensures the button appears below the paragraphs
         buttonSecClass={"half-column self-right responsive-container top-space"}
         isHero={false} // Since this is a section, not a hero
-        className={"column"}
+        
       />
     </Section>
   );

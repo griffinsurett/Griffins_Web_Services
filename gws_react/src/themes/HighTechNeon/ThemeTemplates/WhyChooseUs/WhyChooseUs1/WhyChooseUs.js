@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
       className="flex align-section-top-desktop justify-center full-height section-gap responsive responsive-center"
       shadowClass="left-shadow bottom"
     >
-      <div className="why-right w-40 flex column justify-center item-align-center sticky-section">
+      <div className="why-right w40 flex column justify-center item-align-center sticky-section">
         <Logo
           ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
           width="460px" // Width is set, and height will be 90% of this

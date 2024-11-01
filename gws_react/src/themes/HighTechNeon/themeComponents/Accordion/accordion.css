@@ -6,10 +6,10 @@
 }
 
 .accordion-item {
-  margin: var(--form-spacing);
+  margin: var(--form-spacing) 0;
   border-radius: var(--input-radius);
   transition: var(--primaryTransition);
-  border: var(--);
+  /* border: var(--); */
 }
 
 .accordion-item:last-child {

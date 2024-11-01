@@ -13,6 +13,7 @@ const ContentTemplate = ({
   buttonLink = "#",
   onClick,
   className,
+  topSecClass,
   buttonId,
   titleClass,
   headingClass,
@@ -27,58 +28,92 @@ const ContentTemplate = ({
   buttonClass,
   buttonSecClass,
   children,
-  isHero = false, // Hero section flag
+  isHero = false,
+  paragraphSide = true, // Default to true for easier visibility
+  buttonSide = true,    // Default to true for easier visibility
 }) => {
-  return (
-    <div className={`content-template ${className} flex`}>
-      <div className={`title-section column ${textSectionClass}`}>
-      {title && (
-        <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
-          <Typewriter text={title} speed={100} />
-        </h5>
-      )}
-      {heading && (
-        isHero ? (
-          <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
-            {heading}
-          </h1>
-        ) : (
-          <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
-            {heading}
-          </h2>
-        )
-      )}
-</div>
+  const showSideContentContainer = paragraphSide || (buttonSide && ifButton && !buttonBottom);
 
-      {ifParagraph && (
-        <div className={`content-template-paragraphs ${paragraphClass}`}>
-          {paragraph1 && (
-            <p className={paragraph1Class}>
-              <Typewriter text={paragraph1} speed={10} />
-            </p>
+  return (
+    <div className={`content-template ${className} flex column`}>
+      
+      {/* Title, Heading, and Side Content */}
+      <div className={`content-top-section flex ${topSecClass}`}>
+        {/* Title and Heading */}
+        <div className={`title-heading-container column ${textSectionClass}`}>
+          {title && (
+            <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
+              <Typewriter text={title} speed={100} />
+            </h5>
           )}
-          {paragraph2 && (
-            <p className={paragraph2Class}>
-              <Typewriter text={paragraph2} speed={10} />
-            </p>
+          {heading && (
+            isHero ? (
+              <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
+                {heading}
+              </h1>
+            ) : (
+              <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
+                {heading}
+              </h2>
+            )
+          )}
+
+          {/* Default Paragraph Content (if not side) */}
+          {ifParagraph && !paragraphSide && (
+            <div className={`content-template-paragraphs ${paragraphClass}`}>
+              {paragraph1 && (
+                <p className={paragraph1Class}>
+                  <Typewriter text={paragraph1} speed={10} />
+                </p>
+              )}
+              {paragraph2 && (
+                <p className={paragraph2Class}>
+                  <Typewriter text={paragraph2} speed={10} />
+                </p>
+              )}
+            </div>
           )}
         </div>
-      )}
 
+        {/* Side Content: Paragraph and Button */}
+        {showSideContentContainer && (
+          <div className="side-content-container flex column justify-center">
+            {/* Side Paragraph Content */}
+            {paragraphSide && ifParagraph && (
+              <div className={`content-template-paragraphs-side ${paragraphClass}`}>
+                {paragraph1 && (
+                  <p className={paragraph1Class}>
+                    <Typewriter text={paragraph1} speed={10} />
+                  </p>
+                )}
+                {paragraph2 && (
+                  <p className={paragraph2Class}>
+                    <Typewriter text={paragraph2} speed={10} />
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* Side Button Content */}
+            {buttonSide && ifButton && !buttonBottom && (
+              <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}>
+                <Button
+                  text={buttonText}
+                  buttonLink={buttonLink}
+                  className={`p-small ${buttonClass}`}
+                  buttonId={buttonId}
+                  onClick={onClick}
+                />
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Children Content */}
       {children && <div className="content-template-children">{children}</div>}
 
-      {!buttonBottom && ifButton && (
-        <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}>
-          <Button
-            text={buttonText}
-            buttonLink={buttonLink}
-            className={`p-small ${buttonClass}`}
-            buttonId={buttonId}
-            onClick={onClick}
-          />
-        </div>
-      )}
-
+      {/* Bottom Button */}
       {buttonBottom && ifButton && (
         <div className={`content-template-btn-bottom top-space ${buttonSecClass}`}>
           <Button
@@ -114,7 +149,9 @@ ContentTemplate.propTypes = {
   buttonClass: PropTypes.string,
   buttonBottom: PropTypes.bool,
   children: PropTypes.node,
-  isHero: PropTypes.bool, // To differentiate between hero and section
+  isHero: PropTypes.bool,
+  paragraphSide: PropTypes.bool,
+  buttonSide: PropTypes.bool,
 };
 
 export default ContentTemplate;

@@ -34,18 +34,19 @@ function ContactUs() {
     >
       <div className="flex justify-center item-align-center bottom-space">
         <ContentTemplate
+          className={"contact-sec-header column responsive-center"}
+          topSecClass="column"
           ifButton={false}
           ifParagraph={true}
           heading="Contact Us."
           paragraphClass={
-            "flex justify-center column about-paragraphs morethan-half-container"
+            "flex justify-center column about-paragraphs w90"
           }
           paragraph1={
             "Discover answers to common questions about Griffin's Web Services."
           }
           paragraph1Class={"top-paragraph responsive-center"}
           buttonBottom={true}
-          className={"contact-sec-header column responsive-center"}
           textSectionClass={"smaller-bottom-space"}
         />
         <div className="contact-info large-screens bottom-space">

@@ -63,6 +63,7 @@ function FAQ() {
         className={"flex justify-center text-center column bottom-space"}
         ifButton={false}
         ifParagraph={true}
+        topSecClass="column"
         heading="Frequently Asked Questions" // Large heading
         headingClass={"text-center bottom-space"}
         title="FAQ" // Smaller title

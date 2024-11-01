@@ -31,7 +31,7 @@
 --font-size-p: clamp(1rem, 2vw, 1.1rem); /* Example for paragraphs */
 --font-size-p-xSmall: clamp(0.8rem, 1.5vw, .8rem); /* Example for extra small paragraphs */
 --font-size-p-small: clamp(0.95rem, 2vw, 1rem); /* Example for small paragraphs */
---font-size-p-large: clamp(1rem, 2vw, 1rem); /* Example for large paragraphs */
+--font-size-p-large: clamp(1rem, 2vw, 1.4rem); /* Example for large paragraphs */
 --font-size-p-xLarge: clamp(1.2rem, 2.5vw, 1.8rem);
   /* --emphasized-hero-header-font-size: clamp(3.5rem, 6vw, 9rem); */
   /* --section-header-font-size: clamp(3.75rem, 9vw, 4.3rem); */
@@ -129,6 +129,7 @@ body {
   line-height: var(--line-height-paragraph);
   letter-spacing: var(--letter-spacing-normal);
   text-transform: uppercase;
+  /* margin: auto 0; */
 }
 
 div, img, button, input, svg, section :not(.complex-shadow) {
@@ -557,6 +558,10 @@ a {
   .negative-top {
     margin-top: 0px!important;
   }
+
+  .desktop-left-space {
+    margin-left: var(--smaller-padding);
+  }
 }
 
 @media (max-width: 1180px) {
@@ -654,6 +659,6 @@ a {
   }
 
   .w10, .w20, .w30, .w40, .w50, .w60, .w70, .w80, .w90, .w100 {
-    width: 100%;
+    width: var(--container-width);
   }
 }
