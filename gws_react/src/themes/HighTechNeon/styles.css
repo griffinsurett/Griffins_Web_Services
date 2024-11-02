@@ -72,7 +72,7 @@
   --lightBG-transparentFade-bg2: rgba(199, 199, 199, 0.646);
 
   --everdark-color1: var(--darkBG-background-color);
-  --everdark-color2: rgba(255, 255, 255, 0.344);
+  --everdark-color2: var(--lightBG-maintext-color);
   --everlight-color1: var(--lightBG-background-color);
 
   --light-shadow1: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -411,6 +411,14 @@ a {
 
 .item-align-center {
   align-items: center;
+}
+
+.item-align-start {
+  align-items: start;
+}
+
+.item-align-end {
+  align-items: end;
 }
 
 .text-center {
