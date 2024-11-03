@@ -6,8 +6,6 @@ import React from "react";
 import ListItem from "../../../../themeComponents/ListItem/ListItem";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import ContentTemplate from "../../../../themeComponents/ContentTemplate/ContentTemplate";
-import Box from "../../../../themeComponents/Box/Box";
-import Icon from "../../../../themeComponents/Icon/Icon";
 
 const About = () => {
   const listItems = [
@@ -22,45 +20,36 @@ const About = () => {
     {
       title: "Transparency and Honesty",
       icon: faCode,
-    },
-    {
-      title: "Results That Drive Your Business Forward",
-      icon: faCode,
-    },
-    {
-      title: "Experienced, Friendly Professionals Who Care",
-      icon: faCode,
-    },
-    {
-      title: "A Local, Jersey Shore-Based",
-      icon: faCode,
-    },
+        },
     // Add more items here as needed
   ];
 
   return (
     <>
       <ContentTemplate
-        // ifParagraph={true}
-        // paragraph1={
-        //   "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
-        // }
-        // paragraphClass={'text-left'}
-        // paragraph2={
-        //     "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
-        // }
-        // paragraph1Class={"smaller-bottom-space"}
-        // paragraph2Class={"bottom-space"}
-        title={"Why Choose Us"}
-        className={"text-center justify-center item-align-center larger-top-space larger-bottom-space"}
+      contentWrapClass={"column text-left top-space responsive-center margin-center"}
+      ifParagraph={true}
+      ifButton={true}
+      buttonBottom={true}
+      title="Why Choose Us"
+      paragraph1={
+        "Griffin's Web Services is Your Jersey Shore-based Digital Powerhouse."
+      } 
+      paragraphClass={'bottom-space'}
+      buttonSecClass={"text-left responsive-center"}
       >
-
-        <div className="about-icon-list flex justify-center item-align-center wrap text-center box-gap">
+        <div className="about-icon-list flex justify-center item-align-start right-space justify-center column">
           {listItems.map((item, index) => (
-            <Box className={"about-info-box w30 flex column item-align-center justify-center space"}>
-           <Icon icon={item.icon} size="md" className="styled-icon dynamic-border-effect" iconPadding="12px" />
-           <h6 className="p-small top-space">{item.title}</h6>
-            </Box>
+            <ListItem
+              key={index}
+              hasIcon={true}
+              icon={item.icon}
+              title={item.title}
+              titleTag="h6"
+              iconPadding={"16px"}
+              //   description={item.description}
+              className="custom-icon-list-item-class item-align-center text-left top-space bottom-space w80"
+            />
           ))}
         </div>
       </ContentTemplate>

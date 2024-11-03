@@ -12,6 +12,7 @@ import Hero1 from "./ThemeTemplates/HeroSections/Hero1/hero";
 import About1 from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
 import About3 from "./ThemeTemplates/About/About3/About";
+import About4 from "./ThemeTemplates/About/About4/About";
 import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
@@ -65,6 +66,7 @@ const Theme = () => {
               {/* <Hero2 /> */}
               <Services />
               <About3 />
+              <About4 />
               <About1 />
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
