@@ -24,7 +24,7 @@ const About = () => {
         title="About Us" // Smaller title for the section
         contentWrapClass="column bottom-space"
         paragraph1={
-          "Your Jersey Shore-based Digital Powerhouse."
+          "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design. Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
         }
         paragraph1Class={
           "top-paragraph p-medium bottom-space"
