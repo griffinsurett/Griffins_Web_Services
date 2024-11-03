@@ -1,3 +1,4 @@
+// ListItem.js
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
@@ -13,8 +14,8 @@ const ListItem = ({
   titleTag: TitleTag = "h3", // Default to 'h3' if not provided
   iconPadding, // Add iconPadding prop
 }) => {
-  return (
-    <div className={`${className} list-item flex`} href={href}>
+  const ListItemContent = (
+    <div className={`${className} list-item flex`}>
       {hasIcon && icon && (
         <Icon
           icon={icon}
@@ -32,6 +33,14 @@ const ListItem = ({
         {description && <p className="p-xSmall">{description}</p>}
       </div>
     </div>
+  );
+
+  return href ? (
+    <a href={href} className="list-item-link">
+      {ListItemContent}
+    </a>
+  ) : (
+    ListItemContent
   );
 };
 

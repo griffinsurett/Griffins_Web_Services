@@ -17,7 +17,7 @@ import About5 from "./ThemeTemplates/About/About5/About";
 import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
-import ContactUs from "./ThemeTemplates/Contact/ContactUs";
+import ContactUs from "./ThemeTemplates/Contact/Contact1/ContactUs";
 import Menu from "./ThemeTemplates/Header/components/Menu/Menu";
 import Projects from "./ThemeTemplates/Projects/Projects";
 import Process from "./ThemeTemplates/Process/Process";
