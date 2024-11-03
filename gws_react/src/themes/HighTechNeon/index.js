@@ -13,6 +13,7 @@ import About1 from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
 import About3 from "./ThemeTemplates/About/About3/About";
 import About4 from "./ThemeTemplates/About/About4/About";
+import About5 from "./ThemeTemplates/About/About5/About";
 import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
@@ -68,6 +69,7 @@ const Theme = () => {
               <About3 />
               <About4 />
               <About1 />
+              <About5 />
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
               {/* <Process /> */}

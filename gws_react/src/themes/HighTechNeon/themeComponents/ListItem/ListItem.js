@@ -29,7 +29,7 @@ const ListItem = ({
         } flex column`}
       >
         <TitleTag className={titleClasses}>{title}</TitleTag>
-        {description && <p className="p-small">{description}</p>}
+        {description && <p className="p-xSmall">{description}</p>}
       </div>
     </div>
   );
