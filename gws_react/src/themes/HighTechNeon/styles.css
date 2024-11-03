@@ -311,6 +311,10 @@ a {
   padding: var(--primary-padding);
 }
 
+.box-gap {
+  gap: 30px;
+}
+
 .smaller-space {
   padding: var(--smaller-padding);
 }
@@ -467,6 +471,10 @@ a {
 
 .column-reverse {
   flex-direction: column-reverse;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .grow {

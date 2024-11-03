@@ -9,8 +9,9 @@ import Footer from "./ThemeTemplates/Footer/footer1/Footer";
 // import Hero2 from "./ThemeTemplates/HeroSections/Hero2/ero";
 import Services from "./ThemeTemplates/Services/Services";
 import Hero1 from "./ThemeTemplates/HeroSections/Hero1/hero";
-import About from "./ThemeTemplates/About/About1/About";
+import About1 from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
+import About3 from "./ThemeTemplates/About/About3/About";
 import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
@@ -63,8 +64,9 @@ const Theme = () => {
               <Hero1 />
               {/* <Hero2 /> */}
               <Services />
-              <About />
-              <WhyChooseUs />
+              <About3 />
+              <About1 />
+              {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
               {/* <Process /> */}
               <Projects />

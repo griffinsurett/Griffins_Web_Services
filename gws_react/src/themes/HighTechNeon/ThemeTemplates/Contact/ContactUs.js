@@ -82,7 +82,7 @@ function ContactUs() {
             />
           </div>
         </div>
-        <Button type="submit" text="Submit" className="p-large" />
+        <Button type="submit" text="Submit" className="p-large self-right" />
       </form>
     </Section>
   );
