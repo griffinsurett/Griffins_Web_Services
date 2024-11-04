@@ -16,6 +16,16 @@ const About = () => {
       }
       shadowClass={"left-shadow bottom"}
     >
+      <div className="about-right flex column justify-center item-align-center sticky-section w40">
+        <Logo
+          ContainerClassName="flex justify-left item-align-start logo logo-drop-shadow-big"
+          width="360px" // Width is set, and height will be 90% of this
+          classname=""
+          responsive={true}
+          everdarkLogo={true}
+        />
+      </div>
+
       <ContentTemplate
         className={"text-left justify-left item-align-start w60"}
         ifButton={true}
@@ -26,9 +36,7 @@ const About = () => {
         paragraph1={
           "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design. Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
         }
-        paragraph1Class={
-          "top-paragraph p-medium bottom-space"
-        }
+        paragraph1Class={"top-paragraph p-medium bottom-space"}
         textSectionClass="smaller-bottom-space"
         buttonText="Learn More"
         buttonLink="#"
@@ -38,19 +46,10 @@ const About = () => {
         isHero={false} // Since this is a section, not a hero
         buttonBottom={true}
       >
-          <div className="about flex item-align-start">
-        <AboutList />
+        <div className="about flex item-align-start">
+          <AboutList />
         </div>
       </ContentTemplate>
-        <div className="about-right flex column justify-center item-align-center sticky-section w40">
-        <Logo
-          ContainerClassName="flex justify-left item-align-start logo logo-drop-shadow-big"
-          width="360px" // Width is set, and height will be 90% of this
-          classname=""
-          responsive={true}
-          everdarkLogo={true}
-        />
-      </div>
     </Section>
   );
 };

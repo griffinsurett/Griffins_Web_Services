@@ -42,7 +42,7 @@ const About = () => {
               icon={item.icon}
               title={item.title}
               titleTag="h6"
-              iconPadding={"13px"}
+              iconPadding={"17px"}
               description={item.description}
               className="custom-icon-list-item-class text-left bottom-space w50"
             />

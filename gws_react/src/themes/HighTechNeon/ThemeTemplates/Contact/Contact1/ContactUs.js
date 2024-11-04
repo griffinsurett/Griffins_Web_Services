@@ -43,7 +43,7 @@ function ContactUs() {
           paragraph1={
             "Discover answers to common questions about Griffin's Web Services."
           }
-          paragraph1Class={"top-paragraph responsive-center"}
+          paragraph1Class={"top-paragraph responsive-center smaller-bottom-space"}
           buttonBottom={true}
           textSectionClass={"smaller-bottom-space"}
         >

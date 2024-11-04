@@ -8,10 +8,14 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-    const [isLightMode, setIsLightMode] = useState(() => {
-      const savedMode = getCookie("theme");
-      return savedMode ? savedMode === "light" : false; // Default to dark mode
-    });
+  const [isLightMode, setIsLightMode] = useState(() => {
+    const savedMode = getCookie("theme");
+    return savedMode ? savedMode === "light" : false; // Default to dark mode
+  });
+
+  const [darkPrimaryColor, setDarkPrimaryColor] = useState(() => {
+    return getCookie("primaryColor") || "#5e76f6"; // Default color
+  });
 
   const hideElementsBasedOnMode = (className, hideInLightMode) => {
     const elements = document.querySelectorAll(`.${className}`);
@@ -155,7 +159,6 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--boxShadow1",
         "0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 4px var(--primary-color), 0 0 4px var(--primary-color) inset, 0 0 7.5px var(--primary-color), 0 0 5px var(--primary-color) inset, 0 0 10px var(--primary-color)"
-        // "0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 4px var(--primary-color), 0 0 11px var(--primary-color) inset, 0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 1px var(--primary-color)"
       );
       document.documentElement.style.setProperty(
         "--boxShadow2",
@@ -213,18 +216,31 @@ export const ThemeProvider = ({ children }) => {
     );
   };
 
+  const changeDarkPrimaryColor = (color) => {
+    setDarkPrimaryColor(color);
+    setCookie("primaryColor", color, 30); // Save color preference in cookie
+    document.documentElement.style.setProperty("--darkBG-primary-color", color);
+  };
+
   useEffect(() => {
     applyTheme(isLightMode);
     setCookie("theme", isLightMode ? "light" : "dark", 30); // Save theme in cookies
   }, [isLightMode]);
+
+  // Set the CSS variable for primary color on mount or when darkPrimaryColor changes
+  useEffect(() => {
+    document.documentElement.style.setProperty("--darkBG-primary-color", darkPrimaryColor);
+  }, [darkPrimaryColor]);
 
   const toggleTheme = () => {
     setIsLightMode((prev) => !prev);
   };
 
   return (
-    <ThemeContext.Provider value={{ isLightMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ isLightMode, toggleTheme, darkPrimaryColor, changeDarkPrimaryColor }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
+export default ThemeProvider;
