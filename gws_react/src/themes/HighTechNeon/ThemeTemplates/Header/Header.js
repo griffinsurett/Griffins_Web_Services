@@ -11,7 +11,7 @@ const Header = ({ toggleMenu }) => {
   return (
     <header className="header flex justify-center item-align-center">
       <div className="header-foot-container flex justify-between item-align-center">
-        <div className="nav-left logo fif-container flex justify-center item-align-center">
+        <div className="nav-left logo fif-container flex justify-center item-align-center logo-drop-shadow-small">
           <a href="/">
             <Logo
               ContainerClassName="flex justify-center item-align-center logo"

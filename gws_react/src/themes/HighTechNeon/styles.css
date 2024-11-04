@@ -94,7 +94,7 @@
   --gradientBG1: linear-gradient(145deg, var(--background-color), var(--secondary-bg));
 
   --lightBG-dropshadow2: none;
-  --darkBG-dropshadow3: drop-shadow(0 0 .2px var(--primary-color)) drop-shadow(0 0 .2px var(--primary-color)) drop-shadow(0 0 .5px var(--primary-color)) drop-shadow(0 0 .5px var(--primary-color)) drop-shadow(0 0 1px var(--primary-color));
+  --darkBG-dropshadow3: drop-shadow(0 0 .6px var(--primary-color)) drop-shadow(0 0 .6px var(--primary-color)) drop-shadow(0 0 1px var(--primary-color)) drop-shadow(0 0 1px var(--primary-color)) drop-shadow(0 0 2px var(--primary-color));
   --lightBG-dropshadow3: none;
   /* --darkBG-boxShadow1: ;
   --lightBG-boxShadow1: ; */
