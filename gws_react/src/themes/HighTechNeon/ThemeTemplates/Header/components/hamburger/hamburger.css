@@ -46,3 +46,9 @@
     width: 100%; /* Expand to 100% on hover */
 }
 
+@media (max-width: 768px) {
+    .hamburger-menu {
+        width: 25px;
+        height: 30px;
+    }
+}
