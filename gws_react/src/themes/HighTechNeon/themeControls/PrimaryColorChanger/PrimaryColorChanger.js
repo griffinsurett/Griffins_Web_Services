@@ -56,7 +56,10 @@ const PrimaryColorChanger = () => {
         onChange={handleCheckboxChange}
         iconChecked={faDroplet}
         iconUnchecked={faDroplet}
-        iconColor={"var(--darkBG-primary-color)"}
+        // Set icon color to CSS variable for primary color
+        iconColor={`var(--darkBG-primary-color)`}
+        // Add inline style to bind to CSS variable
+        style={{ color: `var(--darkBG-primary-color)` }}
       />
       {showColorPicker && (
         <div className="color-picker-modal">
