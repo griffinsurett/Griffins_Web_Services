@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triple Section Webpage</title>
+    <!-- <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+                overflow-x: hidden;
+                color: white;
+                background: black;
+      }
+      section {
+        min-height: 150vh;
+        font-size: 2rem;
+      }
+
+      .content {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .section1 {
+        height: 200vh;
+        background: url("https://picsum.photos/200/300") no-repeat center center/cover;
+        object-fit: cover;
+        animation: hero-image linear forwards;
+        animation-timeline: view();
+        /* animation-range: exit-crossing; */
+        transform-origin: bottom;
+      }
+      .section2 {
+      }
+      .section3 {
+      }
+
+      h1 {
+        animation: fade-out linear;
+        animation-timeline: scroll(y);
+        animation-range: exit -200px;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+
+      /* scroll watcher */
+      @keyframes scroll-watcher {
+        to {
+          scale: 1.1;
+        }
+      }
+
+      .scroll-watcher {
+        height: 10px;
+        position: fixed;
+        top: 0;
+        z-index: 1000%;
+        background-color: lime;
+        width: 100%;
+        scale: 0 1;
+        transform-origin: left;
+        animation: scroll-watcher linear;
+        animation-timeline: scroll(y);
+      }
+
+      /* image-fade */
+        img {
+          scale: 0.8;
+          opacity: 0;
+          animation: fade-in linear;
+          animation-timeline: view();
+          animation-range: entry-crossing;
+        }
+
+      @keyframes fade-in {
+        from {
+          scale: 0.8;
+          opacity: 0;
+        }
+        to {
+          scale: 1;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-out {
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes hero-image {
+        25% {
+            opacity: 1;
+        }
+        85%, 100% {
+            opacity: 0;
+            scale: 2;
+        }
+    }
+
+      /* scroller */
+      @keyframes scrolling {
+        to {
+            transform: translate(calc(-50% - 0.5rem));
+        }
+      }
+
+      .scroller {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+      }
+
+      .scroller {
+        overflow: hidden;
+        width: max-content;
+        flex-wrap: nowrap;
+        animation: scrolling linear reverse;
+        /* animation: bg-shift 5s infinite; */
+        animation-timeline: scroll();
+        animation-range: entry-crossing;
+      }
+    
+      /* .scroller[data-direction="right"] {
+        animation-direction: reverse;
+      } */
+
+      /* @keyframes bg-shift {
+        from { background-color: red;}
+        to { background-color: blue;}
+      } */
+    }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-watcher"></div>
+    <section class="section1">
+        <div class="content">
+            <h1>Section 1</h1>
+            <img src="https://picsum.photos/200/300" alt="" />
+        </div>
+    </section>
+
+    <section class="section2">
+        <div class="content">
+      <h1>Section 2</h1>
+      <img src="https://picsum.photos/200/300" alt="" />
+      </div>
+    </section>
+
+    <section class="section3">
+        <div class="content">
+      <h1>Section 3</h1>
+      <div class="scroller" >
+        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore unde dolores atque autem ipsum veritatis odit itaque repellat placeat! Aut iure totam expedita. Quasi deserunt sit facilis quas eum quos!</h2>
+</div>
+</div>
+    </section>
+  </body>
+</html>

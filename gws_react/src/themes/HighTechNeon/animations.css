@@ -143,3 +143,90 @@
   .shakeRight {
     animation: shakeRight 0.5s infinite;
   }
+
+  .fade-in {
+    animation: fade-in 1s forwards;
+  }
+
+  /* Base fade-in and fade-out animation keyframes */
+@keyframes fade-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fade-out 1s forwards;
+  animation-timeline: view(); /* Trigger animation based on visibility */
+  animation-range: entry-crossing;
+}
+
+@keyframes fade-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.2); /* Slight scale up for a smoother fade-out */
+    opacity: 0;
+  }
+}
+
+.jump-fade {
+  animation: jump-fade 1s forwards;
+  animation-timeline: view(); /* Trigger animation based on visibility */
+  animation-range: entry-crossing;
+}
+
+@keyframes jump-fade {
+  10% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-top-fade-out {
+  animation: slide-top-fade-out linear both;
+  animation-timeline: scroll(y);
+  animation-range: exit-crossing;
+}
+
+
+@-webkit-keyframes slide-top-fade-out {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-top-fade-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+

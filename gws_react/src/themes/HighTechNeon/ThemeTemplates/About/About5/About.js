@@ -36,13 +36,13 @@ const About = () => {
         paragraph1={
           "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design. Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
         }
-        paragraph1Class={"top-paragraph p-medium bottom-space"}
+        paragraph1Class={"top-paragraph p-medium"}
         textSectionClass="smaller-bottom-space"
         buttonText="Learn More"
         buttonLink="#"
         buttonId="about-header-btn"
         // buttonClass={"self-right"}
-        buttonSecClass={"responsive-container self-left"}
+        buttonSecClass={"self-left"}
         isHero={false} // Since this is a section, not a hero
         buttonBottom={true}
       >

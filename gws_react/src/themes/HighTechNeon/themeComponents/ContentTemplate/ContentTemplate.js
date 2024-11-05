@@ -1,8 +1,10 @@
+// ContentTemplate.js
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./content-template.css";
 import Button from "../Buttons/Button";
 import Typewriter from "../TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
+import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor"; // Import VisibilitySensor
 
 const ContentTemplate = ({
   title,
@@ -22,9 +24,10 @@ const ContentTemplate = ({
   paragraph1Class,
   paragraph2Class,
   textSectionClass,
+  sideContentClass,
   ifParagraph = false,
   buttonBottom = false,
-  buttonBottomMobile = false, // New prop for mobile-only bottom button
+  buttonBottomMobile = false,
   buttonClass,
   buttonSecClass,
   children,
@@ -35,98 +38,118 @@ const ContentTemplate = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Update `isMobile` based on screen width
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // Set initial value
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const showSideContentContainer =
-    paragraphSide || (buttonSide && ifButton && !buttonBottom);
+  const showSideContentContainer = paragraphSide || (buttonSide && ifButton && !buttonBottom);
 
   return (
     <div className={`content-template ${className} flex column`}>
       <div className={`content-top-section flex ${contentWrapClass}`}>
-        <div className={`title-heading-container column ${textSectionClass}`}>
-          {title && (
-            <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
-              <Typewriter text={title} speed={100} />
-            </h5>
-          )}
-          {heading &&
-            (isHero ? (
-              <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
-                {heading}
-              </h1>
-            ) : (
-              <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
-                {heading}
-              </h2>
-            ))}
-
-          {ifParagraph && !paragraphSide && (
-            <div className={`content-template-paragraphs ${paragraphClass}`}>
-              {paragraph1 && (
-                <p className={paragraph1Class}>
-                  <Typewriter text={paragraph1} speed={10} />
-                </p>
+        <VisibilitySensor oneTime={true}>
+          {({ isVisible }) => (
+            <div className={`title-heading-container column ${textSectionClass}`}>
+              {title && (
+                <h5
+                  className={`content-title smaller-bottom-space ${titleClass} ${
+                    isVisible ? "fade-in-up" : "fade-out-down"
+                  }`}
+                >
+                  <Typewriter text={title} speed={100} />
+                </h5>
               )}
-              {paragraph2 && (
-                <p className={paragraph2Class}>
-                  <Typewriter text={paragraph2} speed={10} />
-                </p>
+              {heading &&
+                (isHero ? (
+                  <h1
+                    className={`bold ${headingClass} text-shadow-for-dark ${
+                      isVisible ? "fade-in-up" : "fade-out-down"
+                    }`}
+                  >
+                    {heading}
+                  </h1>
+                ) : (
+                  <h2
+                    className={`bold ${headingClass} text-shadow-for-dark ${
+                      isVisible ? "fade-in-up" : "fade-out-down"
+                    }`}
+                  >
+                    {heading}
+                  </h2>
+                ))}
+
+              {ifParagraph && !paragraphSide && (
+                <div
+                  className={`content-template-paragraphs ${paragraphClass} ${
+                    isVisible ? "fade-in-up" : "fade-out-down"
+                  }`}
+                >
+                  {paragraph1 && (
+                    <p className={paragraph1Class}>
+                      {paragraph1}
+                    </p>
+                  )}
+                  {paragraph2 && (
+                    <p className={paragraph2Class}>
+                      {paragraph2}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
           )}
-        </div>
+        </VisibilitySensor>
 
-        {/* Side Content for Paragraph and Button */}
         {showSideContentContainer && (
-          <div className="side-content-container flex column justify-center">
-            {paragraphSide && ifParagraph && (
+          <VisibilitySensor>
+            {({ isVisible }) => (
               <div
-                className={`content-template-paragraphs-side ${paragraphClass}`}
+                className={`side-content-container ${sideContentClass} flex column justify-center ${
+                  isVisible ? "fade-in-up" : "fade-out-down"
+                }`}
               >
-                {paragraph1 && (
-                  <p className={paragraph1Class}>
-                    <Typewriter text={paragraph1} speed={10} />
-                  </p>
+                {paragraphSide && ifParagraph && (
+                  <div className={`content-template-paragraphs-side ${paragraphClass}`}>
+                    {paragraph1 && (
+                      <p className={paragraph1Class}>
+                        {paragraph1}
+                      </p>
+                    )}
+                    {paragraph2 && (
+                      <p className={paragraph2Class}>
+                        {paragraph2}
+                      </p>
+                    )}
+                  </div>
                 )}
-                {paragraph2 && (
-                  <p className={paragraph2Class}>
-                    <Typewriter text={paragraph2} speed={10} />
-                  </p>
-                )}
-              </div>
-            )}
 
-            {/* Side Button Content - hides on mobile if buttonBottomMobile is true */}
-            {buttonSide && ifButton && !buttonBottom && (!isMobile || !buttonBottomMobile) && (
-              <div
-                className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
-              >
-                <Button
-                  text={buttonText}
-                  buttonLink={buttonLink}
-                  className={`p-small ${buttonClass}`}
-                  buttonId={buttonId}
-                  onClick={onClick}
-                />
+                {buttonSide && ifButton && !buttonBottom && (!isMobile || !buttonBottomMobile) && (
+                  <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}>
+                    <Button
+                      text={buttonText}
+                      buttonLink={buttonLink}
+                      className={`p-small ${buttonClass}`}
+                      buttonId={buttonId}
+                      onClick={onClick}
+                    />
+                  </div>
+                )}
               </div>
             )}
-          </div>
+          </VisibilitySensor>
         )}
       </div>
 
-      {/* Children Content */}
-      {children && <div className="content-template-children">{children}</div>}
+      {children && (
+        <div className="content-template-children">
+          <VisibilitySensor>{() => children}</VisibilitySensor>
+        </div>
+      )}
 
-      {/* Bottom Button - appears on mobile if buttonBottomMobile is true */}
       {(buttonBottom || (buttonBottomMobile && isMobile)) && ifButton && (
-        <div
-          className={`content-template-btn-bottom top-space ${buttonSecClass}`}
-        >
+        <div className={`content-template-btn-bottom top-space ${buttonSecClass}`}>
           <Button
             text={buttonText}
             buttonLink={buttonLink}
@@ -139,6 +162,7 @@ const ContentTemplate = ({
     </div>
   );
 };
+
 
 ContentTemplate.propTypes = {
   title: PropTypes.string,

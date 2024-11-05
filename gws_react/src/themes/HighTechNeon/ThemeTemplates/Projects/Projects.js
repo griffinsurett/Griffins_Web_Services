@@ -58,8 +58,8 @@ const Projects = () => {
     >
       <ContentTemplate
         className="column bottom-space responsive-center justify-between-section item-align-center"
-        contentWrapClass="responsive responsive-center "
-        textSectionClass={"smaller-top-space w60 margin-center"}
+        contentWrapClass="responsive responsive-center"
+        textSectionClass={"smaller-top-space margin-center"}
         ifButton={true}
         buttonBottom={true}
         heading="Our Work"
