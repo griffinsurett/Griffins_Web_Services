@@ -1,10 +1,4 @@
 /* list-item.css */
-
-/* Hidden state */
-.hidden {
-    opacity: 0;
-    transform: translateY(10px); /* Small offset for a smoother transition */
-  }
   
   /* Icon fade-in with no delay */
   .fade-in-icon {

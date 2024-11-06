@@ -10,10 +10,6 @@
   opacity: 1; /* Fade-in effect */
 }
 
-.hidden {
-  opacity: 0; /* Keeps the element hidden when not visible */
-}
-
 /* Accordion container styles */
 .accordion {
   width: 100%;
