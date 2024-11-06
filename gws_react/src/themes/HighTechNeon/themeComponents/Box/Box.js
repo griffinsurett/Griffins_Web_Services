@@ -11,9 +11,9 @@ const Box = ({ className, children, href, delay = 0 }) => {
     <VisibilitySensor delay={delay}>
       {({ isVisible }) => (
         <div
-          className={`box ${additionalClass} ${className} ${
-            isVisible ? "fade-in" : "hidden"
-          }`}
+          className={`box ${additionalClass} ${className} 
+          ${isVisible ? "fade-in" : "hidden"}
+          `}
         >
           {children}
         </div>
