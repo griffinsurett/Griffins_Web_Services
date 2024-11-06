@@ -1,50 +1,40 @@
 /* fields.css */
-
-.form-field-wrapper {
-    width: 100%;
-    transition: opacity 0.8s ease; /* Only animate opacity */
-    
-  }
-  
-  input,
-  textarea {
+input,
+textarea {
     padding: 15px 20px;
+    /* background-color: var(--transparentFade-bg); */
     background: var(--gradientBG1);
     color: var(--maintext-color);
     border: var(--borderBeforeHover);
-    transition: border 0.3s, background-color 0.3s;
+    transition: 1s;
     font-size: var(--font-size-p-small);
     font-family: var(--font-family-sans-serif);
     outline: none;
     border-radius: var(--input-radius);
+    flex-grow: 1;
+    width: 100%;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-normal);
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  textarea {
+    
+}
+
+textarea {
     height: 150px;
-  }
-  
-  /* Animation classes */
-  .fade-out {
-    opacity: 0;
-  }
-  
-  .fade-in {
-    opacity: 1;
-  }
-  
-  /* Autofill styling */
-  input:-webkit-autofill,
-  textarea:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    background: var(--transparentFade-bg1) !important;
+}
+
+/* input:focus, textarea:focus {
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--boxShadow1);
+} */
+
+/* Set autofill background to match normal background */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    background: var(--transparentFade-bg1) !important; /* Match normal background */
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--maintext-color);
-    transition: background-color 5000s ease-in-out 0s;
-  }
-  
+    transition: background-color 5000s ease-in-out 0s; /* Keep the transition */
+}
