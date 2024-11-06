@@ -54,15 +54,12 @@ const VisibilitySensor = ({
     }
   };
 
-  return (
+  // Only render `div` when `isVisible` or `hasBeenVisible` is `true`
+  return isVisible || hasBeenVisible ? (
     <div ref={elementRef} onMouseEnter={handleMouseEnter}>
-      {isVisible || hasBeenVisible
-        ? typeof children === 'function'
-          ? children({ isVisible })
-          : children
-        : null /* Render nothing until visible */}
+      {typeof children === 'function' ? children({ isVisible }) : children}
     </div>
-  );
+  ) : null;
 };
 
 export default VisibilitySensor;
