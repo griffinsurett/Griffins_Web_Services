@@ -1,19 +1,17 @@
 /* accordion.css */
 
-.accordion-item {
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Slightly offset for animation effect */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Control fade-in timing */
+/* Accordion content animation */
+.accordion-content {
+  opacity: 0; /* Default hidden state */
+  transition: opacity 0.5s ease;
 }
 
 .fade-in {
-  opacity: 1; /* Fade in effect */
-  transform: translateY(0); /* Reset transform for fade-in */
+  opacity: 1; /* Fade-in effect */
 }
 
 .hidden {
   opacity: 0; /* Keeps the element hidden when not visible */
-  transform: translateY(20px); /* Keeps it offset until fade-in */
 }
 
 /* Accordion container styles */

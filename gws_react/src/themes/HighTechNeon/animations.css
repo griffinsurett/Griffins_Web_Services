@@ -162,8 +162,6 @@
 
 .fade-out {
   animation: fade-out 1s forwards;
-  animation-timeline: view(); /* Trigger animation based on visibility */
-  animation-range: entry-crossing;
 }
 
 @keyframes fade-out {
