@@ -35,7 +35,7 @@ const Hero1 = () => {
       <div className="hero-right w40 flex column justify-center item-align-center">
         <VisibilitySensor delay={500}>
           {({ isVisible }) => (
-            isVisible && (  // Render Logo only if isVisible is true
+            isVisible && (  
               <Logo
                 ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big jump-fade"
                 width="460px"
