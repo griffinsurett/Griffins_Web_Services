@@ -16,6 +16,7 @@ const DarkLightSwitch = () => {
       iconChecked={faMoon}
       iconUnchecked={faSun}
       iconColor={"var(--maintext-color)"}
+      delay={500}
     />
   );
 };

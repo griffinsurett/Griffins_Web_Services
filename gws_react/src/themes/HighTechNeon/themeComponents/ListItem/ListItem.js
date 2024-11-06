@@ -19,7 +19,7 @@ const ListItem = ({
   const ListItemContent = (
     <div className={`${className} list-item flex`}>
       {hasIcon && icon && (
-        <VisibilitySensor oneTime={true} delay={0}>
+        <VisibilitySensor delay={0}>
           {({ isVisible }) => (
             <Icon
               icon={icon}
@@ -31,7 +31,7 @@ const ListItem = ({
         </VisibilitySensor>
       )}
       
-      <VisibilitySensor oneTime={true} delay={300}>
+      <VisibilitySensor delay={300}>
         {({ isVisible }) => (
           <div
             className={`list-item-content ${

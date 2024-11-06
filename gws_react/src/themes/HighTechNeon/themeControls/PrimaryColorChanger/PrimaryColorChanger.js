@@ -79,6 +79,7 @@ const PrimaryColorChanger = () => {
         iconChecked={faDroplet}
         iconUnchecked={faDroplet}
         iconColor={"var(--darkBG-primary-color)"}
+        delay={900}
       />
       {showColorPicker && (
         <div className="color-picker-modal">
