@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
 import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor";
-import "./list-item.css";
+import "./ListItem.css";
 
 const ListItem = ({
   hasIcon = false,
@@ -17,10 +17,10 @@ const ListItem = ({
   iconPadding, // Add iconPadding prop
 }) => {
   const ListItemContent = (
-    <VisibilitySensor delay={1000}>
-      {({ isVisible }) => (
-        <div className={`${className} list-item flex`}>
-          {hasIcon && icon && (
+    <div className={`${className} list-item flex`}>
+      {hasIcon && icon && (
+        <VisibilitySensor oneTime={true} delay={0}>
+          {({ isVisible }) => (
             <Icon
               icon={icon}
               size="sm"
@@ -28,6 +28,11 @@ const ListItem = ({
               iconPadding={iconPadding} // Pass iconPadding to Icon component
             />
           )}
+        </VisibilitySensor>
+      )}
+      
+      <VisibilitySensor oneTime={true} delay={300}>
+        {({ isVisible }) => (
           <div
             className={`list-item-content ${
               hasIcon ? "smaller-left-space" : ""
@@ -36,9 +41,9 @@ const ListItem = ({
             <TitleTag className={titleClasses}>{title}</TitleTag>
             {description && <p className="p-xSmall">{description}</p>}
           </div>
-        </div>
-      )}
-    </VisibilitySensor>
+        )}
+      </VisibilitySensor>
+    </div>
   );
 
   return href ? (
