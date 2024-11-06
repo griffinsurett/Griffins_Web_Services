@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <>
-        <div className="about-icon-list flex justify-center item-align-start justify-center wrap">
+        <div className="about-icon-list flex wrap">
           {listItems.map((item, index) => (
             <ListItem
               key={index}

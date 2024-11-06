@@ -55,8 +55,7 @@
 
   --form-spacing: 15px; /* Define a variable for spacing */
   /* colors */
-  /* --darkBG-primary-color: #5e76f6; */
-  --darkBG-primary-color: red;
+  --darkBG-primary-color: #5e76f6;
   --lightBG-primary-color: #1c1c1c;
   --darkBG-maintext-color: #f4f4f4;
   --lightBG-maintext-color: #2b2b2b;
