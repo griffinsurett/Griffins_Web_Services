@@ -1,17 +1,24 @@
 // Box.js
-
 import React from "react";
-import "./box.css"; // Ensure to create this CSS file for styling
+import "./box.css";
+import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor";
 
-const Box = ({ className, children, href }) => {
-  // Define a variable for the additional class
+const Box = ({ className, children, href, delay = 0 }) => {
+  // Define the additional class if the box is a link
   const additionalClass = href ? "dynamic-hover-border-effect" : "";
 
-  // Box content with the additional class
   const BoxContent = (
-    <div className={`box ${additionalClass} ${className}`}>
-      {children}
-    </div>
+    <VisibilitySensor delay={delay}>
+      {({ isVisible }) => (
+        <div
+          className={`box ${additionalClass} ${className} ${
+            isVisible ? "fade-in" : "hidden"
+          }`}
+        >
+          {children}
+        </div>
+      )}
+    </VisibilitySensor>
   );
 
   return href ? (

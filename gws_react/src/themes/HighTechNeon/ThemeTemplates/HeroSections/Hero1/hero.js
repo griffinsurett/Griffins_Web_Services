@@ -5,6 +5,7 @@ import Button from "../../../themeComponents/Buttons/Button";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
 import Typewriter from "../../../themeComponents/TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
+import VisibilitySensor from "../../../themeControls/VisibilitySensor/VisibilitySensor";
 
 const Hero1 = () => {
   return (
@@ -13,9 +14,8 @@ const Hero1 = () => {
       className="flex item-align-center responsive hero-height section-gap"
     >
       <div className="hero-left w60 text-left">
-        {/* Use ContentTemplate for the hero section content */}
         <ContentTemplate
-          isHero={true} // Ensure h1 is used for hero
+          isHero={true}
           ifParagraph={true}
           contentWrapClass="column"
           title="Griffin’s Web Services"
@@ -33,13 +33,19 @@ const Hero1 = () => {
         />
       </div>
       <div className="hero-right w40 flex column justify-center item-align-center">
-        <Logo
-          ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
-          width="460px"
-          classname=""
-          responsive={true}
-          everdarkLogo={true}
-        />
+        <VisibilitySensor delay={500}>
+          {({ isVisible }) => (
+            isVisible && (  // Render Logo only if isVisible is true
+              <Logo
+                ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big jump-fade"
+                width="460px"
+                classname=""
+                responsive={true}
+                everdarkLogo={true}
+              />
+            )
+          )}
+        </VisibilitySensor>
       </div>
     </section>
   );

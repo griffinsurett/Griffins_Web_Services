@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./content-template.css";
 import Button from "../Buttons/Button";
 import Typewriter from "../TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
-import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor"; // Import VisibilitySensor
+import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor";
 
 const ContentTemplate = ({
   title,
@@ -49,13 +49,14 @@ const ContentTemplate = ({
   return (
     <div className={`content-template ${className} flex column`}>
       <div className={`content-top-section flex ${contentWrapClass}`}>
-        <VisibilitySensor oneTime={true}>
+        {/* Title and Heading Section */}
+        <VisibilitySensor oneTime={false} delay={300}>
           {({ isVisible }) => (
             <div className={`title-heading-container column ${textSectionClass}`}>
               {title && (
                 <h5
                   className={`content-title smaller-bottom-space ${titleClass} ${
-                    isVisible ? "fade-in-up" : "fade-out-down"
+                    isVisible ? "fade-in-up" : ""
                   }`}
                 >
                   <Typewriter text={title} speed={100} />
@@ -65,7 +66,7 @@ const ContentTemplate = ({
                 (isHero ? (
                   <h1
                     className={`bold ${headingClass} text-shadow-for-dark ${
-                      isVisible ? "fade-in-up" : "fade-out-down"
+                      isVisible ? "slide-in-blurred-top" : ""
                     }`}
                   >
                     {heading}
@@ -73,7 +74,7 @@ const ContentTemplate = ({
                 ) : (
                   <h2
                     className={`bold ${headingClass} text-shadow-for-dark ${
-                      isVisible ? "fade-in-up" : "fade-out-down"
+                      isVisible ? "slide-in-blurred-top" : ""
                     }`}
                   >
                     {heading}
@@ -83,50 +84,36 @@ const ContentTemplate = ({
               {ifParagraph && !paragraphSide && (
                 <div
                   className={`content-template-paragraphs ${paragraphClass} ${
-                    isVisible ? "fade-in-up" : "fade-out-down"
+                    isVisible ? "slide-in-blurred-bottom" : ""
                   }`}
                 >
-                  {paragraph1 && (
-                    <p className={paragraph1Class}>
-                      {paragraph1}
-                    </p>
-                  )}
-                  {paragraph2 && (
-                    <p className={paragraph2Class}>
-                      {paragraph2}
-                    </p>
-                  )}
+                  {paragraph1 && <p className={paragraph1Class}>{paragraph1}</p>}
+                  {paragraph2 && <p className={paragraph2Class}>{paragraph2}</p>}
                 </div>
               )}
             </div>
           )}
         </VisibilitySensor>
 
+        {/* Side Content for Paragraph and Button */}
         {showSideContentContainer && (
-          <VisibilitySensor>
+          <VisibilitySensor oneTime={false} delay={300}>
             {({ isVisible }) => (
               <div
                 className={`side-content-container ${sideContentClass} flex column justify-center ${
-                  isVisible ? "fade-in-up" : "fade-out-down"
+                  isVisible ? "fade-in-up" : ""
                 }`}
               >
                 {paragraphSide && ifParagraph && (
-                  <div className={`content-template-paragraphs-side ${paragraphClass}`}>
-                    {paragraph1 && (
-                      <p className={paragraph1Class}>
-                        {paragraph1}
-                      </p>
-                    )}
-                    {paragraph2 && (
-                      <p className={paragraph2Class}>
-                        {paragraph2}
-                      </p>
-                    )}
+                  <div className={`content-template-paragraphs-side ${paragraphClass} ${isVisible ? "slide-in-blurred-bottom" : ""}`}>
+                    {paragraph1 && <p className={paragraph1Class}>{paragraph1}</p>}
+                    {paragraph2 && <p className={paragraph2Class}>{paragraph2}</p>}
                   </div>
                 )}
 
+                {/* Button in Side Content */}
                 {buttonSide && ifButton && !buttonBottom && (!isMobile || !buttonBottomMobile) && (
-                  <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}>
+                  <div className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center ${isVisible ? "fade-in" : ""}`}>
                     <Button
                       text={buttonText}
                       buttonLink={buttonLink}
@@ -142,27 +129,34 @@ const ContentTemplate = ({
         )}
       </div>
 
+      {/* Children Content */}
       {children && (
         <div className="content-template-children">
-          <VisibilitySensor>{() => children}</VisibilitySensor>
+          <VisibilitySensor oneTime={false}>{() => children}</VisibilitySensor>
         </div>
       )}
 
+      {/* Bottom Button */}
       {(buttonBottom || (buttonBottomMobile && isMobile)) && ifButton && (
         <div className={`content-template-btn-bottom top-space ${buttonSecClass}`}>
-          <Button
-            text={buttonText}
-            buttonLink={buttonLink}
-            className={`p-small ${buttonClass}`}
-            buttonId={buttonId}
-            onClick={onClick}
-          />
+          <VisibilitySensor oneTime={false}>
+            {({ isVisible }) => (
+              <div className={isVisible ? "fade-in" : ""}>
+                <Button
+                  text={buttonText}
+                  buttonLink={buttonLink}
+                  className={`p-small ${buttonClass}`}
+                  buttonId={buttonId}
+                  onClick={onClick}
+                />
+              </div>
+            )}
+          </VisibilitySensor>
         </div>
       )}
     </div>
   );
 };
-
 
 ContentTemplate.propTypes = {
   title: PropTypes.string,
@@ -183,7 +177,7 @@ ContentTemplate.propTypes = {
   ifParagraph: PropTypes.bool,
   buttonClass: PropTypes.string,
   buttonBottom: PropTypes.bool,
-  buttonBottomMobile: PropTypes.bool, // New prop
+  buttonBottomMobile: PropTypes.bool,
   children: PropTypes.node,
   isHero: PropTypes.bool,
   paragraphSide: PropTypes.bool,

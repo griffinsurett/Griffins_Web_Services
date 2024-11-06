@@ -1,4 +1,22 @@
 /* accordion.css */
+
+.accordion-item {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly offset for animation effect */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Control fade-in timing */
+}
+
+.fade-in {
+  opacity: 1; /* Fade in effect */
+  transform: translateY(0); /* Reset transform for fade-in */
+}
+
+.hidden {
+  opacity: 0; /* Keeps the element hidden when not visible */
+  transform: translateY(20px); /* Keeps it offset until fade-in */
+}
+
+/* Accordion container styles */
 .accordion {
   width: 100%;
   margin: 0 auto;
@@ -10,11 +28,6 @@
   margin: var(--form-spacing) 0;
   border-radius: var(--input-radius);
   transition: var(--primaryTransition);
-  /* border: var(--); */
-}
-
-.accordion-item:last-child {
-  /* border: var(--dynamicIconBorder); */
 }
 
 .accordion-header {
@@ -34,9 +47,13 @@
   color: var(--maintext-color);
 }
 
-.accordion-item svg {
+.accordion-icon {
   color: var(--secondary-color);
   transition: transform 0.3s ease;
+}
+
+.accordion-icon.open {
+  transform: rotate(180deg); /* Rotate icon when open */
 }
 
 .accordion-content {
@@ -44,24 +61,9 @@
   color: var(--maintext-color);
   font-size: 1rem;
   line-height: 1.5;
-}
-
-.accordion-content:not(.hide-in-dark) {
   background-color: var(--transparentFade-bg1);
 }
 
-.accordion-content:not(.hide-in-light) {
-  background-color: var(--transparentFade-bg);
-}
-
-.accordion-item svg {
-  transform: rotate(0deg);
-}
-
-.accordion-item .accordion-header .accordion-icon.open {
-  transform: rotate(180deg);
-}
-
 .faq-q {
-border: var(--borderBeforeHover);
+  border: var(--borderBeforeHover);
 }

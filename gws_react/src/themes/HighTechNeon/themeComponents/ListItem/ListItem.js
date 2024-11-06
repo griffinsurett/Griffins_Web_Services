@@ -15,7 +15,7 @@ const ListItem = ({
   iconPadding, // Add iconPadding prop
 }) => {
   const ListItemContent = (
-    <div className={`${className} list-item flex`}>
+    <div className={`${className} fade-in list-item flex`}>
       {hasIcon && icon && (
         <Icon
           icon={icon}

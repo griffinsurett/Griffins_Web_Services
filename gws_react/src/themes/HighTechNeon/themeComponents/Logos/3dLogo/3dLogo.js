@@ -1,6 +1,5 @@
 // 3dLogo.js
-import React, { useState } from "react";
-import VisibilitySensor from "../../../themeControls/VisibilitySensor/VisibilitySensor";
+import React from "react";
 import "./3d-logo.css";
 import { useTheme } from "../../../themeControls/ThemeContext";
 
@@ -26,32 +25,19 @@ const Logo = ({
     ? dark3dLogo
     : light3dLogo;
 
-  const [animate, setAnimate] = useState(false);
-
   return (
-    <VisibilitySensor
-      onChange={(isVisible) => {
-        setAnimate(isVisible);
-      }}
-      resetOnHover={true} // Reset animation on hover
-    >
-      <div
-        className={`flex justify-center item-align-center ${
-          animate ? "fade-in" : ""
-        } ${ContainerClassName}`}
-      >
-        <img
-          src={logoSrc}
-          alt={isLightMode ? "Light Mode Logo" : "Dark Mode Logo"}
-          onClick={onClick}
-          className={`${classname} ${responsive ? "responsive-logo" : ""}`}
-          style={{
-            height: responsive ? "auto" : calculatedHeight,
-            width: responsive ? "100%" : width,
-          }}
-        />
-      </div>
-    </VisibilitySensor>
+    <div className={`flex justify-center item-align-center ${ContainerClassName}`}>
+      <img
+        src={logoSrc}
+        alt={isLightMode ? "Light Mode Logo" : "Dark Mode Logo"}
+        onClick={onClick}
+        className={`${classname} ${responsive ? "responsive-logo" : ""}`}
+        style={{
+          height: responsive ? "auto" : calculatedHeight,
+          width: responsive ? "100%" : width,
+        }}
+      />
+    </div>
   );
 };
 
