@@ -34,7 +34,7 @@ const About = () => {
 
   return (
     <>
-        <div className="about-icon-list flex wrap">
+        <div className="about-icon-list flex justify-center item-align-start justify-center wrap">
           {listItems.map((item, index) => (
             <ListItem
               key={index}
@@ -44,7 +44,7 @@ const About = () => {
               titleTag="h6"
               iconPadding={"17px"}
               description={item.description}
-              className="custom-icon-list-item-class text-left bottom-space top-space w50"
+              className="custom-icon-list-item-class text-left bottom-space w50"
             />
           ))}
         </div>

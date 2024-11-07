@@ -4,7 +4,7 @@
     /* padding: 30px; */
     border-radius: 8px;
     vertical-align: top; /* Align boxes at the top */
-    min-height: 250px; 
+    min-height: 200px; 
     overflow: hidden; /* Prevent content overflow */
     background: var(--gradientBG1);
     /* border: var(--buttonandIconborderStyle) var(--secondary-bg); */
@@ -36,4 +36,4 @@
 .box-link .box:hover {
     cursor: pointer; 
     animation: hover-scale 1s;
-}  
+}

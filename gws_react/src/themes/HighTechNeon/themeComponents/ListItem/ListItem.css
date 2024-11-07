@@ -1,32 +1,7 @@
-/* list-item.css */
-  
-  /* Icon fade-in with no delay */
-  .fade-in-icon {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  
-  /* Text fade-in with a delay */
-  .fade-in-text {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s; /* 0.3s delay */
-  }
-  
-  /* Additional styling */
-  .list-item {
-    display: flex;
-    align-items: center;
-    /* gap: 10px; */
-  }
-  
-  .styled-icon {
-    transition: transform 0.3s ease;
-  }
-  
-  /* Optional hover effects */
-  .list-item:hover .styled-icon {
-    transform: scale(1.1); /* Scale effect on hover */
-  }
-  
+/* a.list-item-content .styled-icon:hover {
+    transform: scale(1.1);
+} */
+
+.contact-info-item {
+    margin-top: var(--primary-padding);
+}

@@ -2,8 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
-import VisibilitySensor from "../../themeControls/VisibilitySensor/VisibilitySensor";
-import "./ListItem.css";
 
 const ListItem = ({
   hasIcon = false,
@@ -19,30 +17,21 @@ const ListItem = ({
   const ListItemContent = (
     <div className={`${className} list-item flex`}>
       {hasIcon && icon && (
-        <VisibilitySensor delay={0}>
-          {({ isVisible }) => (
-            <Icon
-              icon={icon}
-              size="sm"
-              className={`styled-icon dynamic-border-effect hover-scale ${isVisible ? 'fade-in' : 'hidden'}`}
-              iconPadding={iconPadding} // Pass iconPadding to Icon component
-            />
-          )}
-        </VisibilitySensor>
+        <Icon
+          icon={icon}
+          size="sm"
+          className="styled-icon dynamic-border-effect hover-scale"
+          iconPadding={iconPadding} // Pass iconPadding to Icon component
+        />
       )}
-      
-      <VisibilitySensor delay={300}>
-        {({ isVisible }) => (
-          <div
-            className={`list-item-content ${
-              hasIcon ? "smaller-left-space" : ""
-            } flex column ${isVisible ? 'fade-in' : 'hidden'}`}
-          >
-            <TitleTag className={titleClasses}>{title}</TitleTag>
-            {description && <p className="p-xSmall">{description}</p>}
-          </div>
-        )}
-      </VisibilitySensor>
+      <div
+        className={`list-item-content ${
+          hasIcon ? "smaller-left-space" : ""
+        } flex column`}
+      >
+        <TitleTag className={titleClasses}>{title}</TitleTag>
+        {description && <p className="p-xSmall">{description}</p>}
+      </div>
     </div>
   );
 

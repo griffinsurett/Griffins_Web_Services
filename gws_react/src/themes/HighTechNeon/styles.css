@@ -536,18 +536,16 @@ a {
   color: var(--darkBG-primary-color);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  :root {
+    --section-gap: 60px; /* Define a variable for the gap between sections */
+  }
+
   .sticky-section {
     height: fit-content;
     position: sticky;
     top: 0;
 }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --section-gap: 60px; /* Define a variable for the gap between sections */
-  }
 
   .container {
     width: var(--container-width);
@@ -582,7 +580,7 @@ a {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   :root {
     /* --container-width: 85%; */
     --section-gap: 20px; 

@@ -1,10 +1,10 @@
 // ContactUs.js
 import React from "react";
-import InputField from "../../../themeComponents/Form-Fields/Fields/InputField";
+import InputField from "../../../themeComponents/Form-Fields/InputField";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import Section from "../../../themeComponents/Section/Section";
 import "./contact-us.css";
-import TextareaField from "../../../themeComponents/Form-Fields/Fields/TextareaField";
+import TextareaField from "../../../themeComponents/Form-Fields/TextareaField";
 import Button from "../../../themeComponents/Buttons/Button";
 import IconListItem from "../../../themeComponents/ListItem/ListItem";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -33,21 +33,21 @@ function ContactUs() {
       shadowClass={"left-shadow bottom"}
     >
       {/* <div className="flex justify-center item-align-center bottom-space"> */}
-      <ContentTemplate
-        className={"contact-sec-header column responsive-center sticky-section"}
-        contentWrapClass="column"
-        ifButton={false}
-        ifParagraph={true}
-        heading="Contact Us."
-        paragraphClass={"flex justify-center column about-paragraphs"}
-        paragraph1={
-          "Discover answers to common questions about Griffin's Web Services."
-        }
-        paragraph1Class={"top-paragraph responsive-center smaller-bottom-space"}
-        buttonBottom={true}
-        textSectionClass={"smaller-bottom-space"}
-      >
-        <div className="contact-info top-space bottom-space">
+        <ContentTemplate
+          className={"contact-sec-header column responsive-center sticky-section"}
+          contentWrapClass="column"
+          ifButton={false}
+          ifParagraph={true}
+          heading="Contact Us."
+          paragraphClass={"flex justify-center column about-paragraphs"}
+          paragraph1={
+            "Discover answers to common questions about Griffin's Web Services."
+          }
+          paragraph1Class={"top-paragraph responsive-center smaller-bottom-space"}
+          buttonBottom={true}
+          textSectionClass={"smaller-bottom-space"}
+        >
+           <div className="contact-info top-space bottom-space">
           {contactInfo.map((info, index) => (
             <IconListItem
               key={index}
@@ -60,8 +60,8 @@ function ContactUs() {
             />
           ))}
         </div>
-      </ContentTemplate>
-      <form className="contact-form top-space bottom-space">
+        </ContentTemplate>
+        <form className="contact-form top-space bottom-space">
         <div className="form-group column">
           <div className="form-group">
             <div className="name-fields flex justify-between">

@@ -1,8 +1,7 @@
 // 2dLogo.js
-import React, { useState } from "react";
-import VisibilitySensor from "../../../themeControls/VisibilitySensor/VisibilitySensor";
+import React from "react";
 import "./2d-logo.css";
-import { useTheme } from "../../../themeControls/ThemeContext";
+import { useTheme } from "../../../themeControls/ThemeContext"; // Import the ThemeContext
 
 const light2dLogo = `${process.env.PUBLIC_URL}/mylogo2d-white.png`;
 const dark2dLogo = `${process.env.PUBLIC_URL}/myLogo2d-black.png`;
@@ -14,35 +13,28 @@ const Logo = ({
   onClick,
   responsive = false,
 }) => {
-  const { isLightMode } = useTheme();
+  const { isLightMode } = useTheme(); // Use the theme context to determine the mode
+
+  // Dynamically calculate height based on width (set a ratio, e.g., height = 0.9 * width)
   const calculatedHeight = width;
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
-    <VisibilitySensor
-      onChange={(isVisible) => {
-        if (isVisible && !hasAnimated) {
-          setHasAnimated(true);
-        }
-      }}
+    <div
+      className={`flex justify-center item-align-center ${ContainerClassName}`}
     >
-      <div
-        className={`flex justify-center item-align-center ${
-          hasAnimated ? "jump-fade" : ""
-        } ${ContainerClassName}`}
-      >
-        <img
-          src={isLightMode ? dark2dLogo : light2dLogo}
-          alt={isLightMode ? "Light Mode Logo" : "Dark Mode Logo"}
-          onClick={onClick}
-          className={`${classname} ${responsive ? "responsive-logo" : ""}`}
-          style={{
-            height: responsive ? "auto" : calculatedHeight,
-            width: responsive ? "100%" : width,
-          }}
-        />
-      </div>
-    </VisibilitySensor>
+      {/* Conditionally apply the dark or light mode logo based on the theme */}
+      <img
+        src={isLightMode ? dark2dLogo : light2dLogo}
+        // src={darkLogo}
+        alt={isLightMode ? "Light Mode Logo" : "Dark Mode Logo"}
+        onClick={onClick}
+        className={`${classname} ${responsive ? "responsive-logo" : ""}`}
+        style={{
+          height: responsive ? "auto" : calculatedHeight,
+          width: responsive ? "100%" : width,
+        }}
+      />
+    </div>
   );
 };
 
