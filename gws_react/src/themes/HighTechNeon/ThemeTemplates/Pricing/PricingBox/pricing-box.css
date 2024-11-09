@@ -3,14 +3,12 @@
     margin: 20px;
     padding: 20px;
     border-radius: var(--border-radius);
-    transition: var(--primaryTransition); /* Reuse primary transition for hover effects */
+    transition: var(--primaryTransition); 
   }
   
   .pricing-box:hover {
     box-shadow: var(--boxShadow1); /* Apply hover effect with shadow */
   }
-
-
   
   .pricing-title {
     margin-bottom: var(--primary-padding);
