@@ -77,12 +77,12 @@ const ContentTemplate = ({
             <div className={`content-template-paragraphs ${paragraphClass}`}>
               {paragraph1 && (
                 <p className={paragraph1Class}>
-                  <Typewriter text={paragraph1} speed={5} />
+                  <Typewriter text={paragraph1} speed={200} />
                 </p>
               )}
               {paragraph2 && (
                 <p className={paragraph2Class}>
-                  <Typewriter text={paragraph2} speed={5} />
+                  <Typewriter text={paragraph2} speed={200} />
                 </p>
               )}
             </div>
@@ -119,7 +119,7 @@ const ContentTemplate = ({
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
-                <IntersectionObserverComponent inViewClass="fade-in-up" delayIn={2} outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in-up" delayIn={100} applyDelayOnce={true} outViewClass="fade-out">
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}

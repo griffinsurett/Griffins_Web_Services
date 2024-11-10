@@ -8,8 +8,9 @@ const IntersectionObserverComponent = ({
   outViewClass = 'fade-out',
   threshold = 0.1,
   rootMargin = '0px',
-  delayIn = 0,
-  delayOut = 0,
+  delayIn = 0,   // Delay in milliseconds
+  delayOut = 0,  // Delay in milliseconds
+  applyDelayOnce = false, // New prop to control one-time delay application
 }) => {
   const ref = useRef(null);
 
@@ -17,13 +18,22 @@ const IntersectionObserverComponent = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const isFirstEntry = !entry.target.hasAttribute('data-has-entered');
+
           if (entry.isIntersecting) {
-            entry.target.style.setProperty('--delay-in', `${delayIn}s`);
+            // Apply delay only on the first intersection if applyDelayOnce is true
+            if (!applyDelayOnce || isFirstEntry) {
+              entry.target.style.setProperty('--delay-in', `${delayIn / 1000}s`);
+              entry.target.setAttribute('data-has-entered', 'true');
+            } else {
+              entry.target.style.setProperty('--delay-in', '0s');
+            }
+
             entry.target.style.setProperty('--delay-out', '0s');
             entry.target.classList.add(inViewClass);
             entry.target.classList.remove(outViewClass);
           } else {
-            entry.target.style.setProperty('--delay-out', `${delayOut}s`);
+            entry.target.style.setProperty('--delay-out', `${delayOut / 1000}s`);
             entry.target.classList.add(outViewClass);
             entry.target.classList.remove(inViewClass);
           }
@@ -41,7 +51,7 @@ const IntersectionObserverComponent = ({
     return () => {
       if (element) observer.unobserve(element);
     };
-  }, [inViewClass, outViewClass, threshold, rootMargin, delayIn, delayOut]);
+  }, [inViewClass, outViewClass, threshold, rootMargin, delayIn, delayOut, applyDelayOnce]);
 
   return (
     <div ref={ref} className="intersection-observer-wrapper">
@@ -56,8 +66,9 @@ IntersectionObserverComponent.propTypes = {
   outViewClass: PropTypes.string,
   threshold: PropTypes.number,
   rootMargin: PropTypes.string,
-  delayIn: PropTypes.number,
-  delayOut: PropTypes.number,
+  delayIn: PropTypes.number, // Accept delay in milliseconds
+  delayOut: PropTypes.number, // Accept delay in milliseconds
+  applyDelayOnce: PropTypes.bool, // New prop to control delay application
 };
 
 export default IntersectionObserverComponent;

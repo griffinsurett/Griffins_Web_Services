@@ -150,16 +150,6 @@
   opacity: 0; /* Start hidden */
 }
 
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-out {
-  opacity: 0;
-  transform: translateY(20px); /* Slight downward movement on scroll-out */
-}
-
 /* On-scroll animation classes */
 .spin-in {
   animation: spinIn 0.5s ease forwards;
@@ -216,19 +206,26 @@
 .fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s); /* Use variable for in delay */
+  animation-delay: var(--delay-in, 0s);
 }
 
 .fade-in-down {
   opacity: 0;
   animation: fadeInDown 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s); /* Use variable for in delay */
+  animation-delay: var(--delay-in, 0s);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: var(--delay-in, 0s);
 }
 
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease;
-  transition-delay: var(--delay-out, 0s); /* Use variable for out delay */
+  transition-delay: var(--delay-out, 0s);
 }
 
 @keyframes fadeInRight {

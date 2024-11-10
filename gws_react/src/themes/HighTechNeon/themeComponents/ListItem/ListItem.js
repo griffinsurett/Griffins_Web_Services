@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
-import IntersectionObserverComponent from "../../ScrollAnimations";
+// import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const ListItem = ({
   hasIcon = false,
@@ -17,6 +17,7 @@ const ListItem = ({
 }) => {
   const ListItemContent = (
     <div className={`${className} list-item flex`}>
+          {/* <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out"> */}
       {hasIcon && icon && (
         <Icon
           icon={icon}
@@ -33,6 +34,7 @@ const ListItem = ({
         <TitleTag className={titleClasses}>{title}</TitleTag>
         {description && <p className="p-xSmall">{description}</p>}
       </div>
+      {/* </IntersectionObserverComponent> */}
     </div>
   );
 

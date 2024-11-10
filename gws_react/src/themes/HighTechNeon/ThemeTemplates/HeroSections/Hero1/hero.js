@@ -5,6 +5,7 @@ import Button from "../../../themeComponents/Buttons/Button";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
 import Typewriter from "../../../themeComponents/TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
+import IntersectionObserverComponent from "../../../ScrollAnimations";
 
 const Hero1 = () => {
   return (
@@ -33,6 +34,7 @@ const Hero1 = () => {
         />
       </div>
       <div className="hero-right w40 flex column justify-center item-align-center">
+      <IntersectionObserverComponent inViewClass="fade-in" delayIn={2000} applyDelayOnce={true}>
         <Logo
           ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
           width="460px"
@@ -40,6 +42,7 @@ const Hero1 = () => {
           responsive={true}
           everdarkLogo={true}
         />
+        </IntersectionObserverComponent>
       </div>
     </section>
   );
