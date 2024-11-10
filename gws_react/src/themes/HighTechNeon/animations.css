@@ -214,20 +214,21 @@
 }
 
 .fade-in-up {
-  opacity: 0; /* Ensure elements are hidden initially */
-  animation: fadeInUp 0.5s ease forwards; /* Add animation */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+  animation-delay: var(--delay-in, 0s); /* Use variable for in delay */
 }
 
 .fade-in-down {
-  opacity: 0; /* Ensure elements are hidden initially */
-  animation: fadeInDown 0.5s ease forwards; /* Add animation */
+  opacity: 0;
+  animation: fadeInDown 0.5s ease forwards;
+  animation-delay: var(--delay-in, 0s); /* Use variable for in delay */
 }
 
-/* Fade-in-right animation */
-.fade-in-right {
-  opacity: 1;
-  transform: translateX(0);
-  animation: fadeInRight 0.5s ease forwards;
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transition-delay: var(--delay-out, 0s); /* Use variable for out delay */
 }
 
 @keyframes fadeInRight {

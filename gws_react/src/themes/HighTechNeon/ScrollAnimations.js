@@ -8,6 +8,8 @@ const IntersectionObserverComponent = ({
   outViewClass = 'fade-out',
   threshold = 0.1,
   rootMargin = '0px',
+  delayIn = 0,
+  delayOut = 0,
 }) => {
   const ref = useRef(null);
 
@@ -16,9 +18,12 @@ const IntersectionObserverComponent = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.style.setProperty('--delay-in', `${delayIn}s`);
+            entry.target.style.setProperty('--delay-out', '0s');
             entry.target.classList.add(inViewClass);
             entry.target.classList.remove(outViewClass);
           } else {
+            entry.target.style.setProperty('--delay-out', `${delayOut}s`);
             entry.target.classList.add(outViewClass);
             entry.target.classList.remove(inViewClass);
           }
@@ -36,7 +41,7 @@ const IntersectionObserverComponent = ({
     return () => {
       if (element) observer.unobserve(element);
     };
-  }, [inViewClass, outViewClass, threshold, rootMargin]);
+  }, [inViewClass, outViewClass, threshold, rootMargin, delayIn, delayOut]);
 
   return (
     <div ref={ref} className="intersection-observer-wrapper">
@@ -51,6 +56,8 @@ IntersectionObserverComponent.propTypes = {
   outViewClass: PropTypes.string,
   threshold: PropTypes.number,
   rootMargin: PropTypes.string,
+  delayIn: PropTypes.number,
+  delayOut: PropTypes.number,
 };
 
 export default IntersectionObserverComponent;
