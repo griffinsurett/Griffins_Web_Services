@@ -57,7 +57,7 @@ const Theme = () => {
       {" "}
       {/* Wrap everything inside ThemeProvider */}
       <div className="App">
-      <MobileStatusBar /> {/* Set the theme color for the status bar */}
+      {/* <MobileStatusBar />  */}
         {/* {loading ? (
           <Preloader />
         ) : ( */}
