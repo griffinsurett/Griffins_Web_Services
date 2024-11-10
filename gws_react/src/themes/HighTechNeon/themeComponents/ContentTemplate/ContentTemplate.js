@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./content-template.css";
 import Button from "../Buttons/Button";
 import Typewriter from "../TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
+import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const ContentTemplate = ({
   title,
@@ -50,22 +51,29 @@ const ContentTemplate = ({
       <div className={`content-top-section flex ${contentWrapClass}`}>
         <div className={`title-heading-container column ${textSectionClass}`}>
           {title && (
+            <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
             <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
               <Typewriter text={title} speed={100} />
             </h5>
+            </IntersectionObserverComponent>
           )}
           {heading &&
             (isHero ? (
+              <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
               <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h1>
+              </IntersectionObserverComponent>
             ) : (
+              <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
               <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h2>
+              </IntersectionObserverComponent>
             ))}
 
           {ifParagraph && !paragraphSide && (
+          <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
             <div className={`content-template-paragraphs ${paragraphClass}`}>
               {paragraph1 && (
                 <p className={paragraph1Class}>
@@ -78,6 +86,7 @@ const ContentTemplate = ({
                 </p>
               )}
             </div>
+            </IntersectionObserverComponent>
           )}
         </div>
 
@@ -89,14 +98,18 @@ const ContentTemplate = ({
                 className={`content-template-paragraphs-side ${paragraphClass}`}
               >
                 {paragraph1 && (
+                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
                   <p className={paragraph1Class}>
                     <Typewriter text={paragraph1} speed={10} />
                   </p>
+                  </IntersectionObserverComponent>
                 )}
                 {paragraph2 && (
+                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
                   <p className={paragraph2Class}>
                     <Typewriter text={paragraph2} speed={10} />
                   </p>
+                  </IntersectionObserverComponent>
                 )}
               </div>
             )}
@@ -106,6 +119,7 @@ const ContentTemplate = ({
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
+                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}
@@ -113,6 +127,7 @@ const ContentTemplate = ({
                   buttonId={buttonId}
                   onClick={onClick}
                 />
+                </IntersectionObserverComponent>
               </div>
             )}
           </div>
@@ -127,6 +142,7 @@ const ContentTemplate = ({
         <div
           className={`content-template-btn-bottom top-space ${buttonSecClass}`}
         >
+          <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
           <Button
             text={buttonText}
             buttonLink={buttonLink}
@@ -134,6 +150,7 @@ const ContentTemplate = ({
             buttonId={buttonId}
             onClick={onClick}
           />
+          </IntersectionObserverComponent>
         </div>
       )}
     </div>

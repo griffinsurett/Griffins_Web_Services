@@ -4,6 +4,7 @@ import CircleCheckbox from "../../themeComponents/CircleCheckbox/circle-checkbox
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { setCookie, getCookie } from "../../../../components/cookies/cookies"; // Ensure the path is correct
 import "./primary-color-changer.css";
+import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const PrimaryColorChanger = () => {
   const defaultColor = "#5e76f6"; // Default color
@@ -72,6 +73,7 @@ const PrimaryColorChanger = () => {
 
   return (
     <div className="primary-color-changer" ref={modalRef}>
+      <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
       <CircleCheckbox
         id="colorCheckbox"
         checked={isChecked}
@@ -80,6 +82,7 @@ const PrimaryColorChanger = () => {
         iconUnchecked={faDroplet}
         iconColor={"var(--darkBG-primary-color)"}
       />
+      </IntersectionObserverComponent>
       {showColorPicker && (
         <div className="color-picker-modal">
           {/* Display the default color button */}

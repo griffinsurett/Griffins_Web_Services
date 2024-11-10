@@ -13,6 +13,7 @@ import {
   faWandMagicSparkles,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
+import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const servicesData = [
   {

@@ -1,10 +1,12 @@
 // Hamburger.js
 import React from 'react';
 import './hamburger.css';
+import IntersectionObserverComponent from '../../../../ScrollAnimations';
 
 const Hamburger = ({ isMenuOpen, toggleMenu }) => {
     return (
         <div className="menu">
+        <IntersectionObserverComponent inViewClass="spin-in">
             <input
                 type="checkbox"
                 id="hamburger-toggle"
@@ -18,6 +20,7 @@ const Hamburger = ({ isMenuOpen, toggleMenu }) => {
                 <span className="line little"></span>
                 <span className="line big"></span>
             </label>
+            </IntersectionObserverComponent>
         </div>
     );
 };

@@ -502,24 +502,24 @@ a {
   border: var(--dynamicIconBorder);
 }
 
-.styled-button .dynamic-border-effect, .box-link .dynamic-hover-border-effect:hover {
-  border: var(--dynamicButtonBorder);
+.styled-button .dynamic-hover-border-effect, 
+.box-link .dynamic-hover-border-effect:hover {
+  border: var(--dynamicButtonBorder) !important;
 }
 
 .dynamic-hover-border-effect {
-  /* border: var(--borderBeforeHover); */
+  transition: border 0.5s, box-shadow 0.5s, transform 0.5s; /* Add transform for scaling */
 }
 
 .dynamic-hover-border-effect:hover {
-  border: var(--dynamicButtonHover);
-  box-shadow: var(--boxShadow1); /* Neon glow effect */
-  transition: 0.5s;
+  border: var(--dynamicButtonHover) !important;
+  box-shadow: var(--boxShadow1) !important; /* Neon glow effect */
 }
 
+
 .dynamic-active-border-effect.active {
-  border: var(--dynamicIconBorder);
-  box-shadow: var(--boxShadow1); /* Neon glow effect */
-  transition: 0.5s;
+  border: var(--dynamicIconBorder) !important;
+  box-shadow: var(--boxShadow1) !important;
 }
 
 .dynamic-focus-border-effect:focus {

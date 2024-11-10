@@ -5,10 +5,13 @@ import "./project-item2.css"; // Assuming you have some CSS for styling
 import Button from "../../../../themeComponents/Buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import IntersectionObserverComponent from "../../../../ScrollAnimations";
 
 const ProjectItem = ({ project }) => {
   return (
     <div className="project-item flex column justify-center responsive-center">
+              <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+
       <a
         href={project.link}
         className="project-link"
@@ -27,6 +30,7 @@ const ProjectItem = ({ project }) => {
           <FontAwesomeIcon className="arrow" size="xl" icon={faArrowRight} />
         </div>
       </a>
+      </IntersectionObserverComponent>
     </div>
   );
 };

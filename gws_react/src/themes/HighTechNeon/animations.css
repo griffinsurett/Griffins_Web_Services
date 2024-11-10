@@ -143,3 +143,86 @@
   .shakeRight {
     animation: shakeRight 0.5s infinite;
   }
+
+  /* intersectionObserver.css */
+.intersection-observer-wrapper {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0; /* Start hidden */
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px); /* Slight downward movement on scroll-out */
+}
+
+/* On-scroll animation classes */
+.spin-in {
+  animation: spinIn 0.5s ease forwards;
+}
+
+.spin-out {
+  animation: spinOut 0.5s ease forwards;
+}
+
+@keyframes spinIn {
+  from {
+      opacity: 0;
+      transform: rotate(-90deg);
+  }
+  to {
+      opacity: 1;
+      transform: rotate(0deg);
+  }
+}
+
+@keyframes spinOut {
+  from {
+      opacity: 1;
+      transform: rotate(0deg);
+  }
+  to {
+      opacity: 0;
+      transform: rotate(90deg);
+  }
+}
+
+/* Fade-in-right animation */
+.fade-in-right {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in-left animation */
+.fade-in-left {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeInLeft 0.5s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
