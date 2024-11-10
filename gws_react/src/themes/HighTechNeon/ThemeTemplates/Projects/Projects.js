@@ -58,8 +58,8 @@ const Projects = () => {
     >
       <ContentTemplate
         className="column bottom-space responsive-center justify-between-section item-align-center"
-        contentWrapClass="responsive responsive-center "
-        textSectionClass={"smaller-top-space w60"}
+        contentWrapClass="responsive responsive-center"
+        textSectionClass={"smaller-top-space responsive-center"}
         ifButton={true}
         buttonBottom={true}
         heading="Our Work"
@@ -72,7 +72,7 @@ const Projects = () => {
         paragraphClass={"text-right"}
         paragraph1="Discover our recent projects and see how we've helped businesses like yours succeed."
         paragraphSide={true}
-        paragraph1Class={"p-large"}
+        paragraph1Class={"p-large responsive-center"}
       >
         <ProjectContainer2 projects={projects} />
       </ContentTemplate>
