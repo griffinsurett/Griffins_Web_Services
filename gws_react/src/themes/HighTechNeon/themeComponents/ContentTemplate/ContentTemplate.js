@@ -51,21 +51,21 @@ const ContentTemplate = ({
       <div className={`content-top-section flex ${contentWrapClass}`}>
         <div className={`title-heading-container column ${textSectionClass}`}>
           {title && (
-            <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+            <IntersectionObserverComponent inViewClass="fade-in-down" outViewClass="fade-out">
             <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
-              <Typewriter text={title} speed={100} />
+              {title}
             </h5>
             </IntersectionObserverComponent>
           )}
           {heading &&
             (isHero ? (
-              <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+              <IntersectionObserverComponent inViewClass="fade-in-up" outViewClass="fade-out">
               <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h1>
               </IntersectionObserverComponent>
             ) : (
-              <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+              <IntersectionObserverComponent inViewClass="fade-in-up" outViewClass="fade-out">
               <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
                 {heading}
               </h2>
@@ -77,12 +77,12 @@ const ContentTemplate = ({
             <div className={`content-template-paragraphs ${paragraphClass}`}>
               {paragraph1 && (
                 <p className={paragraph1Class}>
-                  <Typewriter text={paragraph1} speed={10} />
+                  <Typewriter text={paragraph1} speed={5} />
                 </p>
               )}
               {paragraph2 && (
                 <p className={paragraph2Class}>
-                  <Typewriter text={paragraph2} speed={10} />
+                  <Typewriter text={paragraph2} speed={5} />
                 </p>
               )}
             </div>
@@ -107,7 +107,7 @@ const ContentTemplate = ({
                 {paragraph2 && (
                 <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
                   <p className={paragraph2Class}>
-                    <Typewriter text={paragraph2} speed={10} />
+                    <Typewriter text={paragraph2} speed={5} />
                   </p>
                   </IntersectionObserverComponent>
                 )}
@@ -119,7 +119,7 @@ const ContentTemplate = ({
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
-                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in-up" outViewClass="fade-out">
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}

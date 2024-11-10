@@ -191,6 +191,38 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px); /* Starts slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px); /* Starts slightly above */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0; /* Ensure elements are hidden initially */
+  animation: fadeInUp 0.5s ease forwards; /* Add animation */
+}
+
+.fade-in-down {
+  opacity: 0; /* Ensure elements are hidden initially */
+  animation: fadeInDown 0.5s ease forwards; /* Add animation */
+}
+
 /* Fade-in-right animation */
 .fade-in-right {
   opacity: 1;
