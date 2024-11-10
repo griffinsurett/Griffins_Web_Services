@@ -23,6 +23,7 @@ import Projects from "./ThemeTemplates/Projects/Projects";
 import Process from "./ThemeTemplates/Process/Process";
 import Subscribe from "./ThemeTemplates/Subscribe/Subscribe";
 import PricingTable from "./ThemeTemplates/Pricing/Pricing";
+import MobileStatusBar from "./themeComponents/MobileStatusBar/MobileStatusBar";
 
 // Main App Component to render the entire theme
 const Theme = () => {
@@ -56,6 +57,7 @@ const Theme = () => {
       {" "}
       {/* Wrap everything inside ThemeProvider */}
       <div className="App">
+      <MobileStatusBar /> {/* Set the theme color for the status bar */}
         {/* {loading ? (
           <Preloader />
         ) : ( */}
