@@ -280,6 +280,13 @@ a {
   letter-spacing: 0.1em;
 }
 
+.text-shadow-for-dark-hover:hover {
+  text-shadow: var(--text-shadow);
+  transition: var(--primaryTransition);
+  color: var(--everdark-color1);
+  /* letter-spacing: 0.1em; */
+}
+
 ::selection {
   background: transparent;
   color: var(--darkBG-primary-color);

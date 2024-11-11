@@ -21,6 +21,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
             <li key={index}>
               <a 
                 href={item.href} 
+                className='text-shadow-for-dark-hover'
                 onClick={() => { 
                   toggleMenu(); 
                   console.log(`${item.label} menu item clicked`); 
