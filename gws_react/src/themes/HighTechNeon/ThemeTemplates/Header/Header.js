@@ -12,14 +12,14 @@ const Header = ({ toggleMenu }) => {
   return (
     <header className="header flex justify-center item-align-center">
       <div className="header-foot-container flex justify-between item-align-center">
-        <div className="nav-left logo fif-container flex justify-center item-align-center logo-drop-shadow-small">
+        <div className="nav-left logo fif-container flex justify-center item-align-center">
         <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
           <a href="/">
             <Logo
               ContainerClassName="flex justify-center item-align-center logo"
               width="45px" // Width is set, and height will be 90% of this
               classname="responsive-logo"
-              everdarkLogo={true}
+              everdarkLogo={false}
             />
           </a>
           </IntersectionObserverComponent>

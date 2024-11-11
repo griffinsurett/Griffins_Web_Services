@@ -142,7 +142,7 @@ const ContentTemplate = ({
         <div
           className={`content-template-btn-bottom top-space ${buttonSecClass}`}
         >
-          <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+          <IntersectionObserverComponent inViewClass="fade-in" delayIn={300} outViewClass="fade-out">
           <Button
             text={buttonText}
             buttonLink={buttonLink}

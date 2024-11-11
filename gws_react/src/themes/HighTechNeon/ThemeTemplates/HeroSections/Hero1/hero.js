@@ -23,6 +23,7 @@ const Hero1 = () => {
           heading="Websites and All Things Digital."
           paragraph1="Your premier one-stop shop for website design and development, expert social media and digital marketing, and creative graphic design services."
           ifButton={true}
+          buttonBottom={true}
           buttonText="Get Started"
           buttonLink="#"
           className="hero-content"
