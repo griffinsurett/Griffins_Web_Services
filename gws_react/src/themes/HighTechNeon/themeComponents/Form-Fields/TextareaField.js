@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./fields.css"; // Assuming you have some CSS for styling
+import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const TextareaField = ({
   label,
@@ -12,7 +13,7 @@ const TextareaField = ({
   className,
 }) => {
   return (
-    <>
+    <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
       {label && <label htmlFor={name}>{label}</label>}
       <textarea
         name={name}
@@ -22,7 +23,7 @@ const TextareaField = ({
         id={name}
         className={`${className} dynamic-focus-border-effect`} 
       />
-    </>
+    </IntersectionObserverComponent>
   );
 };
 

@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./fields.css"; // Assuming you have some CSS for styling
+import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const InputField = ({
   label,
@@ -13,7 +14,7 @@ const InputField = ({
   className,
 }) => {
   return (
-    <>
+<>
       {label && <label htmlFor={name}>{label}</label>}
       <input
         type={type}

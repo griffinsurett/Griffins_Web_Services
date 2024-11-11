@@ -17,7 +17,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
       <nav className="menu">
         <ul>
           {menuItems.map((item, index) => (
-          <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+          <IntersectionObserverComponent inViewClass="fade-in" delayIn={200} outViewClass="fade-out" >
             <li key={index}>
               <a 
                 href={item.href} 

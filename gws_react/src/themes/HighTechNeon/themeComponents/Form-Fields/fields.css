@@ -12,7 +12,6 @@ textarea {
     outline: none;
     border-radius: var(--input-radius);
     flex-grow: 1;
-    width: 100%;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-normal);
     
