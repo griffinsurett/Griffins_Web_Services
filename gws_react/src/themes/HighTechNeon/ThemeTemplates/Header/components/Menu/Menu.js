@@ -4,7 +4,7 @@ import './menu.css';
 import IntersectionObserverComponent from '../../../../ScrollAnimations';
 
 const Menu = ({ isOpen, toggleMenu }) => {
-  // Define an array of menu items with labels and hrefs
+  // Array of menu items
   const menuItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -16,24 +16,26 @@ const Menu = ({ isOpen, toggleMenu }) => {
   ];
 
   return (
-    <div className={`menu-overlay ${isOpen ? 'show' : ''} flex justify-center item-align-center column`}>
-      <nav className="menu">
-        <ul>
+    <div className={`menu-container ${isOpen ? 'show' : ''}`}>
+
+      {/* Content section with menu items */}
+      <nav className="menu-content flex justify-center item-align-center container">
+        <ul className="menu-list">
           {menuItems.map((item, index) => (
-          <IntersectionObserverComponent inViewClass="fade-in" delayIn={200} outViewClass="fade-out" >
-            <li key={index}>
-              <a 
-                href={item.href} 
-                className='text-shadow-for-dark-hover'
-                onClick={() => { 
-                  toggleMenu(); 
-                  console.log(`${item.label} menu item clicked`); 
-                }}
-              >
-                {item.label}
-              </a>
-            </li>
-          </IntersectionObserverComponent>
+            <IntersectionObserverComponent key={index} inViewClass="fade-in" delayIn={200} outViewClass="fade-out">
+              <li className="menu-item">
+                <a 
+                  href={item.href} 
+                  className='text-shadow-for-dark-hover'
+                  onClick={() => { 
+                    toggleMenu(); 
+                    console.log(`${item.label} menu item clicked`); 
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            </IntersectionObserverComponent>
           ))}
         </ul>
       </nav>
