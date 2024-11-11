@@ -6,6 +6,7 @@ import "../../../styled-circle.css";
 import Section from "../../../themeComponents/Section/Section"; // Import your Section component
 import AboutList from "./AboutList/AboutList";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
+import IntersectionObserverComponent from "../../../ScrollAnimations";
 
 const About = () => {
   return (
@@ -17,13 +18,15 @@ const About = () => {
       shadowClass={"left-shadow bottom"}
     >
       <div className="about-right flex column justify-center item-align-center sticky-section w40">
+      <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
         <Logo
-          ContainerClassName="flex justify-left item-align-start logo logo-drop-shadow-big"
-          width="360px" // Width is set, and height will be 90% of this
+          ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
+          width="460px"
           classname=""
           responsive={true}
           everdarkLogo={true}
         />
+        </IntersectionObserverComponent>
       </div>
 
       <ContentTemplate

@@ -4,13 +4,14 @@ import './animations.css';
 
 const IntersectionObserverComponent = ({
   children,
+  className,
   inViewClass = 'fade-in',
   outViewClass = 'fade-out',
   threshold = 0.1,
   rootMargin = '0px',
-  delayIn = 0,   // Delay in milliseconds
-  delayOut = 0,  // Delay in milliseconds
-  applyDelayOnce = false, // New prop to control one-time delay application
+  delayIn = 0,   
+  delayOut = 0,  
+  applyDelayOnce = false, 
 }) => {
   const ref = useRef(null);
 
@@ -54,7 +55,7 @@ const IntersectionObserverComponent = ({
   }, [inViewClass, outViewClass, threshold, rootMargin, delayIn, delayOut, applyDelayOnce]);
 
   return (
-    <div ref={ref} className="intersection-observer-wrapper">
+    <div ref={ref} className={`intersection-observer-wrapper ${className}`}>
       {children}
     </div>
   );

@@ -34,7 +34,7 @@ const Hero1 = () => {
         />
       </div>
       <div className="hero-right w40 flex column justify-center item-align-center">
-      <IntersectionObserverComponent inViewClass="fade-in" delayIn={2000} applyDelayOnce={true}>
+      <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
         <Logo
           ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
           width="460px"

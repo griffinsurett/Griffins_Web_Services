@@ -239,6 +239,11 @@
   }
 }
 
+.fade-in-right {
+  opacity: 0;
+  animation: fadeInRight 0.5s ease forwards;
+}
+
 /* Fade-in-left animation */
 .fade-in-left {
   opacity: 1;

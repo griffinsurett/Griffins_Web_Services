@@ -73,16 +73,16 @@ const ContentTemplate = ({
             ))}
 
           {ifParagraph && !paragraphSide && (
-          <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+          <IntersectionObserverComponent inViewClass="fade-in-down" outViewClass="fade-out">
             <div className={`content-template-paragraphs ${paragraphClass}`}>
               {paragraph1 && (
                 <p className={paragraph1Class}>
-                  <Typewriter text={paragraph1} speed={200} />
+                  {paragraph1}
                 </p>
               )}
               {paragraph2 && (
                 <p className={paragraph2Class}>
-                  <Typewriter text={paragraph2} speed={200} />
+                 {paragraph2}
                 </p>
               )}
             </div>
@@ -98,16 +98,16 @@ const ContentTemplate = ({
                 className={`content-template-paragraphs-side ${paragraphClass}`}
               >
                 {paragraph1 && (
-                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in-down" delayIn={300} outViewClass="fade-out">
                   <p className={paragraph1Class}>
-                    <Typewriter text={paragraph1} speed={10} />
+                    {paragraph1}
                   </p>
                   </IntersectionObserverComponent>
                 )}
                 {paragraph2 && (
-                <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in" delayIn={300} outViewClass="fade-out">
                   <p className={paragraph2Class}>
-                    <Typewriter text={paragraph2} speed={5} />
+                    {paragraph2}
                   </p>
                   </IntersectionObserverComponent>
                 )}
@@ -119,7 +119,7 @@ const ContentTemplate = ({
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
-                <IntersectionObserverComponent inViewClass="fade-in-up" delayIn={100} applyDelayOnce={true} outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in-right" delayIn={300} outViewClass="fade-out">
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}
