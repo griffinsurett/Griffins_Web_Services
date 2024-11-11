@@ -8,6 +8,7 @@ import TextareaField from "../../../themeComponents/Form-Fields/TextareaField";
 import Button from "../../../themeComponents/Buttons/Button";
 import IconListItem from "../../../themeComponents/ListItem/ListItem";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import IntersectionObserverComponent from "../../../ScrollAnimations";
 
 const contactInfo = [
   {
@@ -82,7 +83,10 @@ function ContactUs() {
             />
           </div>
         </div>
+        
+        <IntersectionObserverComponent inViewClass="fade-in" delayIn={300}>
         <Button type="submit" text="Submit" className="p-large self-right" />
+        </IntersectionObserverComponent>
       </form>
       {/* </div> */}
     </Section>
