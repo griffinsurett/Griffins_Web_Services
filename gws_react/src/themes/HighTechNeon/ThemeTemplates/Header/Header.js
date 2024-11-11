@@ -10,6 +10,7 @@ const darkLogo = `${process.env.PUBLIC_URL}/myLogo3d-black.png`;
 
 const Header = ({ toggleMenu }) => {
   return (
+    <IntersectionObserverComponent inViewClass="fade-in-down" delayIn={1500} outViewClass="fade-out" className={"header-observer"}>
     <header className="header flex justify-center item-align-center">
       <div className="header-foot-container flex justify-between item-align-center">
         <div className="nav-left logo fif-container flex justify-center item-align-center">
@@ -30,6 +31,7 @@ const Header = ({ toggleMenu }) => {
         </div>
       </div>
     </header>
+    </IntersectionObserverComponent>
   );
 };
 

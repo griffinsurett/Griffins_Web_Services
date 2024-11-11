@@ -119,7 +119,7 @@ const ContentTemplate = ({
               <div
                 className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
               >
-                <IntersectionObserverComponent inViewClass="fade-in-right" delayIn={300} outViewClass="fade-out">
+                <IntersectionObserverComponent inViewClass="fade-in-right" delayIn={400} outViewClass="fade-out">
                 <Button
                   text={buttonText}
                   buttonLink={buttonLink}
@@ -142,7 +142,7 @@ const ContentTemplate = ({
         <div
           className={`content-template-btn-bottom top-space ${buttonSecClass}`}
         >
-          <IntersectionObserverComponent inViewClass="fade-in" delayIn={300} outViewClass="fade-out">
+          <IntersectionObserverComponent inViewClass="fade-in-up" delayIn={400} outViewClass="fade-out">
           <Button
             text={buttonText}
             buttonLink={buttonLink}
