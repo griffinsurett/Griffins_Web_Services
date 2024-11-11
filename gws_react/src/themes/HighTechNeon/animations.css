@@ -237,6 +237,56 @@
   transition-delay: var(--delay-out, 0s);
 }
 
+@keyframes sectionFadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+  60% {
+    opacity: 0.4;
+    transform: translateY(-60px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+}
+
+.section-fade-out-up {
+  opacity: 1;
+  animation: sectionFadeOutUp 2s ease-out forwards; /* Extended duration for smooth scrolling effect */
+  animation-delay: var(--delay-out, 0s);
+}
+
+@keyframes sectionFadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px); /* Start higher up */
+  }
+  40% {
+    opacity: 0.4;
+    transform: translateY(-60px);
+  }
+  70% {
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+.section-fade-in-down {
+  opacity: 0;
+  animation: sectionFadeInDown 2s ease-out forwards; /* Same duration for consistency */
+  animation-delay: var(--delay-in, 0s);
+}
+
 @keyframes fadeInRight {
   from {
     opacity: 0;

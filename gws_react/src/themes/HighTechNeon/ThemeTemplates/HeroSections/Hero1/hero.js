@@ -13,7 +13,9 @@ const Hero1 = () => {
       id="hero-section"
       className="flex item-align-center responsive hero-height section-gap"
     >
-      <div className="hero-left w60 text-left">
+      <div
+        className="hero-left w60 text-left"
+      >
         {/* Use ContentTemplate for the hero section content */}
         <ContentTemplate
           isHero={true} // Ensure h1 is used for hero
@@ -34,17 +36,21 @@ const Hero1 = () => {
           titleClass="section-title"
         />
       </div>
-      <div className="hero-right w40 flex column justify-center item-align-center">
-      <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
-        <Logo
-          ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
-          width="460px"
-          classname=""
-          responsive={true}
-          everdarkLogo={true}
-        />
+      <IntersectionObserverComponent className="hero-right w40 flex column justify-center item-align-center">
+        <IntersectionObserverComponent
+          inViewClass="fade-in"
+          delayIn={1000}
+          applyDelayOnce={true}
+        >
+          <Logo
+            ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
+            width="460px"
+            classname=""
+            responsive={true}
+            everdarkLogo={true}
+          />
         </IntersectionObserverComponent>
-      </div>
+      </IntersectionObserverComponent>
     </section>
   );
 };
