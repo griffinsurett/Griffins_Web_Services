@@ -29,7 +29,7 @@
 }
 
 .menu li {
-    margin: 20px; /* Space between menu items */
+    margin: 5px; /* Space between menu items */
     z-index: 1000; /* Ensure the navbar is above the overlay */
     list-style: none;
     font-family: var(--font-family-header);
