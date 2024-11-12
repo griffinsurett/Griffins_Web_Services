@@ -39,6 +39,9 @@ const About = () => {
         paragraph1={
           "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design. Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
         }
+        // paragraph2={
+        //   "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design. Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
+        // }
         paragraph1Class={"top-paragraph p-medium bottom-space"}
         textSectionClass="smaller-bottom-space"
         buttonText="Learn More"

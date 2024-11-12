@@ -74,7 +74,7 @@ const Theme = () => {
               <About5 />
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
-              {/* <Process /> */}
+              <Process />
               <Projects />
               <Testimonials />
               {/* <PricingTable /> */}
