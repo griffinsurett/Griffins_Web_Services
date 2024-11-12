@@ -74,6 +74,7 @@ const Services = () => {
         paragraph1="Explore our wide range of services."
         paragraphSide={true}
         buttonBottomMobile={true}
+        buttonSecClass={"justify-center"}
       >
         <div className="space"></div>
 

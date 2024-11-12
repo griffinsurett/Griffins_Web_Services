@@ -62,7 +62,7 @@
 
     .content-template-btn-bottom {
       display: flex;
-      justify-content: center;
+      /* justify-content: center; */
       margin-top: 20px;
     }
   }
