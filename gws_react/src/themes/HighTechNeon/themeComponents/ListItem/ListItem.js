@@ -1,4 +1,5 @@
 // ListItem.js
+// ListItem.js
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
@@ -14,32 +15,36 @@ const ListItem = ({
   titleClasses,
   titleTag: TitleTag = "h3", // Default to 'h3' if not provided
   iconPadding, // Add iconPadding prop
+  isColumnMobile = false, // New prop to conditionally apply mobile classes
 }) => {
+  // Combine class names conditionally based on `isColumnMobile`
+  const listItemClasses = `${className} list-item flex ${
+    isColumnMobile ? "responsive responsive-center" : ""
+  }`;
+
   const ListItemContent = (
-    <div className={`${className} list-item flex`}>
-      <IntersectionObserverComponent
-        className="flex"
-        inViewClass="fade-in"
-        outViewClass="fade-out"
+    <IntersectionObserverComponent
+      className={listItemClasses}
+      inViewClass="fade-in"
+      outViewClass="fade-out"
+    >
+      {hasIcon && icon && (
+        <Icon
+          icon={icon}
+          size="sm"
+          className="styled-icon dynamic-border-effect hover-scale"
+          iconPadding={iconPadding} // Pass iconPadding to Icon component
+        />
+      )}
+      <div
+        className={`list-item-content ${
+          hasIcon ? "smaller-left-space" : ""
+        } flex column`}
       >
-        {hasIcon && icon && (
-          <Icon
-            icon={icon}
-            size="sm"
-            className="styled-icon dynamic-border-effect hover-scale"
-            iconPadding={iconPadding} // Pass iconPadding to Icon component
-          />
-        )}
-        <div
-          className={`list-item-content ${
-            hasIcon ? "smaller-left-space" : ""
-          } flex column`}
-        >
-          <TitleTag className={titleClasses}>{title}</TitleTag>
-          {description && <p className="p-xSmall">{description}</p>}
-        </div>
-      </IntersectionObserverComponent>
-    </div>
+        <TitleTag className={titleClasses}>{title}</TitleTag>
+        {description && <p className="p-xSmall">{description}</p>}
+      </div>
+    </IntersectionObserverComponent>
   );
 
   return href ? (
@@ -61,6 +66,7 @@ ListItem.propTypes = {
   titleClasses: PropTypes.string,
   titleTag: PropTypes.string, // Prop type for the title tag
   iconPadding: PropTypes.string, // Add prop type for iconPadding
+  isColumnMobile: PropTypes.bool, // New prop for responsive layout on mobile
 };
 
 export default ListItem;

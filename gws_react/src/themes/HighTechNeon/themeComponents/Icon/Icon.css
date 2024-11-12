@@ -13,3 +13,11 @@
   font-size: 24px;
   color: var(--everdark-color1);
 }
+
+@media (min-width: 768px) {
+  .icon-observer .styled-icon {
+    display: flex;
+    justify-content: center;
+  }
+}
+

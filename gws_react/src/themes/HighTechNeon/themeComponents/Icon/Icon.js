@@ -6,7 +6,7 @@ import IntersectionObserverComponent from '../../ScrollAnimations';
 
 const Icon = ({ icon, size = 'sm', className = '', bgColor, iconPadding = "18px" }) => {
     return (
-        <IntersectionObserverComponent inViewClass="fade-in" delayIn={50} outViewClass="fade-out">
+        <IntersectionObserverComponent className={"icon-observer"} inViewClass="fade-in" delayIn={50} outViewClass="fade-out">
         <FontAwesomeIcon 
             icon={icon} 
             size={size} 

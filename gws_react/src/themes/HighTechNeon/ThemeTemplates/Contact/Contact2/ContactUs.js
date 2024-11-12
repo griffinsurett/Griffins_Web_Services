@@ -56,7 +56,7 @@ function ContactUs() {
               title={info.label}
               description={info.value}
               href={info.href}
-              className="contact-info-item responsive-center flex item-align-center"
+              className="contact-info-item flex responsive responsive-center item-align-center"
             />
           ))}
         </div>
