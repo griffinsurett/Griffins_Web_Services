@@ -47,6 +47,7 @@ function Process() {
         buttonLink="#"
         buttonId="process-header-btn"
         buttonBottomMobile={true}
+        buttonSecClass={"responsive-center"}
       >
       <ProcessContainer2 steps={steps} />
       </ContentTemplate>
