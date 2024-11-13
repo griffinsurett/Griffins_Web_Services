@@ -17,7 +17,7 @@ const About = () => {
       }
       shadowClass={"left-shadow bottom"}
     >
-      <div className="about-right flex column justify-center item-align-center sticky-section w40">
+      <div className="about-right flex column justify-center item-align-center sticky-section w30">
       <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
         <Logo
           ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"

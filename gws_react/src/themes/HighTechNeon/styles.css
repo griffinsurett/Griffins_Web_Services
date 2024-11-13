@@ -27,7 +27,7 @@
 --font-size-h3: clamp(1.2rem, 1vw, 1.5rem); /* Example for H3 */
 --font-size-h4: clamp(1.5rem, 3vw, 1.7rem); /* Increase the minimum size for mobile */
 --font-size-h5: clamp(0.9rem, 2vw, 1.2rem); /* Example for H5 */
---font-size-h6: clamp(0.8rem, 2vw, 1rem); /* Example for H6 */
+--font-size-h6: clamp(0.8rem, 1.2vw, 1rem); /* Example for H6 */
 --font-size-p: clamp(1rem, 2vw, 1.1rem); /* Example for paragraphs */
 --font-size-p-xSmall: clamp(0.8rem, 1.5vw, .8rem); /* Example for extra small paragraphs */
 --font-size-p-small: clamp(0.95rem, 2vw, 1rem); /* Example for small paragraphs */

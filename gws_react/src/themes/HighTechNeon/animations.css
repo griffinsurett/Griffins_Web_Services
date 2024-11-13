@@ -12,6 +12,8 @@
     transition: var(--transition);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+
 @keyframes hover-scale-and-back {
     0% {
         transform: scale(1);
@@ -360,4 +362,5 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
 }
