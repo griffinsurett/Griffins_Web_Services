@@ -24,6 +24,16 @@ export const ThemeProvider = ({ children }) => {
     });
   };
 
+  const setThemeColorMetaTag = (color) => {
+    let themeColorMeta = document.querySelector("meta[name='theme-color']");
+    if (!themeColorMeta) {
+      themeColorMeta = document.createElement("meta");
+      themeColorMeta.name = "theme-color";
+      document.head.appendChild(themeColorMeta);
+    }
+    themeColorMeta.setAttribute("content", color);
+  };
+
   const convertHexToRgb = (hex) => {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
