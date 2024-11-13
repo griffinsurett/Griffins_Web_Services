@@ -14,7 +14,6 @@ textarea {
     flex-grow: 1;
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-normal);
-    
 }
 
 textarea {

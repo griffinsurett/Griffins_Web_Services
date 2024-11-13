@@ -16,6 +16,8 @@ const IntersectionObserverComponent = ({
   staggeredAnimation = false,
   index = 0,
   delayBase = 100,
+  tag = 'div', // Specify the element type
+  ...otherProps // Pass other props like `type`, `name`, `value`, etc.
 }) => {
   const ref = useRef(null);
   const calculatedDelay = staggeredAnimation ? index * delayBase : delayIn;
@@ -46,7 +48,6 @@ const IntersectionObserverComponent = ({
     };
   }, [inViewClass, outViewClass, threshold, rootMargin, calculatedDelay, delayOut]);
 
-  // Wrap children with StaggeredAnimation if staggeredAnimation is true
   const WrappedChildren = staggeredAnimation ? (
     <StaggeredAnimation index={index} delayBase={delayBase}>
       {children}
@@ -55,15 +56,20 @@ const IntersectionObserverComponent = ({
     children
   );
 
-  return (
-    <div ref={ref} className={`intersection-observer-wrapper ${className}`}>
-      {WrappedChildren}
-    </div>
+  // Conditionally render based on tag type
+  return tag === 'input' || tag === 'img' ? (
+    React.createElement(tag, { ref, className: `intersection-observer-wrapper ${className}`, ...otherProps })
+  ) : (
+    React.createElement(
+      tag,
+      { ref, className: `intersection-observer-wrapper ${className}`, ...otherProps },
+      WrappedChildren
+    )
   );
 };
 
 IntersectionObserverComponent.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   inViewClass: PropTypes.string,
   outViewClass: PropTypes.string,
@@ -74,6 +80,7 @@ IntersectionObserverComponent.propTypes = {
   staggeredAnimation: PropTypes.bool,
   index: PropTypes.number,
   delayBase: PropTypes.number,
+  tag: PropTypes.string,
 };
 
 export default IntersectionObserverComponent;

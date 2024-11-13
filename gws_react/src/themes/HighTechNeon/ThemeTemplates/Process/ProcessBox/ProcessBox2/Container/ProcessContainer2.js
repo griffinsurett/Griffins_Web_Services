@@ -13,6 +13,7 @@ const ProcessContainer = ({ steps }) => {
           stepNumber={step.stepNumber}
           title={step.title}
           description={step.description}
+          
         />
       ))}
     </div>
