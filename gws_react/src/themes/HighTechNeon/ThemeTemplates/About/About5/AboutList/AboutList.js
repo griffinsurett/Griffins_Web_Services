@@ -35,7 +35,9 @@ const AboutList = () => {
           key={index} 
           inViewClass="fade-in" 
           outViewClass="fade-out" 
-          delayIn={index * 200} // Stagger effect: delay each item based on index
+          staggeredAnimation={true} // Enable staggered animation
+          delayIn={200} // Stagger effect: delay each item based on index
+          className={"w50 bottom-space"} // Set width and spacing for each item
         >
           <ListItem
             hasIcon={true}
@@ -44,7 +46,7 @@ const AboutList = () => {
             titleTag="h6"
             iconPadding="17px"
             description={item.description}
-            className="custom-icon-list-item-class text-left bottom-space w50"
+            className="custom-icon-list-item-class text-left"
           />
         </IntersectionObserverComponent>
       ))}

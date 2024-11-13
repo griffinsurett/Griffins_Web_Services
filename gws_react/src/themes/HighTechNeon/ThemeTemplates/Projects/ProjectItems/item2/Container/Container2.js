@@ -9,8 +9,9 @@ const ProjectContainer = ({ projects }) => {
     <div className="project-container flex justify-center wrap top-space bottom-space">
       {projects.map((project, index) => (
         <ProjectItem 
-          key={index} // Use index as a key instead of id
+          key={index} 
           project={project} 
+          index={index} // Pass index for animation determination
         />
       ))}
     </div>

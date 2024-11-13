@@ -23,9 +23,7 @@ const About = () => {
           className="about-info-box w30 flex column item-align-center justify-center space"
           staggeredAnimation={true} // Enable staggered animation
           index={index} // Provide index for staggered delay calculation
-          delayBase={100} // Match the delay base with the one in Menu
-          inViewClass="fade-in" // Make sure these classes match exactly as well
-          outViewClass="fade-out"
+          delayBase={100} // Base delay of 100ms
         >
           <Icon icon={item.icon} size="md" className="styled-icon dynamic-border-effect" iconPadding="12px" />
           <h6 className="p-small top-space">{item.title}</h6>
