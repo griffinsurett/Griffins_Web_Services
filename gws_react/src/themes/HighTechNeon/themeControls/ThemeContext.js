@@ -31,10 +31,13 @@ export const ThemeProvider = ({ children }) => {
       ? "var(--lightBG-background-color)"
       : "var(--darkBG-background-color)";
 
-    // Get computed color to set in meta tag
+    // Force the CSS variable to be applied and retrieve the computed color
+    document.documentElement.style.setProperty("--background-color", backgroundColor);
     const computedBgColor = getComputedStyle(document.documentElement)
-      .getPropertyValue(backgroundColor)
+      .getPropertyValue("--background-color")
       .trim();
+    
+    // Set the computed background color to the theme-color meta tag
     setThemeColorMetaTag(computedBgColor);
 
     // Apply all theme-related CSS variables
@@ -57,13 +60,8 @@ export const ThemeProvider = ({ children }) => {
           "--dropshadow3": "var(--lightBG-dropshadow3)",
           "--boxShadow1": "var(--lightBG-boxShadow1)",
           "--text-shadow": "var(--lightBG-textShadow1)",
-          "--smalllogodropshadow": "var(--lightBG-smalllogodropshadow)",
-          "--largelogodropshadow": "var(--lightBG-largelogodropshadow)",
-          "--icon-border-color": "var(--lightBG-icon-border-color)",
-          "--icon-bg-color": "var(--lightBG-icon-bg-color)",
-          "--button-bg-color": "var(--lightBG-button-bg-color)",
-          "--button-hover-bg": "var(--lightBG-button-hover-bg)",
-          "--button-border": "var(--lightBG-button-border)",
+          "--smalllogodropshadow": "drop-shadow(0 0 6px var(--primary-color)) drop-shadow(0 0 8px var(--primary-color)) drop-shadow(0 3px 12px var(--primary-color))",
+          "--largelogodropshadow": "drop-shadow(0 0 10px var(--primary-color)) drop-shadow(0 0 14px var(--primary-color)) drop-shadow(0 5px 14px var(--primary-color))"
         }
       : {
           "--primary-color": "var(--darkBG-primary-color)",
@@ -86,15 +84,9 @@ export const ThemeProvider = ({ children }) => {
           "--dynamicIconBorder": "var(--darkBG-dynamicIconBorder)",
           "--dynamicIconBG": "var(--darkBG-dynamicIconBG)",
           "--dynamicIconHover": "var(--darkBG-dynamicIconHover)",
-          "--dynamicButtonHover": "var(--darkBG-dynamicButtonHover)",
-          "--icon-border-color": "var(--darkBG-icon-border-color)",
-          "--icon-bg-color": "var(--darkBG-icon-bg-color)",
-          "--button-bg-color": "var(--darkBG-button-bg-color)",
-          "--button-hover-bg": "var(--darkBG-button-hover-bg)",
-          "--button-border": "var(--darkBG-button-border)",
+          "--dynamicButtonHover": "var(--darkBG-dynamicButtonHover)"
         };
 
-    // Apply all theme variables
     Object.keys(themeVariables).forEach((key) => {
       document.documentElement.style.setProperty(key, themeVariables[key]);
     });
@@ -102,7 +94,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     applyTheme(isLightMode);
-    setCookie("theme", isLightMode ? "light" : "dark", 30); // Save theme in cookies
+    setCookie("theme", isLightMode ? "light" : "dark", 30);
   }, [isLightMode]);
 
   const toggleTheme = () => {
@@ -115,5 +107,3 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;
