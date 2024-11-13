@@ -13,14 +13,13 @@ import {
   faWandMagicSparkles,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
-import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const servicesData = [
   {
     icon: faLaptop,
     title: "Website Services",
     description:
-      "We design, develop, manage, and host custom, responsive websites that engage users and enhance your brand’s online presence..",
+      "We design, develop, manage, and host custom, responsive websites that engage users and enhance your brand’s online presence.",
     href: "#websites",
   },
   {
@@ -86,7 +85,7 @@ const Services = () => {
               title={service.title}
               description={service.description}
               href={service.href}
-              size="lg"
+              index={index} // Pass the index here
             />
           ))}
         </div>

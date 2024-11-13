@@ -1,7 +1,7 @@
 // Box.js
 
 import React from "react";
-import "./box.css"; // Ensure to create this CSS file for styling
+import "./box.css";
 import IntersectionObserverComponent from "../../ScrollAnimations";
 
 const Box = ({
@@ -9,16 +9,22 @@ const Box = ({
   children,
   href,
   delayIn = 0,
-  inViewClass = "fade-in", // Default to "fade-in"
-  outViewClass = "fade-out", // Default to "fade-out"
+  inViewClass = "scale-in",
+  outViewClass = "scale-out",
+  staggeredAnimation = true,
+  index = 0, // Default index if not provided
+  delayBase = 150, // Base delay to make staggered animation noticeable
 }) => {
   const additionalClass = href ? "dynamic-hover-border-effect" : "";
 
   const BoxContent = (
     <IntersectionObserverComponent 
-      inViewClass={inViewClass} // Use provided or default class
-      outViewClass={outViewClass} // Use provided or default class
-      delayIn={delayIn} // Use calculated delay
+      inViewClass={inViewClass} 
+      outViewClass={outViewClass} 
+      delayIn={delayIn}
+      staggeredAnimation={staggeredAnimation} // Enable staggered animation
+      index={index} // Pass index for staggered delay
+      delayBase={delayBase} // Set base delay for staggered effect
     >
       <div className={`box ${additionalClass} ${className}`}>
         {children}

@@ -1,5 +1,7 @@
+// IntersectionObserverComponent.js
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import StaggeredAnimation from './StaggeredAnimation';
 import './animations.css';
 
 const IntersectionObserverComponent = ({
@@ -9,28 +11,21 @@ const IntersectionObserverComponent = ({
   outViewClass = 'fade-out',
   threshold = 0.1,
   rootMargin = '0px',
-  delayIn = 0,   
-  delayOut = 0,  
-  applyDelayOnce = false, 
+  delayIn = 0,
+  delayOut = 0,
+  staggeredAnimation = false,
+  index = 0,
+  delayBase = 100,
 }) => {
   const ref = useRef(null);
+  const calculatedDelay = staggeredAnimation ? index * delayBase : delayIn;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const isFirstEntry = !entry.target.hasAttribute('data-has-entered');
-
           if (entry.isIntersecting) {
-            // Apply delay only on the first intersection if applyDelayOnce is true
-            if (!applyDelayOnce || isFirstEntry) {
-              entry.target.style.setProperty('--delay-in', `${delayIn / 1000}s`);
-              entry.target.setAttribute('data-has-entered', 'true');
-            } else {
-              entry.target.style.setProperty('--delay-in', '0s');
-            }
-
-            entry.target.style.setProperty('--delay-out', '0s');
+            entry.target.style.setProperty('--delay-in', `${calculatedDelay / 1000}s`);
             entry.target.classList.add(inViewClass);
             entry.target.classList.remove(outViewClass);
           } else {
@@ -40,10 +35,7 @@ const IntersectionObserverComponent = ({
           }
         });
       },
-      {
-        threshold,
-        rootMargin,
-      }
+      { threshold, rootMargin }
     );
 
     const element = ref.current;
@@ -52,24 +44,36 @@ const IntersectionObserverComponent = ({
     return () => {
       if (element) observer.unobserve(element);
     };
-  }, [inViewClass, outViewClass, threshold, rootMargin, delayIn, delayOut, applyDelayOnce]);
+  }, [inViewClass, outViewClass, threshold, rootMargin, calculatedDelay, delayOut]);
+
+  // Wrap children with StaggeredAnimation if staggeredAnimation is true
+  const WrappedChildren = staggeredAnimation ? (
+    <StaggeredAnimation index={index} delayBase={delayBase}>
+      {children}
+    </StaggeredAnimation>
+  ) : (
+    children
+  );
 
   return (
     <div ref={ref} className={`intersection-observer-wrapper ${className}`}>
-      {children}
+      {WrappedChildren}
     </div>
   );
 };
 
 IntersectionObserverComponent.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   inViewClass: PropTypes.string,
   outViewClass: PropTypes.string,
   threshold: PropTypes.number,
   rootMargin: PropTypes.string,
-  delayIn: PropTypes.number, // Accept delay in milliseconds
-  delayOut: PropTypes.number, // Accept delay in milliseconds
-  applyDelayOnce: PropTypes.bool, // New prop to control delay application
+  delayIn: PropTypes.number,
+  delayOut: PropTypes.number,
+  staggeredAnimation: PropTypes.bool,
+  index: PropTypes.number,
+  delayBase: PropTypes.number,
 };
 
 export default IntersectionObserverComponent;
