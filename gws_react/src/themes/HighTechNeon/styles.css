@@ -544,16 +544,19 @@ a {
   color: var(--darkBG-primary-color);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   :root {
     --section-gap: 60px; /* Define a variable for the gap between sections */
   }
-
+  
   .sticky-section {
     height: fit-content;
     position: sticky;
     top: 0;
 }
+}
+
+@media (min-width: 768px) {
 
   .container {
     width: var(--container-width);
@@ -588,7 +591,7 @@ a {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1024px) {
   :root {
     /* --container-width: 85%; */
     --section-gap: 20px; 
@@ -623,6 +626,10 @@ a {
 
   .responsive-spacing {
     padding: var(--primary-padding) 0;
+  }
+
+  .w10, .w20, .w30, .w40, .w50, .w60, .w70, .w80, .w90, .w100 {
+    width: var(--container-width);
   }
 }
 
@@ -680,9 +687,5 @@ a {
 
   .small-logo img {
     margin-left: 30px;
-  }
-
-  .w10, .w20, .w30, .w40, .w50, .w60, .w70, .w80, .w90, .w100 {
-    width: var(--container-width);
   }
 }

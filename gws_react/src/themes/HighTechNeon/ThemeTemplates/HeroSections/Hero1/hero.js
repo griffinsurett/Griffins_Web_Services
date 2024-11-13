@@ -43,7 +43,7 @@ const Hero1 = () => {
           applyDelayOnce={true}
         >
           <Logo
-            ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
+            ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big sticky-section"
             width="460px"
             classname=""
             responsive={true}
