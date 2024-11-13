@@ -22,15 +22,31 @@
   animation: fadeInUp 0.5s ease forwards;
 }
 
-/* Apply staggered delay */
-/* .menu-item:nth-child(1) { animation-delay: 0.1s; }
-.menu-item:nth-child(2) { animation-delay: 0.2s; }
-.menu-item:nth-child(3) { animation-delay: 0.3s; }
-.menu-item:nth-child(4) { animation-delay: 0.4s; }
-.menu-item:nth-child(5) { animation-delay: 0.5s; }
-.menu-item:nth-child(6) { animation-delay: 0.6s; }
-.menu-item:nth-child(7) { animation-delay: 0.7s; }
-.menu-item:nth-child(8) { animation-delay: 0.8s; } */
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease; /* Smooth hover scaling */
+}
+
+/* Hover effect for the link */
+.menu-link:hover {
+  color: var(--primary-color); /* Change to your desired hover color */
+}
+
+/* Smooth scaling effect for menu-item */
+.menu-item:hover .menu-item-content {
+  transform: scale(1.05); /* Slight scale-up on hover */
+}
+
+/* Optional smooth transition on the logo bullet */
+.menu-bullet-logo {
+  transition: transform 0.3s ease; /* Transition for bullet logo */
+}
+
+/* Scale the logo bullet slightly when hovered */
+.menu-item:hover .menu-bullet-logo {
+  transform: scale(1.2);
+}
 
 .menu-container.show {
   transform: translateY(0); /* Show when open */
@@ -60,5 +76,8 @@
   transition: color 0.3s ease;
 }
 
-
-
+.menu-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: white; /* Default color */
+}
