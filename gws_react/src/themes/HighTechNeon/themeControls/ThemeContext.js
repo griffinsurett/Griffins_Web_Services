@@ -13,9 +13,14 @@ export const ThemeProvider = ({ children }) => {
   });
 
   const setThemeColorMetaTag = (color) => {
-    const metaTag = document.querySelector("meta[name='theme-color']");
-    if (metaTag) {
-      metaTag.setAttribute("content", color);
+    let themeMetaTag = document.querySelector("meta[name='theme-color']");
+    if (themeMetaTag) {
+      themeMetaTag.setAttribute("content", color);
+    } else {
+      themeMetaTag = document.createElement("meta");
+      themeMetaTag.name = "theme-color";
+      themeMetaTag.content = color;
+      document.head.appendChild(themeMetaTag);
     }
   };
 
