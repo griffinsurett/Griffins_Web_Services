@@ -34,9 +34,9 @@ export const ThemeProvider = ({ children }) => {
 
   const setThemeColorMetaTag = (color) => {
     let themeMetaTag = document.querySelector("meta[name='theme-color']");
-    if (themeMetaTag) {
-      document.head.removeChild(themeMetaTag);
-    }
+    // if (themeMetaTag) {
+    //   document.head.removeChild(themeMetaTag);
+    // }
     themeMetaTag = document.createElement("meta");
     themeMetaTag.name = "theme-color";
     themeMetaTag.content = color;
