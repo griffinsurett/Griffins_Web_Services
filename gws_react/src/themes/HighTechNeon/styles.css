@@ -33,7 +33,7 @@
 --font-size-p-small: clamp(0.95rem, 2vw, 1rem); /* Example for small paragraphs */
 --font-size-p-large: clamp(1rem, 2vw, 1.4rem); /* Example for large paragraphs */
 --font-size-p-xLarge: clamp(1.2rem, 2.5vw, 1.8rem);
---font-size-navMenu: clamp(1.6rem, 3vw, 2.6rem);
+--font-size-navMenu: clamp(1.6rem, 2.7vw, 2.6rem);
   /* --emphasized-hero-header-font-size: clamp(3.5rem, 6vw, 9rem); */
   /* --section-header-font-size: clamp(3.75rem, 9vw, 4.3rem); */
 
