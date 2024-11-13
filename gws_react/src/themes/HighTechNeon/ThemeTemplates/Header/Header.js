@@ -17,7 +17,7 @@ const Header = ({ toggleMenu }) => {
         <IntersectionObserverComponent inViewClass="fade-in" outViewClass="fade-out">
           <a href="/">
             <Logo
-              ContainerClassName="flex justify-center item-align-center logo"
+              ContainerClassName="flex justify-center item-align-center logo hover-scale"
               width="45px" // Width is set, and height will be 90% of this
               classname="responsive-logo"
               everdarkLogo={false}
