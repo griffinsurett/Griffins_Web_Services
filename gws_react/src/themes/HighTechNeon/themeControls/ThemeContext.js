@@ -34,12 +34,13 @@ export const ThemeProvider = ({ children }) => {
 
   const setThemeColorMetaTag = (color) => {
     let themeMetaTag = document.querySelector("meta[name='theme-color']");
-    if (!themeMetaTag) {
-      themeMetaTag = document.createElement("meta");
-      themeMetaTag.name = "theme-color";
-      document.head.appendChild(themeMetaTag);
+    if (themeMetaTag) {
+      document.head.removeChild(themeMetaTag);
     }
+    themeMetaTag = document.createElement("meta");
+    themeMetaTag.name = "theme-color";
     themeMetaTag.content = color;
+    document.head.appendChild(themeMetaTag);
   };
 
   const applyTheme = (lightMode) => {
