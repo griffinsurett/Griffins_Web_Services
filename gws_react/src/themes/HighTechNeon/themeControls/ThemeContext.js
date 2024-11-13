@@ -2,16 +2,15 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { setCookie, getCookie } from "../../../components/cookies/cookies";
 
-// Create the Theme Context
 const ThemeContext = createContext();
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-    const [isLightMode, setIsLightMode] = useState(() => {
-      const savedMode = getCookie("theme");
-      return savedMode ? savedMode === "light" : false; // Default to dark mode
-    });
+  const [isLightMode, setIsLightMode] = useState(() => {
+    const savedMode = getCookie("theme");
+    return savedMode ? savedMode === "light" : false; // Default to dark mode
+  });
 
   const hideElementsBasedOnMode = (className, hideInLightMode) => {
     const elements = document.querySelectorAll(`.${className}`);
@@ -24,16 +23,6 @@ export const ThemeProvider = ({ children }) => {
     });
   };
 
-  const setThemeColorMetaTag = (color) => {
-    let themeColorMeta = document.querySelector("meta[name='theme-color']");
-    if (!themeColorMeta) {
-      themeColorMeta = document.createElement("meta");
-      themeColorMeta.name = "theme-color";
-      document.head.appendChild(themeColorMeta);
-    }
-    themeColorMeta.setAttribute("content", color);
-  };
-
   const convertHexToRgb = (hex) => {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
@@ -43,17 +32,34 @@ export const ThemeProvider = ({ children }) => {
       : null;
   };
 
+  const setThemeColorMetaTag = (color) => {
+    let themeMetaTag = document.querySelector("meta[name='theme-color']");
+    if (!themeMetaTag) {
+      themeMetaTag = document.createElement("meta");
+      themeMetaTag.name = "theme-color";
+      document.head.appendChild(themeMetaTag);
+    }
+    themeMetaTag.content = color;
+  };
+
   const applyTheme = (lightMode) => {
     const theme = lightMode ? "light" : "dark";
-    document.documentElement.setAttribute('data-theme', theme); // Set the theme on the HTML root element
+    document.documentElement.setAttribute("data-theme", theme);
 
     hideElementsBasedOnMode("hide-in-light", true);
     hideElementsBasedOnMode("hide-in-dark", false);
-    hideElementsBasedOnMode("complex-shadow", true);
 
-    let primaryColor = lightMode
-      ? "var(--lightBG-primary-color)"
-      : "var(--darkBG-primary-color)";
+    const backgroundColor = lightMode
+      ? "var(--lightBG-background-color)"
+      : "var(--darkBG-background-color)";
+
+    document.documentElement.style.setProperty(
+      "--background-color",
+      backgroundColor
+    );
+
+    const computedBgColor = getComputedStyle(document.documentElement).getPropertyValue(backgroundColor).trim();
+    setThemeColorMetaTag(computedBgColor);
 
     if (lightMode) {
       document.documentElement.style.setProperty(
@@ -63,10 +69,6 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--maintext-color",
         "var(--lightBG-maintext-color)"
-      );
-      document.documentElement.style.setProperty(
-        "--background-color",
-        "var(--lightBG-background-color)"
       );
       document.documentElement.style.setProperty(
         "--secondary-bg",
@@ -95,7 +97,7 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--dynamicButtonHover",
         "var(--lightBG-dynamicButtonHover)"
-      ); 
+      );
       document.documentElement.style.setProperty(
         "--dynamicIconHover",
         "var(--lightBG-dynamicIconHover)"
@@ -116,7 +118,6 @@ export const ThemeProvider = ({ children }) => {
         "--dropshadow3",
         "var(--lightBG-dropshadow3)"
       );
-
       document.documentElement.style.setProperty(
         "--boxShadow1",
         "var(--lightBG-boxShadow1)"
@@ -133,10 +134,6 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--maintext-color",
         "var(--darkBG-maintext-color)"
-      );
-      document.documentElement.style.setProperty(
-        "--background-color",
-        "var(--darkBG-background-color)"
       );
       document.documentElement.style.setProperty(
         "--secondary-bg",
@@ -165,7 +162,6 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.setProperty(
         "--boxShadow1",
         "0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 4px var(--primary-color), 0 0 4px var(--primary-color) inset, 0 0 7.5px var(--primary-color), 0 0 5px var(--primary-color) inset, 0 0 10px var(--primary-color)"
-        // "0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 4px var(--primary-color), 0 0 11px var(--primary-color) inset, 0 0 1px var(--primary-color), 0 0 1px var(--primary-color) inset, 0 0 1px var(--primary-color)"
       );
       document.documentElement.style.setProperty(
         "--boxShadow2",
@@ -213,9 +209,8 @@ export const ThemeProvider = ({ children }) => {
       );
     }
 
-    // Set the faint shadow's RGB equivalent with transparency
     const primaryColorRGB = convertHexToRgb(
-      getComputedStyle(document.documentElement).getPropertyValue(primaryColor)
+      getComputedStyle(document.documentElement).getPropertyValue(lightMode ? "var(--lightBG-primary-color)" : "var(--darkBG-primary-color)").trim()
     );
     document.documentElement.style.setProperty(
       "--primary-color-rgb",
