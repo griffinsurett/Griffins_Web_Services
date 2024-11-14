@@ -38,7 +38,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
                 <div className="menu-item-content flex item-align-center">
                   {hoveredItem === index && (
                     <Logo
-                      ContainerClassName="menu-bullet-logo"
+                      ContainerClassName="menu-bullet-logo spin-in"
                       width="25px"
                     />
                   )}

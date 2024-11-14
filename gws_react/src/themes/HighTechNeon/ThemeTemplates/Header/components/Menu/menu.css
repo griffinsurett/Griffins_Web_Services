@@ -48,12 +48,12 @@
 }
 
 .menu-item {
-  transition: color 0.5s ease, transform 0.3s ease; /* Extend color transition for smoothness */
+  /* transition: color 0.5s ease, transform 0.3s ease;  */
 }
 
 .menu-item:hover .menu-bullet-logo {
   transform: scale(1.2);
-  transition: transform 0.5s ease; /* Smoother scale transition */
+  /* transition: transform 0.5s ease;  */
 }
 
 /* Optional smooth transition on the logo bullet */
@@ -91,11 +91,11 @@
 }
 
 .menu-link {
-  transition: color 0.3s ease;
+  /* transition: color 0.3s ease; */
 }
 
 .menu-link {
-  transition: color 0.3s ease, transform 0.3s ease;
+  /* transition: color 0.3s ease, transform 0.3s ease; */
   text-decoration: none;
   color: var(--maintext-color);
 }

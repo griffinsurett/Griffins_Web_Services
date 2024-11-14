@@ -6,7 +6,7 @@ textarea {
     background: var(--gradientBG1);
     color: var(--maintext-color);
     border: var(--borderBeforeHover);
-    transition: 1s;
+    transition: 1s!important;
     font-size: var(--font-size-p-small);
     font-family: var(--font-family-sans-serif);
     outline: none;
