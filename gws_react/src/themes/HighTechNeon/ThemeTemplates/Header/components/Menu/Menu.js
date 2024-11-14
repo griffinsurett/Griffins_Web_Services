@@ -31,11 +31,11 @@ const Menu = ({ isOpen, toggleMenu }) => {
               delayBase={100} // Base delay of 100ms
             >
               <li 
-                className="menu-item"
+                className="menu-item text-shadow-for-dark-hover"
                 onMouseEnter={() => setHoveredItem(index)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                <div className="menu-item-content flex item-align-center text-shadow-for-dark-hover">
+                <div className="menu-item-content flex item-align-center">
                   {hoveredItem === index && (
                     <Logo
                       ContainerClassName="menu-bullet-logo"

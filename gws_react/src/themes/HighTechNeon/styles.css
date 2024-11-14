@@ -281,10 +281,10 @@ a {
   letter-spacing: 0.1em;
 }
 
-.text-shadow-for-dark-hover:hover, .text-shadow-for-dark-hover .menu-link:hover {
+.text-shadow-for-dark-hover:hover {
   text-shadow: var(--text-shadow);
   transition: var(--primaryTransition);
-  color: var(--everdark-color1);
+  color: var(--everdark-color1)!important;
   /* letter-spacing: 0.1em; */
 }
 

@@ -6,7 +6,6 @@
   height: 100vh;
   width: 100%;
   background: var(--background-color);
-  color: var(--maintext-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -20,6 +19,7 @@
   opacity: 0; /* Start hidden */
   transform: translateY(20px); /* Start slightly shifted down */
   animation: fadeInUp 0.5s ease forwards;
+  color: var(--maintext-color);
 }
 
 .menu-item-content {
@@ -29,13 +29,31 @@
 }
 
 /* Hover effect for the link */
-.menu-link:hover {
-  color: var(--primary-color); /* Change to your desired hover color */
+
+
+.menu-item {
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start slightly shifted down */
+  animation: fadeInUp 0.5s ease forwards;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Add smooth transition for appearance */
 }
 
-/* Smooth scaling effect for menu-item */
+.menu-item:hover li.menu-item {
+  color: var(--everdark-color1)!important;
+}
+
 .menu-item:hover .menu-item-content {
   transform: scale(1.05); /* Slight scale-up on hover */
+  transition: transform 0.5s ease; /* Smooth scaling effect */
+}
+
+.menu-item {
+  transition: color 0.5s ease, transform 0.3s ease; /* Extend color transition for smoothness */
+}
+
+.menu-item:hover .menu-bullet-logo {
+  transform: scale(1.2);
+  transition: transform 0.5s ease; /* Smoother scale transition */
 }
 
 /* Optional smooth transition on the logo bullet */
@@ -81,3 +99,7 @@
   text-decoration: none;
   color: var(--maintext-color);
 }
+
+/* .menu-item-link:hover {
+  color: var(--everdark-color1);
+} */
