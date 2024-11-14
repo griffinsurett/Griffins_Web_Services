@@ -31,7 +31,7 @@ textarea:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active {
-    background: var(--transparentFade-bg1) !important; /* Match normal background */
+    /* background: var(--background-color) !important;  */
     -webkit-background-clip: text;
     -webkit-text-fill-color: var(--maintext-color);
     transition: background-color 5000s ease-in-out 0s; /* Keep the transition */
