@@ -1,3 +1,4 @@
+// ContactUs.js
 import React from "react";
 import { getCollection } from "../../../../../CMS/Utils/GetCollection";
 import InputField from "../../../themeComponents/Form-Fields/InputField";
@@ -6,7 +7,6 @@ import Button from "../../../themeComponents/Buttons/Button";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import Section from "../../../themeComponents/Section/Section";
 import IconListItem from "../../../themeComponents/ListItem/ListItem";
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons"; // Import fallback icons
 import "./contact-us.css";
 
 function ContactUs() {
@@ -39,13 +39,7 @@ function ContactUs() {
             <IconListItem
               key={index}
               hasIcon={true}
-              icon={
-                info.icon === "faPhone"
-                  ? faPhone
-                  : info.icon === "faEnvelope"
-                  ? faEnvelope
-                  : null // Add additional icon mapping if necessary
-              }
+              icon={info.icon} // Dynamically source icons from Content.js
               title={info.label}
               description={info.value}
               href={info.href}

@@ -5,24 +5,6 @@ import "./services.css";
 import ContentTemplate from "../../themeComponents/ContentTemplate/ContentTemplate";
 import Section from "../../themeComponents/Section/Section";
 import ServiceBox from "./ServiceBox/ServiceBox";
-import {
-  faLaptop,
-  faChartLine,
-  faPaintBrush,
-  faRobot,
-  faWandMagicSparkles,
-  faGlobe,
-} from "@fortawesome/free-solid-svg-icons";
-
-// Icon mapping
-const iconMapping = {
-  faLaptop: faLaptop,
-  faChartLine: faChartLine,
-  faPaintBrush: faPaintBrush,
-  faRobot: faRobot,
-  faWandMagicSparkles: faWandMagicSparkles,
-  faGlobe: faGlobe,
-};
 
 const Services = () => {
   const servicesContent = getCollection("services");
@@ -52,7 +34,7 @@ const Services = () => {
           {servicesContent.items.map((service, index) => (
             <ServiceBox
               key={index}
-              icon={iconMapping[service.icon] || faLaptop} // Dynamically map icon
+              icon={service.icon} // Dynamically use the icon from Content.js
               title={service.title}
               description={service.description}
               href={service.href}

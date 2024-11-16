@@ -7,9 +7,7 @@ import Button from "../../../themeComponents/Buttons/Button";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import Section from "../../../themeComponents/Section/Section";
 import IconListItem from "../../../themeComponents/ListItem/ListItem";
-import IntersectionObserverComponent from "../../../ScrollAnimations";
 import "./contact-us.css";
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons"; // Import fallback icons
 
 function ContactUs() {
   const contactContent = getCollection("contact");
@@ -40,13 +38,7 @@ function ContactUs() {
             <IconListItem
               key={index}
               hasIcon={true}
-              icon={
-                info.icon === "faPhone"
-                  ? faPhone
-                  : info.icon === "faEnvelope"
-                  ? faEnvelope
-                  : null // Add additional icon mapping if necessary
-              }
+              icon={info.icon} // Use the icon directly from the Content.js
               title={info.label}
               description={info.value}
               href={info.href}
@@ -97,13 +89,11 @@ function ContactUs() {
           </div>
         </div>
 
-        <IntersectionObserverComponent inViewClass="fade-in" delayIn={300}>
-          <Button
-            type="submit"
-            text={contactContent.button.text}
-            className="p-large self-right"
-          />
-        </IntersectionObserverComponent>
+        <Button
+          type="submit"
+          text={contactContent.button.text}
+          className="p-large self-right"
+        />
       </form>
     </Section>
   );

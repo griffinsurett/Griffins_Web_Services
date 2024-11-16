@@ -1,47 +1,33 @@
-// social-icons.js
+// SocialIcons.js
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import { getCollection } from "../../../../CMS/Utils/GetCollection"; // Adjust the path
-import "./social-icons.css";
-
-// Map platform names to FontAwesome icons
-const iconMapping = {
-  faFacebook: faFacebook,
-  faTwitter: faTwitter,
-  faInstagram: faInstagram,
-  faLinkedin: faLinkedin,
-};
+import { getCollection } from "../../../../CMS/Utils/GetCollection";
+import Icon from "../Icon/Icon"; // Import your Icon component
+import "./social-icons.css"; // Assuming you have some CSS for styling
 
 const SocialIcons = () => {
-  const contactCollection = getCollection("contact");
+  const contactContent = getCollection("contact"); // Fetch the contact collection
 
-  if (!contactCollection || !contactCollection.socialMedia) {
-    console.error("Error: Social media links not found in contact collection.");
-    return null;
+  if (!contactContent || !contactContent.socialMedia) {
+    console.error("Social media content not found in contact collection");
+    return null; // Return null if there's no social media content
   }
 
   return (
     <div className="social-icons space">
       <div className="social-icon flex justify-between">
-        {contactCollection.socialMedia.map((socialMedia) => (
+        {contactContent.socialMedia.map((socialMedia, index) => (
           <a
-            key={socialMedia.platform}
+            key={index}
             href={socialMedia.href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={socialMedia.platform}
             className="hover-scale"
           >
-            <FontAwesomeIcon
-              icon={iconMapping[socialMedia.icon]}
-              size="lg"
-              className=""
+            <Icon
+              icon={socialMedia.icon} // Use icon from the socialMedia array
+              size="lg" // Adjust size if needed
+              className="" // No additional class for styling
             />
           </a>
         ))}

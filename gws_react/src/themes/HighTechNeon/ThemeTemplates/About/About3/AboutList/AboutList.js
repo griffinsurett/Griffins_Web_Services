@@ -3,7 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import ListItem from "../../../../themeComponents/ListItem/ListItem";
 import IntersectionObserverComponent from "../../../../ScrollAnimations";
-import { faCode } from "@fortawesome/free-solid-svg-icons"; // Fallback icon if not provided
 
 const AboutList = ({ items }) => {
   return (
@@ -19,7 +18,7 @@ const AboutList = ({ items }) => {
         >
           <ListItem
             hasIcon={true}
-            icon={item.icon || faCode} // Use provided icon or fallback to faCode
+            icon={item.icon} // Use the provided icon or fallback to faCode
             title={item.title}
             titleTag="h6"
             iconPadding="17px"
@@ -37,7 +36,7 @@ AboutList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      icon: PropTypes.object, // Optional icon
+      icon: PropTypes.object, // Icon from Content.js
     })
   ).isRequired,
 };

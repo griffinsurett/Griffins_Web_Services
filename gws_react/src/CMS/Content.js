@@ -1,4 +1,22 @@
 // Content.js
+// Import all required icons
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+  faLaptop,
+  faChartLine,
+  faWandMagicSparkles,
+  faPaintBrush,
+  faRobot,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
+
 // Define site settings separately
 const siteSettings = {
   siteTitle: "Griffin's Web Services",
@@ -28,18 +46,22 @@ const collections = [
       {
         title: "Clear Communication",
         description: "We speak your language, not tech jargon.",
+        icon: faLaptop,
       },
       {
         title: "Customized Solutions",
         description: "We tailor our services to your unique needs.",
+        icon: faLaptop,
       },
       {
         title: "Transparency and Honesty",
         description: "We're open and honest in all our dealings.",
+        icon: faLaptop,
       },
       {
         title: "Quality Assurance",
         description: "We maintain high standards in our work.",
+        icon: faLaptop,
       },
     ],
   },
@@ -50,13 +72,13 @@ const collections = [
     paragraph: `Discover answers to common questions about ${siteSettings.siteTitle}.`,
     contactInfo: [
       {
-        icon: "faPhone",
+        icon: faPhone,
         label: "Phone",
         value: "(732) 939-1309",
         href: "tel:7329391309",
       },
       {
-        icon: "faEnvelope",
+        icon: faEnvelope,
         label: "Email",
         value: "griffin@griffinswebservices.com",
         href: "mailto:griffin@griffinswebservices.com",
@@ -66,22 +88,22 @@ const collections = [
       {
         platform: "Facebook",
         href: "https://facebook.com/griffinswebservices",
-        icon: "faFacebook",
+        icon: faFacebook,
       },
       {
         platform: "Twitter",
         href: "https://twitter.com/griffinswebservices",
-        icon: "faTwitter",
+        icon: faTwitter,
       },
       {
         platform: "LinkedIn",
         href: "https://linkedin.com/company/griffins-web-services",
-        icon: "faLinkedin",
+        icon: faLinkedin,
       },
       {
         platform: "Instagram",
         href: "https://instagram.com/griffinswebservices",
-        icon: "faInstagram",
+        icon: faInstagram,
       },
     ],
     formFields: [
@@ -103,42 +125,42 @@ const collections = [
     button: { text: "Get Started", link: "#" },
     items: [
       {
-        icon: "faLaptop",
+        icon: faLaptop,
         title: "Website Services",
         description:
           "We design, develop, manage, and host custom, responsive websites that engage users and enhance your brand’s online presence.",
         href: "#websites",
       },
       {
-        icon: "faChartLine",
+        icon: faChartLine,
         title: "Digital Marketing",
         description:
           "Boost your brand’s reach with our SEO, influencer, social media, and targeted digital ad campaigns.",
         href: "#digital-marketing",
       },
       {
-        icon: "faWandMagicSparkles",
+        icon: faWandMagicSparkles,
         title: "Branding and Identity",
         description:
           "Build a strong, memorable brand identity that resonates with your audience through impactful visuals and strategic messaging.",
         href: "#branding",
       },
       {
-        icon: "faPaintBrush",
+        icon: faPaintBrush,
         title: "Graphic Design",
         description:
           "Capture attention with unique logos and visual designs that communicate your brand’s identity.",
         href: "#graphic-design",
       },
       {
-        icon: "faRobot",
+        icon: faRobot,
         title: "AI and Automation",
         description:
           "Boost efficiency with AI-powered automation solutions that streamline workflows and provide actionable insights.",
         href: "#ai",
       },
       {
-        icon: "faGlobe",
+        icon: faGlobe,
         title: "Software Consulting",
         description:
           "Get expert guidance on selecting and implementing tech solutions to support your business goals.",
@@ -314,13 +336,13 @@ const collections = [
           "Our goal is to make our clients happy and satisfied with our services. If for any reason you wish to cancel your monthly plan, just let us know.",
       },
       {
-        title: "How does Griffin's Web Services handle security, and what ongoing support is provided?",
+        title: `How does ${siteSettings.siteTitle} handle security, and what ongoing support is provided?`,
         content:
           `At ${siteSettings.siteTitle}, security is a priority for every site we build. We carefully choose trusted plugins and top-tier hosting services, known for their robust security measures, for all our clients. However, ongoing maintenance requires an extended management plan.`,
       },
       {
         title:
-          "Privacy Policies, Terms and Conditions, etc. How does Griffin's Web Services clarify to users information about these types of privacy issues?",
+          `Privacy Policies, Terms and Conditions, etc. How does ${siteSettings.siteTitle} clarify to users information about these types of privacy issues?`,
         content:
           "We are not legal experts and recommend consulting with a lawyer to ensure compliance with all privacy and legal regulations.",
       },
@@ -333,7 +355,7 @@ const collections = [
         title:
           "I run a restaurant and I'm looking for a website that can handle reservations and online orders. Can Griffin's Web Services help with this?",
         content:
-          "Absolutely! At Griffin’s Web Services, we specialize in building custom websites for restaurants and various other local businesses. We can seamlessly integrate popular reservation platforms and develop a custom reservation system.",
+          `Absolutely! At ${siteSettings.siteTitle}, we specialize in building custom websites for restaurants and various other local businesses. We can seamlessly integrate popular reservation platforms and develop a custom reservation system.`,
       },
       {
         title: "Can you help me with social media?",
