@@ -1,38 +1,57 @@
-// About.js - about.2
+// About2 - About.js
 import React from "react";
-import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate"; // Updated import to ContentTemplate
+import { getCollection } from "../../../../../CMS/Utils/GetCollection";
+import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import "./about.css";
+import "../../../styled-circle.css";
 import Section from "../../../themeComponents/Section/Section";
+import AboutList from "./AboutList/AboutList";
+import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
 
 const About = () => {
+  const aboutContent = getCollection("about");
+
+  if (!aboutContent) {
+    return <div>Error: About content not found</div>;
+  }
+
   return (
     <Section
-      className={"flex justify-center full-height"}
-      shadowClass={"right-shadow bottom"}
+      id="about"
+      className="about flex item-align-center justify-center full-height column responsive responsive-center responsive-spacing margin-center"
+      shadowClass="left-shadow bottom"
     >
-        <ContentTemplate
-          ifButton={true}
-          ifParagraph={true}
-          heading="Who We Are" // Large heading
-          title="About Us" // Smaller title
-          paragraphClass={
-            "flex justify-center column about-paragraphs w-60"
-          }
-          paragraph1={
-            "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
-          }
-          paragraph1Class={"top-paragraph p-large bottom-space"}
-          paragraph2={
-            "Griffin’s Web Services is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations."
-          }
-          paragraph2Class={"bottom-paragraph responsive-spacing"}
-          buttonText="Learn More"
-          buttonLink="#"
-          buttonId="about-header-btn"
-          buttonBottom={true}
-          buttonClass={"responsive-spacing"}
-          className={"w60 bottom-space justify-center item-align-center column text-center"}
-        />
+      <ContentTemplate
+        className="text-center justify-center item-align-center"
+        ifParagraph={true}
+        heading={aboutContent.heading}
+        title={aboutContent.title}
+        contentWrapClass="column bottom-space"
+        paragraph1={aboutContent.paragraphs[0]}
+        paragraph1Class="top-paragraph p-medium bottom-space right-space left-space"
+        textSectionClass="smaller-bottom-space"
+        buttonText={aboutContent.button.text}
+        buttonLink={aboutContent.button.link}
+        buttonId="about-header-btn"
+        buttonSecClass="responsive-container top-space item-align-center justify-center margin-center"
+        isHero={false}
+        buttonBottom={true}
+      >
+        <div className="about-info flex responsive responsive-center box-gap justify-between-section">
+          <div className="about-right w40 flex column justify-center item-align-center sticky-section">
+            <Logo
+              ContainerClassName="flex justify-left item-align-start logo logo-drop-shadow-big"
+              width="360px"
+              classname=""
+              responsive={true}
+              everdarkLogo={true}
+            />
+          </div>
+          <div className="about flex item-align-start w50">
+            <AboutList items={aboutContent.items} />
+          </div>
+        </div>
+      </ContentTemplate>
     </Section>
   );
 };

@@ -1,55 +1,17 @@
 // Projects.js
 import React from "react";
+import { getCollection } from "../../../../CMS/Utils/GetCollection";
 import Section from "../../themeComponents/Section/Section";
 import ContentTemplate from "../../themeComponents/ContentTemplate/ContentTemplate";
-import ProjectContainer2 from "./ProjectItems/item2/Container/Container2"; // Import the new ProjectContainer
-import "./projects.css"; // Ensure to keep unique styles for projects
+import ProjectContainer2 from "./ProjectItems/item2/Container/Container2"; // Import the desired container
+import "./projects.css";
 
 const Projects = () => {
-  const projects = [
-    {
-      name: "i-75 CPA Review",
-      description:
-        "Developed multiple e-commerce sites with landing pages, branding, and digital marketing solutions.",
-      link: "https://i75cpareview.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-    {
-      name: "Faria's Demolition",
-      description:
-        "Created a comprehensive website showcasing demolition services, including project galleries and contact forms.",
-      link: "https://fariasdemolition.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-    {
-      name: "Pronto Junk Removal",
-      description:
-        "Built a service-oriented site with booking functionality and optimized for lead generation in junk removal.",
-      link: "https://prontojunkremovalnj.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-    {
-      name: "Koi Solar",
-      description:
-        "Designed a clean, informative site to promote solar solutions, emphasizing brand trust and environmental impact.",
-      link: "https://koisolarofficial.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-    {
-      name: "Certified Bag Chasers",
-      description:
-        "Created a personal brand website for a best-selling author and course creator, featuring courses, testimonials, and community-building resources.",
-      link: "https://certifiedbagchasers.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-    {
-      name: "Koi Crest Marketing",
-      description:
-        "Built a digital marketing agency website with case studies and service offerings, highlighting client success stories.",
-      link: "https://koicrest.com/", // Placeholder image link
-      image: "https://picsum.photos/200/300", // Image URL
-    },
-  ];
+  const projectsContent = getCollection("projects");
+
+  if (!projectsContent) {
+    return <div>Error: Projects content not found</div>;
+  }
 
   return (
     <Section
@@ -62,19 +24,19 @@ const Projects = () => {
         textSectionClass={"smaller-top-space responsive-center"}
         ifButton={true}
         buttonBottom={true}
-        heading="Our Work"
-        title="Our Projects"
-        buttonText="More Projects"
-        buttonLink="#"
+        heading={projectsContent.heading}
+        title={projectsContent.title}
+        buttonText={projectsContent.button.text}
+        buttonLink={projectsContent.button.link}
         buttonId="projects-header-btn"
         buttonSecClass="space"
         ifParagraph={true}
         paragraphClass={"text-right"}
-        paragraph1="Discover our recent projects and see how we've helped businesses like yours succeed."
+        paragraph1={projectsContent.paragraph}
         paragraphSide={true}
         paragraph1Class={"p-large responsive-center"}
       >
-        <ProjectContainer2 projects={projects} />
+        <ProjectContainer2 projects={projectsContent.items} />
       </ContentTemplate>
     </Section>
   );

@@ -1,48 +1,43 @@
 // About1 - About.js
 import React from "react";
+import { getCollection } from "../../../../../CMS/Utils/GetCollection";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import "./about.css";
 import "../../../styled-circle.css";
-import Section from "../../../themeComponents/Section/Section"; // Import your Section component
+import Section from "../../../themeComponents/Section/Section";
 
 const About = () => {
+  const aboutContent = getCollection("about");
+
+  if (!aboutContent) {
+    return <div>Error: About content not found</div>;
+  }
+
   return (
     <Section
       id="about"
-      className={
-        "about flex item-align-center justify-center full-height column responsive responsive-center responsive-spacing"
-      }
-      shadowClass={"left-shadow bottom"}
+      className="about flex item-align-center justify-center full-height column responsive responsive-center responsive-spacing"
+      shadowClass="left-shadow bottom"
     >
       <ContentTemplate
         ifButton={true}
         ifParagraph={true}
-        heading="Who We Are" // Large heading for the section
-        title="About Us" // Smaller title for the section
+        heading={aboutContent.heading}
+        title={aboutContent.title}
         contentWrapClass="column"
-        paragraphClass={
-          "flex justify-center column about-paragraphs responsive-center"
-        }
-        paragraph1={
-          "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
-        }
-        paragraph1Class={
-          "top-paragraph p-xLarge bottom-space text-left half-column self-left"
-        }
-        paragraph2={
-          "Griffin’s Web Services is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations."
-        }
-        paragraph2Class={
-          "bottom-paragraph text-left half-column self-right negative-top responsive-right"
-        }
+        paragraphClass="flex justify-center column about-paragraphs responsive-center"
+        paragraph1={aboutContent.paragraphs[0]}
+        paragraph1Class="top-paragraph p-xLarge bottom-space text-left half-column self-left"
+        paragraph2={aboutContent.paragraphs[1]}
+        paragraph2Class="bottom-paragraph text-left half-column self-right negative-top responsive-right bottom-space"
         textSectionClass="smaller-bottom-space"
-        buttonText="Learn More"
-        buttonLink="#"
+        buttonText={aboutContent.button.text}
+        buttonLink={aboutContent.button.link}
         buttonId="about-header-btn"
-        buttonClass={"self-right"}
-        buttonBottom={true} // Ensures the button appears below the paragraphs
-        buttonSecClass={"half-column self-right responsive-container top-space"}
-        isHero={false} // Since this is a section, not a hero
+        buttonClass="self-right"
+        buttonBottom={true}
+        buttonSecClass="half-column self-right responsive-container top-space"
+        isHero={false}
       />
     </Section>
   );

@@ -1,36 +1,45 @@
 // AboutList.js
-
 import React from "react";
-import Box from "../../../../themeComponents/Box/Box";
-import Icon from "../../../../themeComponents/Icon/Icon";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
+import ListItem from "../../../../themeComponents/ListItem/ListItem";
+import IntersectionObserverComponent from "../../../../ScrollAnimations";
+import { faCode } from "@fortawesome/free-solid-svg-icons"; // Fallback icon if not provided
 
-const About = () => {
-  const listItems = [
-    { title: 'Clear Communication, Limited "Tech Talk"', icon: faCode },
-    { title: "Customized Solutions That Fit Your Needs", icon: faCode },
-    { title: "Transparency and Honesty", icon: faCode },
-    { title: "Results That Drive Your Business Forward", icon: faCode },
-    { title: "Experienced, Friendly Professionals Who Care", icon: faCode },
-    { title: "A Local, Jersey Shore-Based", icon: faCode },
-  ];
-
+const AboutList = ({ items }) => {
   return (
-    <div className="about-icon-list flex justify-center item-align-center wrap text-center box-gap">
-      {listItems.map((item, index) => (
-        <Box 
-          key={index}
-          className="about-info-box w30 flex column item-align-center justify-center space"
-          staggeredAnimation={true} // Enable staggered animation
-          index={index} // Provide index for staggered delay calculation
-          delayBase={100} // Base delay of 100ms
+    <div className="about-icon-list flex justify-center item-align-start wrap">
+      {items.map((item, index) => (
+        <IntersectionObserverComponent 
+          key={index} 
+          inViewClass="fade-in" 
+          outViewClass="fade-out" 
+          staggeredAnimation={true}
+          delayIn={200}
+          className={"w50 bottom-space"}
         >
-          <Icon icon={item.icon} size="md" className="styled-icon dynamic-border-effect" iconPadding="12px" />
-          <h6 className="p-small top-space">{item.title}</h6>
-        </Box>
+          <ListItem
+            hasIcon={true}
+            icon={item.icon || faCode} // Use provided icon or fallback to faCode
+            title={item.title}
+            titleTag="h6"
+            iconPadding="17px"
+            description={item.description}
+            className="custom-icon-list-item-class text-left"
+          />
+        </IntersectionObserverComponent>
       ))}
     </div>
   );
 };
 
-export default About;
+AboutList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      icon: PropTypes.object, // Optional icon
+    })
+  ).isRequired,
+};
+
+export default AboutList;

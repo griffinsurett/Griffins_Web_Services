@@ -1,9 +1,11 @@
+// ContentTemplate.js
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./content-template.css";
 import Button from "../Buttons/Button";
 import Typewriter from "../TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
 import IntersectionObserverComponent from "../../ScrollAnimations";
+import ScaleUpTypewriter from "../TextEffects/Typewriter/ScaleUpTypewriter/ScaleUpTypewriter";
 
 const ContentTemplate = ({
   title,
@@ -51,42 +53,48 @@ const ContentTemplate = ({
       <div className={`content-top-section flex ${contentWrapClass}`}>
         <div className={`title-heading-container column ${textSectionClass}`}>
           {title && (
-            <IntersectionObserverComponent inViewClass="fade-in-down" outViewClass="fade-out">
-            <h5 className={`content-title smaller-bottom-space ${titleClass}`}>
-              {title}
-            </h5>
+            <IntersectionObserverComponent
+              inViewClass="fade-in-down"
+              outViewClass="fade-out"
+            >
+              <h5
+                className={`content-title smaller-bottom-space ${titleClass}`}
+              >
+                {title}
+              </h5>
             </IntersectionObserverComponent>
           )}
           {heading &&
             (isHero ? (
-              <IntersectionObserverComponent inViewClass="fade-in-up" outViewClass="fade-out">
-              <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
-                {heading}
-              </h1>
+              <IntersectionObserverComponent
+                inViewClass="fade-in-up"
+                outViewClass="fade-out"
+              >
+                <h1 className={`bold ${headingClass} text-shadow-for-dark`}>
+                  {/* <ScaleUpTypewriter text={heading} speed={100} className="content-title smaller-bottom-space" /> */}
+                  {heading}
+                </h1>
               </IntersectionObserverComponent>
             ) : (
-              <IntersectionObserverComponent inViewClass="fade-in-up" outViewClass="fade-out">
-              <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
-                {heading}
-              </h2>
+              <IntersectionObserverComponent
+                inViewClass="fade-in-up"
+                outViewClass="fade-out"
+              >
+                <h2 className={`bold ${headingClass} text-shadow-for-dark`}>
+                  {heading}
+                </h2>
               </IntersectionObserverComponent>
             ))}
-
           {ifParagraph && !paragraphSide && (
-          <IntersectionObserverComponent inViewClass="fade-in-down" outViewClass="fade-out">
             <div className={`content-template-paragraphs ${paragraphClass}`}>
-              {paragraph1 && (
-                <p className={paragraph1Class}>
-                  {paragraph1}
-                </p>
-              )}
-              {paragraph2 && (
-                <p className={paragraph2Class}>
-                 {paragraph2}
-                </p>
-              )}
+              <IntersectionObserverComponent
+                inViewClass="fade-in-down"
+                outViewClass="fade-out"
+              >
+                {paragraph1 && <p className={paragraph1Class}>{paragraph1}</p>}
+                {paragraph2 && <p className={paragraph2Class}>{paragraph2}</p>}
+              </IntersectionObserverComponent>
             </div>
-            </IntersectionObserverComponent>
           )}
         </div>
 
@@ -94,42 +102,47 @@ const ContentTemplate = ({
         {showSideContentContainer && (
           <div className="side-content-container flex column justify-center">
             {paragraphSide && ifParagraph && (
-              <div
-                className={`content-template-paragraphs-side ${paragraphClass}`}
+              <IntersectionObserverComponent
+                inViewClass="fade-in-down"
+                delayIn={300}
+                outViewClass="fade-out"
               >
-                {paragraph1 && (
-                <IntersectionObserverComponent inViewClass="fade-in-down" delayIn={300} outViewClass="fade-out">
-                  <p className={paragraph1Class}>
-                    {paragraph1}
-                  </p>
-                  </IntersectionObserverComponent>
-                )}
-                {paragraph2 && (
-                <IntersectionObserverComponent inViewClass="fade-in" delayIn={300} outViewClass="fade-out">
-                  <p className={paragraph2Class}>
-                    {paragraph2}
-                  </p>
-                  </IntersectionObserverComponent>
-                )}
-              </div>
+                <div
+                  className={`content-template-paragraphs-side ${paragraphClass}`}
+                >
+                  {paragraph1 && (
+                    <p className={paragraph1Class}>{paragraph1}</p>
+                  )}
+                  {paragraph2 && (
+                    <p className={paragraph2Class}>{paragraph2}</p>
+                  )}
+                </div>
+              </IntersectionObserverComponent>
             )}
 
             {/* Side Button Content - hides on mobile if buttonBottomMobile is true */}
-            {buttonSide && ifButton && !buttonBottom && (!isMobile || !buttonBottomMobile) && (
-              <div
-                className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
-              >
-                <IntersectionObserverComponent inViewClass="fade-in-right" delayIn={400} outViewClass="fade-out">
-                <Button
-                  text={buttonText}
-                  buttonLink={buttonLink}
-                  className={`p-small ${buttonClass}`}
-                  buttonId={buttonId}
-                  onClick={onClick}
-                />
-                </IntersectionObserverComponent>
-              </div>
-            )}
+            {buttonSide &&
+              ifButton &&
+              !buttonBottom &&
+              (!isMobile || !buttonBottomMobile) && (
+                <div
+                  className={`${buttonSecClass} content-template-btn responsive-spacing flex item-align-center`}
+                >
+                  <IntersectionObserverComponent
+                    inViewClass="fade-in-right"
+                    delayIn={400}
+                    outViewClass="fade-out"
+                  >
+                    <Button
+                      text={buttonText}
+                      buttonLink={buttonLink}
+                      className={`p-small ${buttonClass}`}
+                      buttonId={buttonId}
+                      onClick={onClick}
+                    />
+                  </IntersectionObserverComponent>
+                </div>
+              )}
           </div>
         )}
       </div>
@@ -142,14 +155,18 @@ const ContentTemplate = ({
         <div
           className={`content-template-btn-bottom top-space ${buttonSecClass}`}
         >
-          <IntersectionObserverComponent inViewClass="fade-in-up" delayIn={400} outViewClass="fade-out">
-          <Button
-            text={buttonText}
-            buttonLink={buttonLink}
-            className={`p-small ${buttonClass}`}
-            buttonId={buttonId}
-            onClick={onClick}
-          />
+          <IntersectionObserverComponent
+            inViewClass="fade-in-up"
+            delayIn={400}
+            outViewClass="fade-out"
+          >
+            <Button
+              text={buttonText}
+              buttonLink={buttonLink}
+              className={`p-small ${buttonClass}`}
+              buttonId={buttonId}
+              onClick={onClick}
+            />
           </IntersectionObserverComponent>
         </div>
       )}

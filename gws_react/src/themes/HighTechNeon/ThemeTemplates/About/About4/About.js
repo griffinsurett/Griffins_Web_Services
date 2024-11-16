@@ -1,63 +1,61 @@
-// About4 - About.js
+// About.js
 import React from "react";
+import { getCollection } from "../../../../../CMS/Utils/GetCollection";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
 import "./about.css";
 import "../../../styled-circle.css";
-import Section from "../../../themeComponents/Section/Section"; // Import your Section component
+import Section from "../../../themeComponents/Section/Section";
 import AboutList from "./AboutList/AboutList";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
+import IntersectionObserverComponent from "../../../ScrollAnimations";
 
 const About = () => {
+  const aboutContent = getCollection("about");
+
+  if (!aboutContent) {
+    return <div>Error: About content not found</div>;
+  }
+
   return (
     <Section
       id="about"
       className={
-        "about flex item-align-center justify-center full-height column responsive responsive-center responsive-spacing w80 margin-center"
+        "about flex item-align-start justify-between-section full-height responsive responsive-center responsive-spacing margin-center box-gap"
       }
       shadowClass={"left-shadow bottom"}
     >
+      <div className="about-right flex column justify-center item-align-center sticky-section w30">
+        <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
+          <Logo
+            ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
+            width="460px"
+            classname=""
+            responsive={true}
+            everdarkLogo={true}
+          />
+        </IntersectionObserverComponent>
+      </div>
+
       <ContentTemplate
-        className={"text-center"}
+        className={"text-left justify-left item-align-start w60"}
         ifButton={true}
         ifParagraph={true}
-        heading="Who We Are" // Large heading for the section
-        title="About Us" // Smaller title for the section
+        heading={aboutContent.heading}
+        title={aboutContent.title}
         contentWrapClass="column bottom-space"
-        paragraph1={
-          "Discover Griffin's Web Services: Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design."
-        }
-        paragraph1Class={
-          "top-paragraph p-xLarge bottom-space"
-        }
-        paragraph2={
-          "Griffin’s Web Services is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations."
-        }
-        paragraph2Class={
-          "bottom-paragraph self-right negative-top responsive-right"
-        }
+        paragraph1={aboutContent.paragraphs[0]}
+        paragraph1Class={"top-paragraph p-medium bottom-space"}
         textSectionClass="smaller-bottom-space"
-        buttonText="Learn More"
-        buttonLink="#"
+        buttonText={aboutContent.button.text}
+        buttonLink={aboutContent.button.link}
         buttonId="about-header-btn"
-        // buttonClass={"self-right"}
-        // buttonBottom={true}
-        buttonSecClass={"responsive-container top-space item-align-center justify-center margin-center"}
-        isHero={false} // Since this is a section, not a hero
+        buttonSecClass={"responsive-container self-left"}
+        isHero={false}
+        buttonBottom={true}
       >
-        <div className="about-info flex">
         <div className="about flex item-align-start">
-        <AboutList />
+          <AboutList items={aboutContent.items} />
         </div>
-        {/* <div className="about-right w40 flex column justify-center item-align-center sticky-section">
-        <Logo
-          ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
-          width="460px" // Width is set, and height will be 90% of this
-          classname=""
-          responsive={true}
-          everdarkLogo={true}
-        />
-      </div> */}
-      </div>
       </ContentTemplate>
     </Section>
   );

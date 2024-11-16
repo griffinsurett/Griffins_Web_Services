@@ -12,12 +12,10 @@ import Hero1 from "./ThemeTemplates/HeroSections/Hero1/hero";
 import About1 from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
 import About3 from "./ThemeTemplates/About/About3/About";
-import About4 from "./ThemeTemplates/About/About4/About";
-import About5 from "./ThemeTemplates/About/About5/About";
-import WhyChooseUs from "./ThemeTemplates/WhyChooseUs/WhyChooseUs1/WhyChooseUs";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
 import ContactUs from "./ThemeTemplates/Contact/Contact1/ContactUs";
+// import ContactUs2 from "./ThemeTemplates/Contact/Contact2/ContactUs";
 import Menu from "./ThemeTemplates/Header/components/Menu/Menu";
 import Projects from "./ThemeTemplates/Projects/Projects";
 import Process from "./ThemeTemplates/Process/Process";
@@ -68,19 +66,18 @@ const Theme = () => {
               <Hero1 />
               {/* <Hero2 /> */}
               <Services />
-              {/* <About3 /> */}
-              {/* <About4 /> */}
+              <About3 />
               {/* <About1 /> */}
-              <About5 />
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
-              <Process />
+              {/* <Process /> */}
               <Projects />
               <Testimonials />
-              <PricingTable />
+              {/* <PricingTable /> */}
               <FAQ />
               <ContactUs />
-              {/* <Subscribe /> */}
+              {/* <ContactUs2 /> */}
+              <Subscribe />
             </div>
           </div>
           <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu} />

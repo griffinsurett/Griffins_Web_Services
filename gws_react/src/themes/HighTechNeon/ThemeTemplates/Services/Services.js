@@ -1,12 +1,12 @@
 // Services.js
 import React from "react";
-import "./services.css"; // Ensure to keep unique styles for services
+import { getCollection } from "../../../../CMS/Utils/GetCollection";
+import "./services.css";
 import ContentTemplate from "../../themeComponents/ContentTemplate/ContentTemplate";
 import Section from "../../themeComponents/Section/Section";
-import ServiceBox from "./ServiceBox/ServiceBox"; // Import the ServiceBox component
+import ServiceBox from "./ServiceBox/ServiceBox";
 import {
   faLaptop,
-  faLaptopCode,
   faChartLine,
   faPaintBrush,
   faRobot,
@@ -14,63 +14,34 @@ import {
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
 
-const servicesData = [
-  {
-    icon: faLaptop,
-    title: "Website Services",
-    description:
-      "We design, develop, manage, and host custom, responsive websites that engage users and enhance your brand’s online presence.",
-    href: "#websites",
-  },
-  {
-    icon: faChartLine,
-    title: "Digital Marketing",
-    description:
-      "Boost your brand’s reach with our SEO, influencer, social media, and targeted digital ad campaigns.",
-    href: "#digital-marketing",
-  },
-  {
-    icon: faWandMagicSparkles,
-    title: "Branding and Identity",
-    description:
-      "Build a strong, memorable brand identity that resonates with your audience through impactful visuals and strategic messaging.",
-    href: "#branding",
-  },
-  {
-    icon: faPaintBrush,
-    title: "Graphic Design",
-    description:
-      "Capture attention with unique logos and visual designs that communicate your brand’s identity.",
-    href: "#graphic-design",
-  },
-  {
-    icon: faRobot,
-    title: "AI and Automation",
-    description:
-      "Boost efficiency with AI-powered automation solutions that streamline workflows and provide actionable insights.",
-    href: "#ai",
-  },
-  {
-    icon: faGlobe,
-    title: "Software Consulting",
-    description:
-      "Get expert guidance on selecting and implementing tech solutions to support your business goals.",
-    href: "#software-consulting",
-  },
-];
+// Icon mapping
+const iconMapping = {
+  faLaptop: faLaptop,
+  faChartLine: faChartLine,
+  faPaintBrush: faPaintBrush,
+  faRobot: faRobot,
+  faWandMagicSparkles: faWandMagicSparkles,
+  faGlobe: faGlobe,
+};
 
 const Services = () => {
+  const servicesContent = getCollection("services");
+
+  if (!servicesContent) {
+    return <div>Error: Services content not found</div>;
+  }
+
   return (
     <Section className={"services-section"}>
       <ContentTemplate
         ifButton={true}
         contentWrapClass="justify-between-section responsive responsive-center"
-        heading="What We Offer"
-        title="Our Services"
-        buttonText="Get Started"
-        buttonLink="#"
+        heading={servicesContent.heading}
+        title={servicesContent.title}
+        buttonText={servicesContent.button.text}
+        buttonLink={servicesContent.button.link}
         buttonId="services-header-btn"
-        paragraph1="Explore our wide range of services."
+        paragraph1={servicesContent.paragraph}
         paragraphSide={true}
         buttonBottomMobile={true}
         buttonSecClass={"justify-center"}
@@ -78,14 +49,14 @@ const Services = () => {
         <div className="space"></div>
 
         <div className="services-boxes flex justify-between-section">
-          {servicesData.map((service, index) => (
+          {servicesContent.items.map((service, index) => (
             <ServiceBox
               key={index}
-              icon={service.icon}
+              icon={iconMapping[service.icon] || faLaptop} // Dynamically map icon
               title={service.title}
               description={service.description}
               href={service.href}
-              index={index} // Pass the index here
+              index={index}
             />
           ))}
         </div>

@@ -1,17 +1,16 @@
-// Container.js
 import React from "react";
 import PropTypes from "prop-types";
 import ProjectItem from "../ProjectItem2"; // Adjust the path if necessary
-import "./container2.css"; // Container-specific styles
+import "./container2.css";
 
 const ProjectContainer = ({ projects }) => {
   return (
     <div className="project-container flex justify-center wrap top-space bottom-space">
       {projects.map((project, index) => (
         <ProjectItem 
-          key={index} 
+          key={project.id} 
           project={project} 
-          index={index} // Pass index for animation determination
+          index={index} // Pass index for animation or styling
         />
       ))}
     </div>
@@ -21,6 +20,7 @@ const ProjectContainer = ({ projects }) => {
 ProjectContainer.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,

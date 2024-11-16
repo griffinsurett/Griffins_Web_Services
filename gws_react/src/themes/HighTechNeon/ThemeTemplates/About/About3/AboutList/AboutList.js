@@ -1,60 +1,45 @@
 // AboutList.js
 import React from "react";
-// import ContentTemplate from "../../../../themeComponents/ContentTemplate/ContentTemplate";
-// import "../../../styled-circle.css";
-// import Section from "../../../themeComponents/Section/Section"; // Import your Section component
+import PropTypes from "prop-types";
 import ListItem from "../../../../themeComponents/ListItem/ListItem";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
-import ContentTemplate from "../../../../themeComponents/ContentTemplate/ContentTemplate";
+import IntersectionObserverComponent from "../../../../ScrollAnimations";
+import { faCode } from "@fortawesome/free-solid-svg-icons"; // Fallback icon if not provided
 
-const About = () => {
-  const listItems = [
-    {
-      title: 'Clear Communication, Limited "Tech Talk"',
-      icon: faCode,
-    },
-    {
-      title: "Customized Solutions That Fit Your Needs",
-      icon: faCode,
-    },
-    {
-      title: "Transparency and Honesty",
-      icon: faCode,
-        },
-    // Add more items here as needed
-  ];
-
+const AboutList = ({ items }) => {
   return (
-    <>
-      <ContentTemplate
-      contentWrapClass={"column text-left top-space responsive-center margin-center"}
-      ifParagraph={true}
-      ifButton={true}
-      buttonBottom={true}
-      title="Why Choose Us"
-      paragraph1={
-        "Griffin's Web Services is Your Jersey Shore-based Digital Powerhouse."
-      } 
-      paragraphClass={'bottom-space'}
-      buttonSecClass={"text-left responsive-center"}
-      >
-        <div className="about-icon-list flex justify-center item-align-start right-space justify-center column">
-          {listItems.map((item, index) => (
-            <ListItem
-              key={index}
-              hasIcon={true}
-              icon={item.icon}
-              title={item.title}
-              titleTag="h6"
-              iconPadding={"16px"}
-              //   description={item.description}
-              className="custom-icon-list-item-class item-align-center text-left top-space bottom-space w80"
-            />
-          ))}
-        </div>
-      </ContentTemplate>
-    </>
+    <div className="about-icon-list flex justify-center item-align-start wrap">
+      {items.map((item, index) => (
+        <IntersectionObserverComponent 
+          key={index} 
+          inViewClass="fade-in" 
+          outViewClass="fade-out" 
+          staggeredAnimation={true}
+          delayIn={200}
+          className={"w50 bottom-space"}
+        >
+          <ListItem
+            hasIcon={true}
+            icon={item.icon || faCode} // Use provided icon or fallback to faCode
+            title={item.title}
+            titleTag="h6"
+            iconPadding="17px"
+            description={item.description}
+            className="custom-icon-list-item-class text-left"
+          />
+        </IntersectionObserverComponent>
+      ))}
+    </div>
   );
 };
 
-export default About;
+AboutList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      icon: PropTypes.object, // Optional icon
+    })
+  ).isRequired,
+};
+
+export default AboutList;

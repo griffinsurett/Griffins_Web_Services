@@ -185,6 +185,10 @@ p {
   font-weight: var(--font-weight-paragraph);
 }
 
+li {
+  font-weight: var(--font-weight-regular);
+}
+
 a {
   color: var(--maintext-color);
   text-decoration: none;

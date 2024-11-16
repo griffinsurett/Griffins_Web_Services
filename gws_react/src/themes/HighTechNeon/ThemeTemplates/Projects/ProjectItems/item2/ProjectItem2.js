@@ -8,7 +8,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import IntersectionObserverComponent from "../../../../ScrollAnimations";
 
 const ProjectItem = ({ project, index }) => {
-  // Determine animation class based on whether index is odd or even
   const animationClass = index % 2 === 0 ? "left" : "right";
 
   return (
@@ -39,11 +38,13 @@ const ProjectItem = ({ project, index }) => {
 
 ProjectItem.propTypes = {
   project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default ProjectItem;
