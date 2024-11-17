@@ -27,9 +27,9 @@
   transition: var(--transition);
 }
 
-.footer-menu a:hover {
+/* .footer-menu a:hover {
   text-decoration: underline;
-}
+} */
 
 #footer-copyright {
   /* color: var(--transparentFade-bg2); */

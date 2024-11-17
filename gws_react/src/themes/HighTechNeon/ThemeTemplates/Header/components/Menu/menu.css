@@ -1,4 +1,8 @@
+/* menu.css */
+
+/* Container for the entire menu */
 .menu-container {
+  font-family: var(--font-family-header);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -11,95 +15,29 @@
   left: 0;
   transition: transform 0.3s ease;
   transform: translateY(-100%); /* Hide initially */
-  font-family: var(--font-family-header);
-  font-size: var(--font-size-navMenu);
-}
-
-.menu-item {
-  opacity: 0; /* Start hidden */
-  transform: translateY(20px); /* Start slightly shifted down */
-  animation: fadeInUp 0.5s ease forwards;
-  color: var(--maintext-color);
-}
-
-.menu-item-content {
-  display: flex;
-  align-items: center;
-  transition: transform 0.3s ease; /* Smooth hover scaling */
-}
-
-/* Hover effect for the link */
-
-
-.menu-item {
-  opacity: 0; /* Start hidden */
-  transform: translateY(20px); /* Start slightly shifted down */
-  animation: fadeInUp 0.5s ease forwards;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Add smooth transition for appearance */
-}
-
-.menu-item:hover li.menu-item {
-  color: var(--everdark-color1)!important;
-}
-
-.menu-item:hover .menu-item-content {
-  transform: scale(1.05); /* Slight scale-up on hover */
-  transition: transform 0.5s ease; /* Smooth scaling effect */
-}
-
-.menu-item {
-  /* transition: color 0.5s ease, transform 0.3s ease;  */
-}
-
-.menu-item:hover .menu-bullet-logo {
-  transform: scale(1.2);
-  /* transition: transform 0.5s ease;  */
-}
-
-/* Optional smooth transition on the logo bullet */
-.menu-bullet-logo {
-  transition: transform 0.3s ease; /* Transition for bullet logo */
-}
-
-/* Scale the logo bullet slightly when hovered */
-.menu-item:hover .menu-bullet-logo {
-  transform: scale(1.2);
 }
 
 .menu-container.show {
-  transform: translateY(0); /* Show when open */
+  transform: translateY(0); /* Show menu when open */
 }
 
+/* Content inside the menu */
 .menu-content {
   flex-grow: 1;
   width: 100%;
 }
 
+/* List of menu items */
 .menu-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.menu-item-content {
+/* Flex container for menu items */
+.menu-list.flex {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 }
-
-.menu-bullet-logo {
-  margin-right: 10px; /* Adjust this value to control spacing */
-}
-
-.menu-link {
-  /* transition: color 0.3s ease; */
-}
-
-.menu-link {
-  /* transition: color 0.3s ease, transform 0.3s ease; */
-  text-decoration: none;
-  color: var(--maintext-color);
-}
-
-/* .menu-item-link:hover {
-  color: var(--everdark-color1);
-} */

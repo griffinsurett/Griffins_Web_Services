@@ -3,8 +3,7 @@ import React from "react";
 import "./footer.css";
 import SocialIcons from "../../../themeComponents/social-icons/SocialIcons";
 import { getSiteSettings } from "../../../../../CMS/Utils/GetSettings";
-
-const logo = `${process.env.PUBLIC_URL}/mylogo3d.png`;
+import MenuItem from "../../../themeComponents/MenuItem/MenuItem";
 
 const Footer = ({ className }) => {
   const siteSettings = getSiteSettings();
@@ -12,6 +11,11 @@ const Footer = ({ className }) => {
   if (!siteSettings) {
     return <div>Error: Site settings not found</div>;
   }
+
+  const footerMenuItems = [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+  ];
 
   return (
     <footer className={`footer ${className} flex justify-center`}>
@@ -27,12 +31,14 @@ const Footer = ({ className }) => {
 
         <div className="flex justify-center item-align-center">
           <ul className="footer-menu flex justify-between p-small">
-            <li className="hover-scale">
-              <a href="/">Privacy Policy</a>
-            </li>
-            <li className="hover-scale">
-              <a href="/">Cookie Policy</a>
-            </li>
+            {footerMenuItems.map((item, index) => (
+              <MenuItem
+                key={index}
+                label={item.label}
+                href={item.href}
+                className="hover-scale" // Apply hover-scale styling via class
+              />
+            ))}
           </ul>
         </div>
       </div>

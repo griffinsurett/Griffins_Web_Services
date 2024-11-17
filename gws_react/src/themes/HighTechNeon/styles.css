@@ -189,6 +189,10 @@ li {
   font-weight: var(--font-weight-regular);
 }
 
+.navMenu {
+  font-size: var(--font-size-navMenu);
+}
+
 a {
   color: var(--maintext-color);
   text-decoration: none;

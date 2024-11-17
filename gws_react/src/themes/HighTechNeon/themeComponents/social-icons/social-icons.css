@@ -16,6 +16,7 @@
     align-items: center;
     color: var(--maintext-color);
     transition: var(--transition);
+    /* padding: var(--primary-padding); */
 }
 
 .social-icon a:hover {
