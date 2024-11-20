@@ -14,7 +14,7 @@ const Box = ({
   staggeredAnimation = true,
   index = 0,
   delayBase = 150,
-  maxColumns = 3, // New prop for column control
+  maxColumns = 2, // New prop for column control
 }) => {
   const boxClass = href
     ? "box-with-link dynamic-hover-border-effect hover-scale"
