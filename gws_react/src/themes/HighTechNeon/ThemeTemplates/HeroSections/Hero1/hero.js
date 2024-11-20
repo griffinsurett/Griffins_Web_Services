@@ -32,7 +32,7 @@ const Hero1 = () => {
           headingClass="text-shadow-for-dark"
           paragraphClass="p-small bottom-space"
           buttonClass="p-small"
-          buttonSecClass="hero-btn-container smaller-top-space smaller-bottom-space"
+          buttonSecClass="hero-btn-container smaller-top-space smaller-bottom-space flex justify-left"
           titleClass="section-title"
         />
       </div>

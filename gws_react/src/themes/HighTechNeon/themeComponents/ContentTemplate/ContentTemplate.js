@@ -153,7 +153,7 @@ const ContentTemplate = ({
       {/* Bottom Button - appears on mobile if buttonBottomMobile is true */}
       {(buttonBottom || (buttonBottomMobile && isMobile)) && ifButton && (
         <div
-          className={`content-template-btn-bottom top-space ${buttonSecClass}`}
+          className={`content-template-btn-bottom flex top-space ${buttonSecClass}`}
         >
           <IntersectionObserverComponent
             inViewClass="fade-in-up"
