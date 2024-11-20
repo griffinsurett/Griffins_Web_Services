@@ -5,7 +5,11 @@
 
 .testimonial-box {
   margin: 20px;
-  min-height: 300px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   }
   
   .quote {
@@ -23,3 +27,9 @@
     /* font-style: italic; */
     color: var(--maintext-color);
   }
+
+  /* @media (max-width: 1024px) {
+    .testimonial-box {
+      min-height: 400px;
+    }
+  } */
