@@ -36,7 +36,7 @@ const About = () => {
         buttonId="about-header-btn"
         buttonClass="self-right"
         buttonBottom={true}
-        buttonSecClass="half-column self-right responsive-container top-space"
+        buttonSecClass="half-column self-right responsive-center top-space"
         isHero={false}
       />
     </Section>
