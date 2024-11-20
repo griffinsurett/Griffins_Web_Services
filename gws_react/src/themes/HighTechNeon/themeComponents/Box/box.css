@@ -13,7 +13,7 @@
 
 /* Shared box styles */
 .box {
-  border-radius: var(--input-radius);
+  border-radius: var(--border-radius);
   padding: 40px;
   background: var(--gradientBG1);
   overflow: hidden; /* Prevent content from overflowing */
