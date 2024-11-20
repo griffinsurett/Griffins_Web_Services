@@ -12,6 +12,7 @@ import Hero1 from "./ThemeTemplates/HeroSections/Hero1/hero";
 import About1 from "./ThemeTemplates/About/About1/About";
 import About2 from "./ThemeTemplates/About/About2/About";
 import About3 from "./ThemeTemplates/About/About3/About";
+import About4 from "./ThemeTemplates/About/About4/About";
 import FAQ from "./ThemeTemplates/FAQ/FAQ";
 import Testimonials from "./ThemeTemplates/Testimonials/Testimonials";
 import ContactUs from "./ThemeTemplates/Contact/Contact1/ContactUs";
@@ -23,7 +24,6 @@ import Process from "./ThemeTemplates/Process/Process";
 import Subscribe from "./ThemeTemplates/Subscribe/Subscribe";
 import PricingTable from "./ThemeTemplates/Pricing/Pricing";
 import MobileStatusBar from "./themeComponents/MobileStatusBar/MobileStatusBar";
-// import About4 from "./ThemeTemplates/About/About5/About";
 
 // Main App Component to render the entire theme
 const Theme = () => {
@@ -69,7 +69,7 @@ const Theme = () => {
               {/* <Hero2 /> */}
               <Services />
               <About3 />
-              <About1 />
+              {/* <About1 /> */}
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
               {/* <About4 /> */}

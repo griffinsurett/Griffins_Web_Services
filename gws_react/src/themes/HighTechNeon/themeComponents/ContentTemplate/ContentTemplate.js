@@ -39,7 +39,7 @@ const ContentTemplate = ({
 
   useEffect(() => {
     // Update `isMobile` based on screen width
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
     handleResize(); // Set initial value
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

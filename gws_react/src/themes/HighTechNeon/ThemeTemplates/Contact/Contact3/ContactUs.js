@@ -20,7 +20,7 @@ function ContactUs() {
     >
       <div className="flex justify-center bottom-space column">
         <ContentTemplate
-          className="contact-sec-header column responsive-center bottom-space"
+          className="contact-header column responsive-center bottom-space"
           contentWrapClass="column"
           ifButton={false}
           ifParagraph={true}
