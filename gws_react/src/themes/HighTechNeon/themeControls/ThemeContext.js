@@ -8,11 +8,16 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
   const [isLightMode, setIsLightMode] = useState(() => {
+    // Retrieve the user's explicit preference from cookies
     const savedMode = getCookie("theme");
-    return savedMode ? savedMode === "light" : false; // Default to dark mode
+    if (savedMode) {
+      return savedMode === "light";
+    }
+
+    // No explicit preference: default to dark mode
+    return false;
   });
 
-  // Helper function to set or create the meta theme-color tag
   const setThemeColorMetaTag = (color) => {
     let themeMetaTag = document.querySelector("meta[name='theme-color']");
     if (!themeMetaTag) {
@@ -31,16 +36,12 @@ export const ThemeProvider = ({ children }) => {
       ? "var(--lightBG-background-color)"
       : "var(--darkBG-background-color)";
 
-    // Force the CSS variable to be applied and retrieve the computed color
     document.documentElement.style.setProperty("--background-color", backgroundColor);
     const computedBgColor = getComputedStyle(document.documentElement)
       .getPropertyValue("--background-color")
       .trim();
-    
-    // Set the computed background color to the theme-color meta tag
     setThemeColorMetaTag(computedBgColor);
 
-    // Apply all theme-related CSS variables
     const themeVariables = lightMode
       ? {
           "--primary-color": "var(--lightBG-primary-color)",
