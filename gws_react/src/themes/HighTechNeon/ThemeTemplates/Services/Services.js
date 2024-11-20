@@ -14,7 +14,7 @@ const Services = () => {
   }
 
   return (
-    <Section className={"services-section"}>
+    <Section className={"services-section"} id="services">
       <ContentTemplate
         ifButton={true}
         contentWrapClass="justify-between-section responsive responsive-center"
@@ -30,7 +30,7 @@ const Services = () => {
       >
         <div className="space"></div>
 
-        <div className="services-boxes flex justify-between-section">
+        <div className="services-boxes box-section flex justify-between-section">
           {servicesContent.items.map((service, index) => (
             <ServiceBox
               key={index}

@@ -1,39 +1,90 @@
 /* box.css */
 
+/* General wrapper styles */
+.box-wrapper {
+  box-sizing: border-box;
+  padding: 0; 
+  margin: 0;
+  width: 100%;
+  min-width: 250px;
+  max-width: 100%;
+  gap: 20px;
+}
+
+/* Shared box styles */
 .box {
-    /* padding: 30px; */
-    border-radius: 8px;
-    vertical-align: top; /* Align boxes at the top */
-    min-height: 200px; 
-    overflow: hidden; /* Prevent content overflow */
-    background: var(--gradientBG1);
-    /* border: var(--buttonandIconborderStyle) var(--secondary-bg); */
+  border-radius: var(--input-radius);
+  padding: 40px;
+  background: var(--gradientBG1);
+  overflow: hidden; /* Prevent content from overflowing */
+  min-height: 275px;
 }
 
-.square-box {
-    min-height: 100px; 
-    min-width: 100px;
+/* Column-based layout */
+.colmax1 {
+  flex: 1 1 calc(100% - 20px); /* 1 column */
 }
 
-.box:hover {
-    /* You can add a hover effect here if needed */
-
+.colmax2 {
+  flex: 1 1 calc(50% - 20px); /* 2 columns */
 }
 
-/* Styles for link boxes */
+.colmax3 {
+  flex: 1 1 calc(33.33% - 20px); /* 3 columns */
+}
+
+.colmax4 {
+  flex: 1 1 calc(25% - 20px); /* 4 columns */
+}
+
+/* Link-specific styles */
+.box-with-link {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box-with-link:hover {
+  cursor: pointer;
+}
+
 .box-link {
-    text-decoration: none; /* Remove underline from links */
-    color: var(--maintext-color); /* Set text color for normal state */
-    /* flex-grow: 1; */
+  text-decoration: none;
+  color: var(--maintext-color);
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
-/* Set text color for visited state */
-.box-link:visited {
-    color: var(--maintext-color); /* Ensure visited links match the main text color */
+  /* section styles */
+  .box-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Consistent spacing between boxes */
+    z-index: 1; /* Ensure proper layering */
+    justify-content: space-between; /* Default justification */
+    margin: 0 auto; /* Center-align on smaller screens */
+    width: 100%; /* Full width */
+  }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .colmax3 {
+    flex: 1 1 calc(50% - 20px); /* Switch to 2 columns */
+  }
+
+  .colmax4 {
+    flex: 1 1 calc(50% - 20px); /* Switch to 2 columns */
+  }
 }
 
+@media (max-width: 768px) {
+  .colmax1,
+  .colmax2,
+  .colmax3,
+  .colmax4 {
+    flex: 1 1 calc(100% - 20px); /* Stack boxes */
+  }
 
-.box-link .box:hover {
-    cursor: pointer; 
-    animation: hover-scale 1s;
+  .box-section {
+   width: 90%;
+  }
 }

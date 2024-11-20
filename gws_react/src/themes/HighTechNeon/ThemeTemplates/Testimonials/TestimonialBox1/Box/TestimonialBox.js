@@ -7,7 +7,7 @@ import "./testimonial-box.css"; // Assuming you have some CSS for styling
 
 const TestimonialBox = ({ quote, name, position }) => {
   return (
-    <Box className="testimonial-box square-box flex column justify-center item-align-center text-center">
+    <Box className="testimonial-box flex column justify-center item-align-center text-center">
       <p className="quote p-small">"{quote}"</p>
       <p className="name">
       {name}, <span className="position">{position}</span>

@@ -3,10 +3,22 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import IntersectionObserverComponent from "../../ScrollAnimations";
 import Logo from "../Logos/2dLogo/2dLogo";
-import "./menu-item.css"; // Separate CSS for MenuItem-specific styles
+import "./menu-item.css";
 
 const MenuItem = ({ label, href, index, toggleMenu, className }) => {
   const [hovered, setHovered] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    const element = document.querySelector(href); // Find the target element by `id`
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth", // Smooth scrolling
+        block: "start", // Align the top of the section
+      });
+    }
+    toggleMenu(); // Close the menu
+  };  
 
   return (
     <IntersectionObserverComponent
@@ -23,16 +35,12 @@ const MenuItem = ({ label, href, index, toggleMenu, className }) => {
       >
         <div className="menu-item-content flex item-align-center">
           {hovered && (
-            <Logo ContainerClassName="menu-bullet-logo spin-in" width="25px" />
+            <Logo
+              ContainerClassName="menu-bullet-logo spin-in"
+              width="25px"
+            />
           )}
-          <a
-            href={href}
-            className="menu-link"
-            onClick={() => {
-              toggleMenu();
-              console.log(`${label} menu item clicked`);
-            }}
-          >
+          <a href={href} className="menu-link" onClick={handleClick}>
             {label}
           </a>
         </div>
@@ -46,11 +54,11 @@ MenuItem.propTypes = {
   href: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   toggleMenu: PropTypes.func.isRequired,
-  className: PropTypes.string, // New prop for custom className
+  className: PropTypes.string,
 };
 
 MenuItem.defaultProps = {
-  className: "", // Default to no additional class
+  className: "",
 };
 
 export default MenuItem;

@@ -6,7 +6,7 @@ import "./process-container2.css"; // Assuming the same styles are applied
 
 const ProcessContainer = ({ steps }) => {
   return (
-    <div className="process-boxes top-space bottom-space flex responsive column">
+    <div className="process-boxes box-section top-space bottom-space flex responsive column">
       {steps.map((step, index) => (
         <ProcessBox2
           key={index} // Unique key for each iteration

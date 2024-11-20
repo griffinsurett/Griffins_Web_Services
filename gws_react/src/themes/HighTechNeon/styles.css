@@ -130,6 +130,7 @@ body {
   line-height: var(--line-height-paragraph);
   letter-spacing: var(--letter-spacing-normal);
   text-transform: uppercase;
+  scroll-behavior: smooth;
   /* margin: auto 0; */
 }
 

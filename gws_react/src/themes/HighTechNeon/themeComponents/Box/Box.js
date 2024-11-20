@@ -1,6 +1,6 @@
 // Box.js
-
 import React from "react";
+import PropTypes from "prop-types";
 import "./box.css";
 import IntersectionObserverComponent from "../../ScrollAnimations";
 
@@ -12,33 +12,63 @@ const Box = ({
   inViewClass = "scale-in",
   outViewClass = "scale-out",
   staggeredAnimation = true,
-  index = 0, // Default index if not provided
-  delayBase = 150, // Base delay to make staggered animation noticeable
+  index = 0,
+  delayBase = 150,
+  maxColumns = 3, // New prop for column control
 }) => {
-  const additionalClass = href ? "dynamic-hover-border-effect" : "";
+  const boxClass = href
+    ? "box-with-link dynamic-hover-border-effect hover-scale"
+    : "box-no-link";
 
-  const BoxContent = (
-    <IntersectionObserverComponent 
-      inViewClass={inViewClass} 
-      outViewClass={outViewClass} 
-      delayIn={delayIn}
-      staggeredAnimation={staggeredAnimation} // Enable staggered animation
-      index={index} // Pass index for staggered delay
-      delayBase={delayBase} // Set base delay for staggered effect
-    >
-      <div className={`box ${additionalClass} ${className}`}>
-        {children}
-      </div>
-    </IntersectionObserverComponent>
-  );
+  const columnClass = `colmax${maxColumns}`; // Dynamically assign column class (not necessary for every box use)
+
+  const BoxContent = <div>{children}</div>;
 
   return href ? (
-    <a href={href} className="box-link hover-scale">
-      {BoxContent}
-    </a>
+    <IntersectionObserverComponent
+      inViewClass={inViewClass}
+      outViewClass={outViewClass}
+      delayIn={delayIn}
+      staggeredAnimation={staggeredAnimation}
+      index={index}
+      delayBase={delayBase}
+      className={`box-wrapper flex wrap ${columnClass}`}
+    >
+      <a
+        href={href}
+        className={`box ${boxClass} ${className} flex item-align-center justify-center grow`}
+      >
+        {children}
+      </a>
+    </IntersectionObserverComponent>
   ) : (
-    BoxContent
+    <IntersectionObserverComponent
+      inViewClass={inViewClass}
+      outViewClass={outViewClass}
+      delayIn={delayIn}
+      staggeredAnimation={staggeredAnimation}
+      index={index}
+      delayBase={delayBase}
+      className={`box-wrapper ${columnClass}`}
+    >
+      <div className={`box grow ${className} ${boxClass}`}>
+      {children}
+    </div>
+    </IntersectionObserverComponent>
   );
+};
+
+Box.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string,
+  delayIn: PropTypes.number,
+  inViewClass: PropTypes.string,
+  outViewClass: PropTypes.string,
+  staggeredAnimation: PropTypes.bool,
+  index: PropTypes.number,
+  delayBase: PropTypes.number,
+  maxColumns: PropTypes.oneOf([1, 2, 3, 4]), // Only allow 1-4 columns
 };
 
 export default Box;

@@ -1,8 +1,10 @@
 /* testimonial-box.css */
+#testimonialSlider {
+  margin: 20px;
+}
+
 .testimonial-box {
-    padding: 20px;
-    margin: 20px;
-    min-height: 270px;
+  margin: 20px;
   }
   
   .quote {

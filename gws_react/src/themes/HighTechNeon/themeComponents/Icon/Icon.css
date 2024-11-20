@@ -15,7 +15,7 @@
 }
 
 @media (min-width: 768px) {
-  .icon-observer .styled-icon {
+  .icon-observer {
     display: flex;
     justify-content: center;
   }
