@@ -41,15 +41,4 @@
     transform: scale(1.05);
     box-shadow: 0 0 10px var(--primary-color);
   }
-  
-  /* Responsive layout for maxColumns */
-  .colmax2 {
-    flex: 1 1 calc(50% - 20px);
-  }
-  
-  @media (max-width: 768px) {
-    .colmax2 {
-      flex: 1 1 calc(100% - 20px); /* Stack to one column on small screens */
-    }
-  }
-  
+ 
