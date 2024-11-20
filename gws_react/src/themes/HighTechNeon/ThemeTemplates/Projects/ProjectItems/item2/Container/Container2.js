@@ -5,7 +5,7 @@ import "./container2.css";
 
 const ProjectContainer = ({ projects }) => {
   return (
-    <div className="project-container flex justify-center wrap top-space bottom-space">
+    <div className="project-container box-section flex justify-center wrap top-space bottom-space">
       {projects.map((project, index) => (
         <ProjectItem 
           key={project.id} 
