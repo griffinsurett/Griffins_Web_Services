@@ -5,6 +5,7 @@
 
 .testimonial-box {
   margin: 20px;
+  min-height: 300px;
   }
   
   .quote {
