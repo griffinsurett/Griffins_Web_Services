@@ -110,7 +110,7 @@
   --darkBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--primary-color);
   --lightBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--light-shadow1);
   --darkBG-dynamicButtonHover: var(--darkBG-dynamicIconHover);
-  --lightBG-dynamicButtonHover: var(--buttonandIconborderStyle) transparent;
+  --lightBG-dynamicButtonHover: var(--buttonandIconborderStyle) var(--light-shadow1);
 }
 
 /* Basic Reset */

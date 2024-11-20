@@ -31,7 +31,9 @@ const Testimonials = () => {
         buttonId="testimonials-header-btn"
         buttonSecClass={"responsive-center"}
         buttonBottomMobile={true}
-      />
+      >
+        
+      </ContentTemplate>
       {/* Pass the testimonials content as a prop to the TestimonialCarousel */}
       <TestimonialCarousel testimonials={testimonialsContent.items} />
     </Section>
