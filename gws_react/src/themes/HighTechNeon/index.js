@@ -78,7 +78,7 @@ const Theme = () => {
               <Testimonials />
               {/* <PricingTable /> */}
               <FAQ />
-              <ContactUs />
+              {/* <ContactUs /> */}
               {/* <ContactUs2 /> */}
               <ContactUs3 />
               {/* <Subscribe /> */}
