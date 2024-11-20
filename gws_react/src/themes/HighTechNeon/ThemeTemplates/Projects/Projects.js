@@ -29,7 +29,7 @@ const Projects = () => {
         buttonText={projectsContent.button.text}
         buttonLink={projectsContent.button.link}
         buttonId="projects-header-btn"
-        buttonSecClass="space"
+        buttonSecClass="space margin-center"
         ifParagraph={true}
         paragraphClass={"text-right"}
         paragraph1={projectsContent.paragraph}
