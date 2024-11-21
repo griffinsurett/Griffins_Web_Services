@@ -36,7 +36,8 @@ const Footer = ({ className }) => {
                 key={index}
                 label={item.label}
                 href={item.href}
-                className="hover-scale" // Apply hover-scale styling via class
+                className="hover-scale" 
+                logoOnlyOnHover={true} 
               />
             ))}
           </ul>

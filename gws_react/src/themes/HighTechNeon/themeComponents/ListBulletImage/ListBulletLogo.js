@@ -23,8 +23,8 @@ ListBulletLogo.propTypes = {
 };
 
 ListBulletLogo.defaultProps = {
-  width: "24px",
-  height: "24px",
+  width: "25px",
+  height: "25px",
   className: "",
 };
 

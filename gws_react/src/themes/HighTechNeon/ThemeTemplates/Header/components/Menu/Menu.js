@@ -26,6 +26,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
               index={index}
               toggleMenu={toggleMenu}
               className={"navMenu"} // Pass the custom class
+              logoOnlyOnHover={true} 
             />
           ))}
         </ul>
