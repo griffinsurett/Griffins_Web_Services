@@ -4,7 +4,7 @@ import Box from "../../../themeComponents/Box/Box";
 import Button from "../../../themeComponents/Buttons/Button";
 import PropTypes from "prop-types";
 import "./pricing-box.css";
-import Logo from "../../../themeComponents/Logos/2dLogo/2dLogo";
+import ListBulletLogo from "../../../themeComponents/ListBulletImage/ListBulletLogo";
 
 const PricingBox = ({ plan, href }) => {
   return (
@@ -18,7 +18,7 @@ const PricingBox = ({ plan, href }) => {
       <ul className="pricing-features">
         {plan.bulletPoints.map((point, idx) => (
           <li key={idx} className="feature-item flex">
-            <Logo width="20px" height="20px" className="list-logo" /> {/* Small logo as bullet */}
+            <ListBulletLogo/>
             {point}
           </li>
         ))}

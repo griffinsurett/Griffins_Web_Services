@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import IntersectionObserverComponent from "../../ScrollAnimations";
-import Logo from "../Logos/2dLogo/2dLogo";
+import ListBulletLogo from "../ListBulletImage/ListBulletLogo"; // Import ListBulletLogo
 import "./menu-item.css";
 
 const MenuItem = ({ label, href, index, toggleMenu, className }) => {
@@ -35,10 +35,7 @@ const MenuItem = ({ label, href, index, toggleMenu, className }) => {
       >
         <div className="menu-item-content flex item-align-center">
           {hovered && (
-            <Logo
-              ContainerClassName="menu-bullet-logo spin-in"
-              width="25px"
-            />
+            <ListBulletLogo/>
           )}
           <a href={href} className="menu-link" onClick={handleClick}>
             {label}
