@@ -53,7 +53,7 @@ const ListItem = ({
         />
       )}
       <div className={contentClass}>
-        <TitleTag className={titleClasses}>{title}</TitleTag>
+        <TitleTag className={`small-top-space-desktop ${titleClasses}`}>{title}</TitleTag>
         {/* {description && <p className="p-xSmall">{description}</p>} */}
       </div>
     </IntersectionObserverComponent>

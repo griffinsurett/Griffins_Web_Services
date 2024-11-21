@@ -44,6 +44,7 @@
   color: var(--maintext-color);
   font-size: 1rem;
   line-height: 1.5;
+  font-weight: var(--font-weight-paragraph);
 }
 
 .accordion-content:not(.hide-in-dark) {

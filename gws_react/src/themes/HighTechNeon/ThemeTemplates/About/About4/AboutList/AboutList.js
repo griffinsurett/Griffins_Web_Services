@@ -16,7 +16,7 @@ const AboutList = ({ items }) => {
         titleTag="h6"
         iconPadding="17px"
         description={item.description}
-        className="text-center top-space left-on-desktop"
+        className="text-center left-on-desktop"
         isRowMobile={true}
     />
 
