@@ -28,6 +28,7 @@ function FAQ() {
         title={faqContent.title} // Dynamic title
         paragraph1={faqContent.paragraph} // Dynamic paragraph
         paragraphClass="top-paragraph p-large text-center"
+        paragraph1Class={"p-large"}
       />
       <div className="faq-box flex justify-center item-align-center responsive">
         <Accordion items={faqContent.items} /> {/* Pass dynamic FAQ items */}
