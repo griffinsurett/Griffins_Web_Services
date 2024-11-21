@@ -58,11 +58,11 @@ const collections = [
         description: "We're open and honest in all our dealings.",
         icon: faLaptop,
       },
-      {
-        title: "Quality Assurance",
-        description: "We maintain high standards in our work.",
-        icon: faLaptop,
-      },
+      // {
+      //   title: "Quality Assurance",
+      //   description: "We maintain high standards in our work.",
+      //   icon: faLaptop,
+      // },
     ],
   },
   {

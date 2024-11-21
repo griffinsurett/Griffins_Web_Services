@@ -4,27 +4,25 @@ import PropTypes from "prop-types";
 import "./list-bullet-logo.css"; 
 import Logo from "../Logos/2dLogo/2dLogo"; // Import 2dLogo
 
-const ListBulletLogo = ({ width, height, className }) => {
+const ListBulletLogo = ({ size, className }) => {
   return (
     <Logo
       ContainerClassName="spin-in"
       className={`list-bullet-logo ${className}`}
-      style={{ width, height }}
-      width={width}
-      height={height}
+      style={{ width: size, height: size }} // Apply size to both width and height
+      width={size}
+      height={size}
     />
   );
 };
 
 ListBulletLogo.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
+  size: PropTypes.string, // Size for both width and height
   className: PropTypes.string,
 };
 
 ListBulletLogo.defaultProps = {
-  width: "25px",
-  height: "25px",
+  size: "25px", // Default size
   className: "",
 };
 

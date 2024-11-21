@@ -5,7 +5,18 @@ import IntersectionObserverComponent from "../../ScrollAnimations";
 import ListBulletLogo from "../ListBulletImage/ListBulletLogo"; // Import ListBulletLogo
 import "./menu-item.css";
 
-const MenuItem = ({ label, href, index, toggleMenu, className, logoOnlyOnHover }) => {
+const MenuItem = ({
+  label,
+  href,
+  index,
+  toggleMenu,
+  className,
+  logoOnlyOnHover,
+  logoSize = "25px",
+  labelClass,
+  labelElement: LabelElement = "span", // New prop with default element
+  hover = true, // New prop to control hover behavior
+}) => {
   const [hovered, setHovered] = useState(false);
 
   const handleClick = (e) => {
@@ -20,6 +31,8 @@ const MenuItem = ({ label, href, index, toggleMenu, className, logoOnlyOnHover }
     if (toggleMenu) toggleMenu(); // Close the menu if toggleMenu is provided
   };
 
+  const hoverClass = hover ? "menu-item-hover" : ""; // Add a hover-disable class conditionally
+
   return (
     <IntersectionObserverComponent
       inViewClass="fade-in"
@@ -29,19 +42,19 @@ const MenuItem = ({ label, href, index, toggleMenu, className, logoOnlyOnHover }
       delayBase={100}
     >
       <li
-        className={`menu-item ${href ? "text-shadow-for-dark-hover" : ""} ${className}`}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        className={`menu-item ${href ? "text-shadow-for-dark-hover" : ""} ${hoverClass} ${className}`}
+        onMouseEnter={() => hover && setHovered(true)} // Hover logic only if hover is true
+        onMouseLeave={() => hover && setHovered(false)} // Hover logic only if hover is true
       >
         <div className="menu-item-content flex item-align-center">
           {/* Conditionally show logo based on hover or always */}
-          {(logoOnlyOnHover ? hovered : true) && <ListBulletLogo />}
+          {(logoOnlyOnHover ? hovered : true) && <ListBulletLogo size={logoSize} />}
           {href ? (
             <a href={href} className="menu-link" onClick={handleClick}>
-              {label}
+              <LabelElement className={labelClass}>{label}</LabelElement>
             </a>
           ) : (
-            <span className="menu-text">{label}</span>
+            <LabelElement className={`${labelClass} menu-text`}>{label}</LabelElement>
           )}
         </div>
       </li>
@@ -56,6 +69,10 @@ MenuItem.propTypes = {
   toggleMenu: PropTypes.func,
   className: PropTypes.string,
   logoOnlyOnHover: PropTypes.bool, // New prop
+  logoSize: PropTypes.string, // Size for the logo
+  labelClass: PropTypes.string, // Custom class for the label
+  labelElement: PropTypes.string, // Element type for the label (e.g., h4, p, span)
+  hover: PropTypes.bool, // New prop to enable or disable hover
 };
 
 MenuItem.defaultProps = {
@@ -63,6 +80,9 @@ MenuItem.defaultProps = {
   href: null,
   toggleMenu: null,
   logoOnlyOnHover: false, // Default to show logo always
+  labelClass: "",
+  labelElement: "span", // Default label element
+  hover: true, // Default to enable hover
 };
 
 export default MenuItem;

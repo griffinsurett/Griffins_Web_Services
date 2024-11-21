@@ -1,7 +1,8 @@
-/* a.list-item-content .styled-icon:hover {
-    transform: scale(1.1);
-} */
+.list-item {
+    list-style: none;
+}
 
 .contact-info-item {
     margin-top: var(--primary-padding);
 }
+

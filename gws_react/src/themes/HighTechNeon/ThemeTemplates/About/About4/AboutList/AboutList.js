@@ -6,7 +6,7 @@ import IntersectionObserverComponent from "../../../../ScrollAnimations";
 
 const AboutList = ({ items }) => {
   return (
-    <div className="about-icon-list flex justify-center item-align-start column">
+    <div className="about-icon-list flex justify-between item-align-start w100">
       {items.map((item, index) => (
         <IntersectionObserverComponent 
           key={index} 
@@ -14,16 +14,17 @@ const AboutList = ({ items }) => {
           outViewClass="fade-out" 
           staggeredAnimation={true}
           delayIn={200}
-          className={"  bottom-space"}
+          className={"flex justify-left bottom-space w30 box-gap"}
         >
           <ListItem
             hasIcon={true}
             icon={item.icon} // Use the provided icon or fallback to faCode
             title={item.title}
+            IconTop={true}
             titleTag="h6"
             iconPadding="17px"
             description={item.description}
-            className="custom-icon-list-item-class text-left"
+            className="text-center"
           />
         </IntersectionObserverComponent>
       ))}

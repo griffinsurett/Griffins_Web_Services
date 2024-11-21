@@ -68,11 +68,11 @@ const Theme = () => {
               <Hero1 />
               {/* <Hero2 /> */}
               <Services />
-              <About3 />
+              {/* <About3 /> */}
               {/* <About1 /> */}
               {/* <WhyChooseUs /> */}
               {/* <About2 /> */}
-              {/* <About4 /> */}
+              <About4 />
               {/* <Process /> */}
               <Projects />
               <Testimonials />

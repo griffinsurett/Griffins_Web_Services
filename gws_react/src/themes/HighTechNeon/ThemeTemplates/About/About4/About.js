@@ -8,6 +8,7 @@ import Section from "../../../themeComponents/Section/Section";
 import AboutList from "./AboutList/AboutList";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
 import IntersectionObserverComponent from "../../../ScrollAnimations";
+import MenuItem from "../../../themeComponents/MenuItem/MenuItem";
 
 const About = () => {
   const aboutContent = getCollection("about");
@@ -53,8 +54,22 @@ const About = () => {
         isHero={false}
         buttonBottom={true}
       >
-        <div className="about flex item-align-start">
-          <AboutList items={aboutContent.items} />
+        <div className="about-icon-section flex item-align-start smaller-bottom-space">
+          <AboutList items={aboutContent.items} />      
+        </div>
+        <div className="about-list-menu flex justify-left item-align-start bottom-space">
+       <div className="about-list-item">
+       <MenuItem
+              className={"aboutMenu"} // Pass the custom class
+              logoOnlyOnHover={false} 
+              logoSize="40px"
+              label="More Info About Us"
+              labelClass="smaller-left-space"
+              labelElement="h4"
+              hover={false}
+            />
+            <p className="about-list-p p-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+       </div>
         </div>
       </ContentTemplate>
     </Section>
