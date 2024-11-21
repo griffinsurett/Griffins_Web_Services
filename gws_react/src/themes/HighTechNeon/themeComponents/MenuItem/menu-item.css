@@ -18,19 +18,14 @@
     transition: transform 0.3s ease;
   }
   
-  .menu-item:hover .menu-item-content {
-    transform: scale(1.05);
-    transition: transform 0.5s ease;
-  }
-  
   .menu-bullet-logo {
     transition: transform 0.3s ease;
     margin-right: 10px;
   }
   
-  .menu-item:hover .menu-bullet-logo {
+  /* .menu-item:hover .menu-bullet-logo {
     transform: scale(1.2);
-  }
+  } */
   
   .menu-link {
     text-decoration: none;
