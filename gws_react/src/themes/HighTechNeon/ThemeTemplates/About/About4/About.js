@@ -58,17 +58,28 @@ const About = () => {
           <AboutList items={aboutContent.items} />      
         </div>
         <div className="about-list-menu flex justify-left item-align-start bottom-space">
-       <div className="about-list-item">
+       <div className="about-list-item smaller-top-space">
        <MenuItem
               className={"aboutMenu"} // Pass the custom class
               logoOnlyOnHover={false} 
-              logoSize="40px"
+              logoSize="30px"
               label="More Info About Us"
               labelClass="smaller-left-space"
-              labelElement="h4"
+              labelElement="h5"
               hover={false}
             />
-            <p className="about-list-p p-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+            <p className="about-list-p p-xSmall">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+            <MenuItem
+              className={"aboutMenu smaller-top-space"} // Pass the custom class
+              logoOnlyOnHover={false} 
+              logoSize="30px"
+              label="More Info About Us"
+              labelClass="smaller-left-space"
+              labelElement="h5"
+              hover={false}
+            />
+            <p className="about-list-p p-xSmall">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+ 
        </div>
         </div>
       </ContentTemplate>
