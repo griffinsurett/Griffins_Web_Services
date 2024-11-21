@@ -6,7 +6,7 @@ import IntersectionObserverComponent from "../../../../ScrollAnimations";
 
 const AboutList = ({ items }) => {
   return (
-    <div className="about-icon-list flex justify-between item-align-start w100">
+    <div className="about-icon-list flex responsive justify-between item-align-start w100">
       {items.map((item, index) => (
         <IntersectionObserverComponent 
           key={index} 
