@@ -1,4 +1,3 @@
-// About.js
 import React from "react";
 import { getCollection } from "../../../../../CMS/Utils/GetCollection";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
@@ -25,8 +24,12 @@ const About = () => {
       }
       shadowClass={"left-shadow bottom"}
     >
-      <div className="about-right flex column justify-center item-align-center sticky-section w30">
-        <IntersectionObserverComponent inViewClass="fade-in" delayIn={1000} applyDelayOnce={true}>
+      <div className="about-right flex column justify-center item-align-center sticky-section w40">
+        <IntersectionObserverComponent
+          inViewClass="fade-in"
+          delayIn={1000}
+          applyDelayOnce={true}
+        >
           <Logo
             ContainerClassName="flex justify-center item-align-center logo logo-drop-shadow-big"
             width="460px"
@@ -45,7 +48,7 @@ const About = () => {
         title={aboutContent.title}
         contentWrapClass="column bottom-space"
         paragraph1={aboutContent.paragraphs[0]}
-        paragraph1Class={"top-paragraph p-medium bottom-space"}
+        paragraph1Class={"top-paragraph p-large p-medium bottom-space"}
         textSectionClass="smaller-bottom-space"
         buttonText={aboutContent.button.text}
         buttonLink={aboutContent.button.link}
@@ -55,32 +58,24 @@ const About = () => {
         buttonBottom={true}
       >
         <div className="about-icon-section flex item-align-start smaller-bottom-space">
-          <AboutList items={aboutContent.items} />      
+          <AboutList items={aboutContent.items} />
         </div>
-        <div className="about-list-menu flex justify-left item-align-start bottom-space">
-       <div className="about-list-item smaller-top-space">
-       <MenuItem
-              className={"aboutMenu"} // Pass the custom class
-              logoOnlyOnHover={false} 
-              logoSize="30px"
-              label="More Info About Us"
-              labelClass="smaller-left-space"
-              labelElement="h5"
-              hover={false}
-            />
-            <p className="about-list-p p-xSmall">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-            <MenuItem
-              className={"aboutMenu smaller-top-space"} // Pass the custom class
-              logoOnlyOnHover={false} 
-              logoSize="30px"
-              label="More Info About Us"
-              labelClass="smaller-left-space"
-              labelElement="h5"
-              hover={false}
-            />
-            <p className="about-list-p p-xSmall">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
- 
-       </div>
+
+        <div className="about-list-menu flex justify-left item-align-start bottom-space column">
+          {aboutContent.aboutInfo.map((info, index) => (
+            <div key={index} className="about-list-item smaller-top-space">
+              <MenuItem
+                className={"about-menu smaller-top-space"} // Pass the custom class
+                logoOnlyOnHover={false}
+                logoSize="30px"
+                label={`Our ${info.title}`}
+                labelClass="about-menu-label"
+                labelElement="h5"
+                hover={false}
+              />
+              <p className="about-list-p p-xSmall">{info.statement}</p>
+            </div>
+          ))}
         </div>
       </ContentTemplate>
     </Section>

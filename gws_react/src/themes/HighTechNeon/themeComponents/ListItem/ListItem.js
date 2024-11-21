@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Icon from "../Icon/Icon"; // Adjust the path as necessary
 import IntersectionObserverComponent from "../../ScrollAnimations";
+import "./list-item.css";
 
 const ListItem = ({
   hasIcon = false,
@@ -14,12 +15,13 @@ const ListItem = ({
   titleClasses,
   titleTag: TitleTag = "h3", // Default to 'h3' if not provided
   iconPadding, // Add iconPadding prop
-  isColumnMobile = false, // New prop to conditionally apply mobile classes
-  IconTop = false, // New prop to position icon on top
+  isColumnMobile = false, // For column layout on mobile
+  isRowMobile = false, // For row layout on mobile
+  IconTop = false, // Position icon on top
 }) => {
   // Determine additional classes based on props
   const layoutClass = IconTop
-    ? "column item-align-start text-left"
+    ? "column text-left"
     : "item-align-start"; // Use global `column` or `row` class
 
   const iconClass = IconTop
@@ -27,13 +29,13 @@ const ListItem = ({
     : "styled-icon dynamic-border-effect hover-scale smaller-right-space";
 
   const contentClass = IconTop
-    ? "flex column item-align-center smaller-top-space"
+    ? "flex column item-align-center"
     : "flex column smaller-left-space";
 
   // Combine class names for the main container
   const listItemClasses = `${className} list-item flex ${layoutClass} ${
-    isColumnMobile ? "responsive responsive-center" : ""
-  }`;
+    isColumnMobile && !isRowMobile ? "responsive responsive-center" : ""
+  } ${isRowMobile ? "responsive-row left-on-desktop" : ""}`;
 
   // Component structure
   const ListItemContent = (
@@ -77,8 +79,9 @@ ListItem.propTypes = {
   titleClasses: PropTypes.string,
   titleTag: PropTypes.string, // Prop type for the title tag
   iconPadding: PropTypes.string, // Add prop type for iconPadding
-  isColumnMobile: PropTypes.bool, // New prop for responsive layout on mobile
-  IconTop: PropTypes.bool, // New prop for positioning icon on top
+  isColumnMobile: PropTypes.bool, // For column layout on mobile
+  isRowMobile: PropTypes.bool, // For row layout on mobile
+  IconTop: PropTypes.bool, // For positioning icon on top
 };
 
 export default ListItem;

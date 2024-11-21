@@ -611,6 +611,10 @@ a {
     flex-direction: column;
   }
 
+  .responsive-row {
+    flex-direction: row;
+  }
+
   .responsive-reverse {
     flex-direction: column-reverse;
   }

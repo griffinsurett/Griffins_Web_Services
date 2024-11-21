@@ -42,6 +42,18 @@ const collections = [
       `${siteSettings.siteTitle} is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations.`
     ],
     button: { text: "Learn More", link: "#" },
+    aboutInfo: [
+      {
+        title: "Mission",
+        statement: 
+          "Our mission is to empower businesses at the Jersey Shore and beyond by delivering cutting-edge digital solutions that drive growth, engagement, and success.",
+      },
+      {
+        title: "Vision",
+        statement: 
+          "We envision a future where businesses of all sizes thrive in the digital landscape, achieving their goals with confidence and innovation through our comprehensive services.",
+      },
+    ],
     items: [
       {
         title: "Clear Communication",
@@ -54,15 +66,10 @@ const collections = [
         icon: faLaptop,
       },
       {
-        title: "Transparency and Honesty",
-        description: "We're open and honest in all our dealings.",
+        title: "Quality Assurance",
+        description: "We maintain high standards in our work.",
         icon: faLaptop,
       },
-      // {
-      //   title: "Quality Assurance",
-      //   description: "We maintain high standards in our work.",
-      //   icon: faLaptop,
-      // },
     ],
   },
   {

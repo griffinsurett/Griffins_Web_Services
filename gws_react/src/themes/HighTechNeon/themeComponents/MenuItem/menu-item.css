@@ -8,7 +8,7 @@
   }
 
   .menu-item a {
-    margin: 0 5px;
+    margin: 5px;
   }
   
   .menu-item-content {
@@ -20,7 +20,7 @@
   
   .menu-bullet-logo {
     transition: transform 0.3s ease;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
   
   /* .menu-item:hover .menu-bullet-logo {
