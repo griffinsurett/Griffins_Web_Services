@@ -10,6 +10,9 @@ import {
   faPhone,
   faEnvelope,
   faLaptop,
+  faCogs,
+  faChartBar,
+  faComments,
   faChartLine,
   faWandMagicSparkles,
   faPaintBrush,
@@ -41,7 +44,7 @@ const collections = [
     title: "About Us",
     paragraphs: [
       "Your Jersey Shore-based Digital Powerhouse for Website Creation, Digital Marketing, Branding, IT Consulting, and more.",
-      `Since 2019, the founder of ${siteSettings.siteTitle} has served as the Chief Technology Officer of i-75 CPA Review, providing expert web design, development, hosting, management, branding, and IT consulting. Through innovative strategies and tailored solutions, these efforts have helped the business grow by over 100x, establishing i-75 as a leader in its industry and I am very much excited to do the same for your business.`,
+      `Since 2019, the founder of ${siteSettings.siteTitle} has served as the Chief Technology Officer of i-75 CPA Review, providing expert web design, development, hosting, management, branding, and IT consulting. Through innovative strategies and tailored solutions, these efforts have helped the business grow by over 100x, establishing i-75 as a leader in its industry, and I am very much excited to do the same for your business.`,
     ],
     button: { text: "Learn More", link: "#" },
     aboutInfo: [
@@ -58,24 +61,24 @@ const collections = [
     ],
     items: [
       {
-        title: "Clear Communication",
-        description: "We speak your language, ensuring seamless collaboration.",
-        icon: faLaptop,
+        title: "Effective Communication",
+        description: "We ensure every step of the process is clear, collaborative, and focused on your goals.",
+        icon: faComments, // Represents communication and collaboration
       },
       {
-        title: "Tailored Strategies",
-        description: "Our solutions are crafted to fit your unique goals.",
-        icon: faLaptop,
+        title: "Custom Solutions",
+        description: "Our services are tailored to meet your unique challenges and business objectives.",
+        icon: faCogs, // Represents customization and innovative solutions
       },
       {
-        title: "Proven Results",
-        description: "Our expertise drives measurable growth and success.",
-        icon: faLaptop,
+        title: "Measurable Results",
+        description: "We deliver proven strategies that drive real growth and success for your business.",
+        icon: faChartBar, // Symbolizes measurable performance and results
       },
     ],
-  },  
+  },    
   {
-    id: 6,
+    id: 2,
     collection: "contact",
     heading: "Contact Us.",
     paragraph: `Discover answers to common questions about ${siteSettings.siteTitle}.`,
@@ -126,7 +129,7 @@ const collections = [
     button: { text: "Submit", link: "#" },
   },
   {
-    id: 2,
+    id: 3,
     collection: "services",
     heading: "What We Offer",
     title: "Our Services",
@@ -179,7 +182,7 @@ const collections = [
   },
 
   {
-    id: 3,
+    id: 4,
     collection: "testimonials",
     heading: "Hear From Our Clients",
     title: "Our Testimonials",
@@ -224,7 +227,7 @@ const collections = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     collection: "projects",
     heading: "Our Work",
     title: "Our Projects",
@@ -283,7 +286,7 @@ const collections = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     collection: "pricing",
     heading: "Our Pricing Plans",
     title: "Choose a Plan",

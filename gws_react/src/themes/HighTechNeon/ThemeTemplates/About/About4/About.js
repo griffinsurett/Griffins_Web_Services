@@ -63,7 +63,7 @@ const About = () => {
           <AboutList items={aboutContent.items} />
         </div>
 
-        <div className="about-list-menu flex justify-left item-align-start bottom-space column">
+        {/* <div className="about-list-menu flex justify-left item-align-start bottom-space column">
           {aboutContent.aboutInfo.map((info, index) => (
             <div key={index} className="about-list-item smaller-top-space">
               <MenuItem
@@ -78,7 +78,7 @@ const About = () => {
               <p className="about-list-p p-xSmall">{info.statement}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </ContentTemplate>
     </Section>
   );
