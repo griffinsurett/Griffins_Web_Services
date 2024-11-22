@@ -33,7 +33,6 @@
 --font-size-p-small: clamp(0.95rem, 2vw, 1rem); /* Example for small paragraphs */
 --font-size-p-large: clamp(1rem, 2vw, 1.4rem); /* Example for large paragraphs */
 --font-size-p-xLarge: clamp(1.2rem, 2.5vw, 1.8rem);
---font-size-navMenu: clamp(1.7rem, 2.8vw, 3rem);
   /* --emphasized-hero-header-font-size: clamp(3.5rem, 6vw, 9rem); */
   /* --section-header-font-size: clamp(3.75rem, 9vw, 4.3rem); */
 
@@ -157,6 +156,7 @@ h4,
 h5,
 h6 {
   font-weight: var(--font-weight-bold);
+  mix-blend-mode: difference;
 }
 
 .navMenu {
@@ -167,33 +167,31 @@ h2, h4 {
   /* color: var(--everdark-color1); */
 }
 
-h1 {
+h1, .h1 {
   font-size: var(--font-size-h1);
 }
 
-h2 {
+h2, .h2 {
   font-size: var(--font-size-h2);
-  /* color: var(--everdark-color1); */
-
 }
 
-h3 {
+h3, .h3 {
   font-size: var(--font-size-h3);
 }
 
-h4 {
+h4, .h4 {
   font-size: var(--font-size-h4);
 }
 
-h5 {
+h5, .h5 {
   font-size: var(--font-size-h5);
 }
 
-h6 {
+h6, .h6 {
   font-size: var(--font-size-h6);
 }
 
-p {
+p, .p {
   font-size: var(--font-size-p);
   line-height: var(--line-height-paragraph);
   font-weight: var(--font-weight-paragraph);
@@ -201,10 +199,6 @@ p {
 
 li {
   font-weight: var(--font-weight-regular);
-}
-
-.navMenu {
-  font-size: var(--font-size-navMenu);
 }
 
 a {

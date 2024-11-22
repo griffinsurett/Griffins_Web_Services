@@ -3,27 +3,32 @@ import React from "react";
 import "./hero.css";
 import Button from "../../../themeComponents/Buttons/Button";
 import Logo from "../../../themeComponents/Logos/3dLogo/3dLogo";
-import Typewriter from "../../../themeComponents/TextEffects/Typewriter/SimpleTypewriter/SimpleTypewriter";
 import ContentTemplate from "../../../themeComponents/ContentTemplate/ContentTemplate";
+import { getSiteSettings } from "../../../../../CMS/Utils/GetSettings";
 import IntersectionObserverComponent from "../../../ScrollAnimations";
 
 const Hero1 = () => {
+  // Retrieve the site settings dynamically
+  const siteSettings = getSiteSettings();
+
+  if (!siteSettings) {
+    return <div>Error: Site settings not found</div>;
+  }
+
   return (
     <section
       id="hero-section"
       className="flex item-align-center responsive hero-height section-gap"
     >
-      <div
-        className="hero-left w60 text-left"
-      >
+      <div className="hero-left w60 text-left">
         {/* Use ContentTemplate for the hero section content */}
         <ContentTemplate
           isHero={true} // Ensure h1 is used for hero
           ifParagraph={true}
           contentWrapClass="column"
-          title="Griffin’s Web Services"
-          heading="Websites and All Things Digital."
-          paragraph1="Your premier one-stop shop for website design and development, expert social media and digital marketing, and creative graphic design services."
+          title={siteSettings.siteTitle} // Use site title dynamically
+          heading={siteSettings.siteTagline} // Use site tagline dynamically
+          paragraph1={siteSettings.siteDescription} // Use site description dynamically
           ifButton={true}
           buttonBottom={true}
           buttonText="Get Started"

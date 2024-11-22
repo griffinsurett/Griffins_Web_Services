@@ -50,7 +50,6 @@
 .scale-in {
   opacity: 0;
   animation: scaleIn 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s);
 }
 
 /* Keyframe for scale-out animation */
@@ -68,7 +67,6 @@
 .scale-out {
   opacity: 1;
   animation: scaleOut 0.5s ease forwards;
-  animation-delay: var(--delay-out, 0s);
 }
 
 /* ----------------------------------------------
@@ -250,34 +248,24 @@
   }
 }
 
-/* .fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s);
-} */
-
 .fade-in-down {
   opacity: 0;
   animation: fadeInDown 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s);
 }
 
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s);
 }
 
 .fade-in-up {
   opacity: 0;
   animation: fadeInUp 0.5s ease forwards;
-  animation-delay: var(--delay-in, 0s);
 }
 
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease;
-  transition-delay: var(--delay-out, 0s);
 }
 
 @keyframes sectionFadeOutUp {
@@ -302,7 +290,6 @@
 .section-fade-out-up {
   opacity: 1;
   animation: sectionFadeOutUp 2s ease-out forwards; /* Extended duration for smooth scrolling effect */
-  animation-delay: var(--delay-out, 0s);
 }
 
 @keyframes sectionFadeInDown {
@@ -327,7 +314,6 @@
 .section-fade-in-down {
   opacity: 0;
   animation: sectionFadeInDown 2s ease-out forwards; /* Same duration for consistency */
-  animation-delay: var(--delay-in, 0s);
 }
 
 @keyframes fadeInRight {
@@ -362,5 +348,15 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@media (min-width: 1024px) {
+  .scale-in, .fade-in, .fade-in-down, .fade-in-up, .fade-in-right, .fade-in-left, .section-fade-in-down {
+    animation-delay: var(--delay-in, 0s);
+}
+
+.scale-out, .fade-out, .section-fade-out-up {
+  animation-delay: var(--delay-out, 0s);
+}
 }
 }

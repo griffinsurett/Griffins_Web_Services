@@ -17,7 +17,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
   return (
     <div className={`menu-container ${isOpen ? "show" : ""}`}>
       <nav className="menu-content flex justify-center item-align-center container">
-        <ul className="menu-list flex column justify-center item-align-start">
+        <ul className="header-menu-list flex column justify-center item-align-start">
           {menuItems.map((item, index) => (
             <MenuItem
               key={index}
@@ -25,7 +25,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
               href={item.href}
               index={index}
               toggleMenu={toggleMenu}
-              className={"navMenu"} // Pass the custom class
+              className={"navMenu menu-fontSize"} // Pass the custom class
               logoOnlyOnHover={true} 
             />
           ))}

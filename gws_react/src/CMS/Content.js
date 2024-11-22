@@ -15,13 +15,15 @@ import {
   faPaintBrush,
   faRobot,
   faGlobe,
+  faCode,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Define site settings separately
 const siteSettings = {
   siteTitle: "Griffin's Web Services",
+  siteTagline: "Websites and All Things Digital",
   siteDescription:
-    "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design.",
+    "Your Jersey Shore-based digital powerhouse for stunning, custom websites and dynamic online solutions that engage audiences and deliver results.",
   siteAuthor: "Griffin's Web Services",
   BusinessName: "Griffin's Web Services LLC",
   get Copyright() {
@@ -38,40 +40,40 @@ const collections = [
     heading: "Who We Are",
     title: "About Us",
     paragraphs: [
-      "Your Jersey Shore-based Digital Powerhouse for Website Creation, Social Media Management, Digital Marketing, and Graphic Design.",
-      `${siteSettings.siteTitle} is a comprehensive digital agency rooted in the vibrant community of the Jersey Shore. We are committed to fostering the online growth of your business, meticulously tailoring our strategies to align with your specific needs and aspirations.`
+      "Your Jersey Shore-based Digital Powerhouse for Website Creation, Digital Marketing, Branding, IT Consulting, and more.",
+      `Since 2019, the founder of ${siteSettings.siteTitle} has served as the Chief Technology Officer of i-75 CPA Review, providing expert web design, development, hosting, management, branding, and IT consulting. Through innovative strategies and tailored solutions, these efforts have helped the business grow by over 100x, establishing i-75 as a leader in its industry and I am very much excited to do the same for your business.`,
     ],
     button: { text: "Learn More", link: "#" },
     aboutInfo: [
       {
         title: "Mission",
-        statement: 
-          "Our mission is to empower businesses at the Jersey Shore and beyond by delivering cutting-edge digital solutions that drive growth, engagement, and success.",
+        statement:
+          "Our mission is to empower businesses at the Jersey Shore and beyond by providing innovative digital solutions that drive exponential growth and sustainable success.",
       },
       {
         title: "Vision",
-        statement: 
-          "We envision a future where businesses of all sizes thrive in the digital landscape, achieving their goals with confidence and innovation through our comprehensive services.",
+        statement:
+          "We envision a future where every business, regardless of size, thrives in the digital age with tailored strategies, cutting-edge technology, and impactful design.",
       },
     ],
     items: [
       {
         title: "Clear Communication",
-        description: "We speak your language, not tech jargon.",
+        description: "We speak your language, ensuring seamless collaboration.",
         icon: faLaptop,
       },
       {
-        title: "Customized Solutions",
-        description: "We tailor our services to your unique needs.",
+        title: "Tailored Strategies",
+        description: "Our solutions are crafted to fit your unique goals.",
         icon: faLaptop,
       },
       {
-        title: "Quality Assurance",
-        description: "We maintain high standards in our work.",
+        title: "Proven Results",
+        description: "Our expertise drives measurable growth and success.",
         icon: faLaptop,
       },
     ],
-  },
+  },  
   {
     id: 6,
     collection: "contact",
@@ -132,49 +134,50 @@ const collections = [
     button: { text: "Get Started", link: "#" },
     items: [
       {
-        icon: faLaptop,
-        title: "Website Services",
+        icon: faPaintBrush, // Update this to a hosting/server-related icon if available
+        title: "Web Design",
         description:
-          "We design, develop, manage, and host custom, responsive websites that engage users and enhance your brand’s online presence.",
-        href: "#websites",
+          "Create visually stunning, user-friendly website designs that captivate your audience and represent your brand effectively.",
+        href: "#web-design",
       },
       {
-        icon: faChartLine,
+        icon: faCode, // Magic-related for creative development
+        title: "Web Development",
+        description:
+          "Build robust, responsive websites with cutting-edge technologies to ensure seamless functionality and performance.",
+        href: "#web-development",
+      },
+      {
+        icon: faGlobe, // Globe-related for global hosting services
+        title: "Web Hosting",
+        description:
+          "Provide secure and reliable web hosting and web management solutions with ongoing maintenance to ensure your site stays online and updated.",
+        href: "#web-hosting-management",
+      },
+      {
+        icon: faWandMagicSparkles, // Paintbrush for design-related services
+        title: "Brand Design and Strategy",
+        description:
+          "Your website is your brand's home. To connect and convert, your branding must be on point, which requires good logos, visuals, and strategies to ensure that you stand out.",
+        href: "#brand-design-strategy",
+      },
+      {
+        icon: faRobot, // Robot for tech/consulting services
+        title: "IT Consulting",
+        description:
+          "We provide expert consulting to guide you through all your tech needs, from IT solutions to leveraging AI, ensuring your business thrives in the digital age.",
+        href: "#it-consulting",
+      },
+      {
+        icon: faChartLine, // Chart for analytics and marketing
         title: "Digital Marketing",
         description:
-          "Boost your brand’s reach with our SEO, influencer, social media, and targeted digital ad campaigns.",
+          "Expand your reach with targeted marketing services, including SEO, social media, email campaigns, and analytics.",
         href: "#digital-marketing",
-      },
-      {
-        icon: faWandMagicSparkles,
-        title: "Branding and Identity",
-        description:
-          "Build a strong, memorable brand identity that resonates with your audience through impactful visuals and strategic messaging.",
-        href: "#branding",
-      },
-      {
-        icon: faPaintBrush,
-        title: "Graphic Design",
-        description:
-          "Capture attention with unique logos and visual designs that communicate your brand’s identity.",
-        href: "#graphic-design",
-      },
-      {
-        icon: faRobot,
-        title: "AI and Automation",
-        description:
-          "Boost efficiency with AI-powered automation solutions that streamline workflows and provide actionable insights.",
-        href: "#ai",
-      },
-      {
-        icon: faGlobe,
-        title: "Software Consulting",
-        description:
-          "Get expert guidance on selecting and implementing tech solutions to support your business goals.",
-        href: "#software-consulting",
       },
     ],
   },
+
   {
     id: 3,
     collection: "testimonials",
@@ -344,25 +347,21 @@ const collections = [
       },
       {
         title: `How does ${siteSettings.siteTitle} handle security, and what ongoing support is provided?`,
-        content:
-          `At ${siteSettings.siteTitle}, security is a priority for every site we build. We carefully choose trusted plugins and top-tier hosting services, known for their robust security measures, for all our clients. However, ongoing maintenance requires an extended management plan.`,
+        content: `At ${siteSettings.siteTitle}, security is a priority for every site we build. We carefully choose trusted plugins and top-tier hosting services, known for their robust security measures, for all our clients. However, ongoing maintenance requires an extended management plan.`,
       },
       {
-        title:
-          `Privacy Policies, Terms and Conditions, etc. How does ${siteSettings.siteTitle} clarify to users information about these types of privacy issues?`,
+        title: `Privacy Policies, Terms and Conditions, etc. How does ${siteSettings.siteTitle} clarify to users information about these types of privacy issues?`,
         content:
           "We are not legal experts and recommend consulting with a lawyer to ensure compliance with all privacy and legal regulations.",
       },
       {
         title: "Can you help me with email marketing?",
-        content:
-          `Absolutely, with ${siteSettings.siteTitle}, we can set your website up with all the tools to create an effective email marketing campaign. We can help you create email lists as well as design the user interface for people to sign up as well as provide you with a team of individuals who can manage your day-to-day email marketing campaigns.`,
+        content: `Absolutely, with ${siteSettings.siteTitle}, we can set your website up with all the tools to create an effective email marketing campaign. We can help you create email lists as well as design the user interface for people to sign up as well as provide you with a team of individuals who can manage your day-to-day email marketing campaigns.`,
       },
       {
         title:
           "I run a restaurant and I'm looking for a website that can handle reservations and online orders. Can Griffin's Web Services help with this?",
-        content:
-          `Absolutely! At ${siteSettings.siteTitle}, we specialize in building custom websites for restaurants and various other local businesses. We can seamlessly integrate popular reservation platforms and develop a custom reservation system.`,
+        content: `Absolutely! At ${siteSettings.siteTitle}, we specialize in building custom websites for restaurants and various other local businesses. We can seamlessly integrate popular reservation platforms and develop a custom reservation system.`,
       },
       {
         title: "Can you help me with social media?",

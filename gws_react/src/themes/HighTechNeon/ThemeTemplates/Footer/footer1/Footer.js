@@ -22,12 +22,12 @@ const Footer = ({ className }) => {
       <div className="header-foot-container flex justify-between item-align-center responsive">
         <SocialIcons />
 
-        <div
+        <p
           className="flex justify-center item-align-center p-small"
           id="footer-copyright"
         >
           {siteSettings.Copyright}
-        </div>
+        </p>
 
         <div className="flex justify-center item-align-center">
           <ul className="footer-menu flex justify-between p-small">
@@ -36,7 +36,7 @@ const Footer = ({ className }) => {
                 key={index}
                 label={item.label}
                 href={item.href}
-                className="hover-scale" 
+                className="navMenu p-xSmall hover-scale" 
                 logoOnlyOnHover={true} 
               />
             ))}

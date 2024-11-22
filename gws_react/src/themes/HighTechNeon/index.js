@@ -1,6 +1,7 @@
 // Index.js
 import React, { useEffect, useState } from "react";
 import Preloader from "./themeControls/Preloader/Preloader";
+import Cursor from "./themeControls/Cursor/Cursor"; // Adjust the path based on your folder structure
 import { ThemeProvider } from "./themeControls/ThemeContext"; // Import ThemeProvider
 import "./styles.css";
 import "./animations.css";
@@ -65,6 +66,7 @@ const Theme = () => {
           <Header toggleMenu={toggleMenu} /> {/* Pass toggleMenu to Header */}
           <div className="flex column item-align-center">
             <div className="content container">
+            {/* <Cursor /> */}
               <Hero1 />
               {/* <Hero2 /> */}
               <Services />

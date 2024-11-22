@@ -48,7 +48,9 @@ const About = () => {
         title={aboutContent.title}
         contentWrapClass="column bottom-space"
         paragraph1={aboutContent.paragraphs[0]}
-        paragraph1Class={"top-paragraph p-large p-medium bottom-space"}
+        paragraph2={aboutContent.paragraphs[1]}
+        paragraph1Class={"top-paragraph p-large p-medium smaller-bottom-space"}
+        paragraph2Class={"bottom-space"}
         textSectionClass="smaller-bottom-space"
         buttonText={aboutContent.button.text}
         buttonLink={aboutContent.button.link}
