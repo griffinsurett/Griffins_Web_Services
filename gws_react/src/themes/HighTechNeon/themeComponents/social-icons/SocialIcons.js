@@ -13,7 +13,7 @@ const SocialIcons = () => {
   }
 
   return (
-    <div className="social-icons space">
+    <div className="social-icons smaller-space">
       <div className="social-icon flex justify-between">
         {contactContent.socialMedia.map((socialMedia, index) => (
           <a
