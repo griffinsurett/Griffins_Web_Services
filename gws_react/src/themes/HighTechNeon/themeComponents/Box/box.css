@@ -15,7 +15,7 @@
 .box {
   border-radius: var(--input-radius);
   padding: 40px;
-  background: var(--gradientBG1);
+  background: var(--boxGradient);
   overflow: hidden; /* Prevent content from overflowing */
   min-height: 275px;
   /* border: var(--borderBeforeHover); */

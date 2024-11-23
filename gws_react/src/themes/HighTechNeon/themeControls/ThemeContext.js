@@ -48,6 +48,7 @@ export const ThemeProvider = ({ children }) => {
           "--maintext-color": "var(--lightBG-maintext-color)",
           "--background-color": "var(--lightBG-background-color)",
           "--secondary-bg": "var(--lightBG-secondary-bg)",
+          "--tertiary-bg": "var(--lightBG-tertiary-bg)",
           "--transparentFade-bg": "var(--lightBG-transparentFade-bg)",
           "--transparentFade-bg1": "var(--lightBG-transparentFade-bg1)",
           "--transparentFade-bg2": "var(--lightBG-transparentFade-bg2)",
@@ -62,13 +63,17 @@ export const ThemeProvider = ({ children }) => {
           "--boxShadow1": "var(--lightBG-boxShadow1)",
           "--text-shadow": "var(--lightBG-textShadow1)",
           "--smalllogodropshadow": "drop-shadow(0 0 6px var(--primary-color)) drop-shadow(0 0 8px var(--primary-color)) drop-shadow(0 3px 12px var(--primary-color))",
-          "--largelogodropshadow": "drop-shadow(0 0 10px var(--primary-color)) drop-shadow(0 0 14px var(--primary-color)) drop-shadow(0 5px 14px var(--primary-color))"
+          "--largelogodropshadow": "drop-shadow(0 0 10px var(--primary-color)) drop-shadow(0 0 14px var(--primary-color)) drop-shadow(0 5px 14px var(--primary-color))",
+          "--gradientBG1": "var(--lightBG-gradientBG1)",
+          "--gradientBG2": "var(--lightBG-gradientBG2)",
+          "--boxGradient": "var(--lightBG-boxGradient)",
         }
       : {
           "--primary-color": "var(--darkBG-primary-color)",
           "--maintext-color": "var(--darkBG-maintext-color)",
           "--background-color": "var(--darkBG-background-color)",
           "--secondary-bg": "var(--darkBG-secondary-bg)",
+          "--tertiary-bg": "var(--darkBG-tertiary-bg)",
           "--transparentFade-bg": "var(--darkBG-transparentFade-bg)",
           "--transparentFade-bg1": "var(--darkBG-transparentFade-bg1)",
           "--transparentFade-bg2": "var(--darkBG-transparentFade-bg2)",
@@ -85,7 +90,10 @@ export const ThemeProvider = ({ children }) => {
           "--dynamicIconBorder": "var(--darkBG-dynamicIconBorder)",
           "--dynamicIconBG": "var(--darkBG-dynamicIconBG)",
           "--dynamicIconHover": "var(--darkBG-dynamicIconHover)",
-          "--dynamicButtonHover": "var(--darkBG-dynamicButtonHover)"
+          "--dynamicButtonHover": "var(--darkBG-dynamicButtonHover)",
+          "--gradientBG1": "var(--darkBG-gradientBG1)",
+          "--gradientBG2": "var(--darkBG-gradientBG2)",
+          "--boxGradient": "var(--darkBG-boxGradient)",
         };
 
     Object.keys(themeVariables).forEach((key) => {

@@ -22,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 25px;
-  background: var(--gradientBG1);
+  background: var(--boxGradient);
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: var(--input-radius);
