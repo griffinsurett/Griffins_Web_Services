@@ -3,3 +3,8 @@
     min-height: 370px;
     /* border-radius: var(--border-radius); */
 }
+
+.service-box h3 {
+    /* color: var(--darkBG-transparentFade-bg2); */
+    /* padding-top: var(--primary-padding); */
+}
