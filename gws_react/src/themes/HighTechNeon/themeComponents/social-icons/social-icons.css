@@ -16,12 +16,11 @@
     align-items: center;
     color: var(--maintext-color);
     transition: var(--transition);
-    /* padding: var(--primary-padding); */
 }
 
-.social-icon a:hover {
+/* .social-icon a:hover {
     color: var(--primary-color);
-}
+} */
 
 /* .social-icon svg {
     font-size: 15px;

@@ -5,6 +5,7 @@ import {
   faTwitter,
   faInstagram,
   faLinkedin,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faPhone,
@@ -19,6 +20,7 @@ import {
   faRobot,
   faGlobe,
   faCode,
+  faX,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Define site settings separately
@@ -103,9 +105,9 @@ const collections = [
         icon: faFacebook,
       },
       {
-        platform: "Twitter",
+        platform: "X",
         href: "https://twitter.com/griffinswebservices",
-        icon: faTwitter,
+        icon: faXTwitter,
       },
       {
         platform: "LinkedIn",
