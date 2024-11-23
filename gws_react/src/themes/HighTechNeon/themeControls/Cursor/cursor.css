@@ -4,7 +4,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background-color: var(--primary-color); /* Mask color */
+  background-color: var(--darkBG-primary-color); /* Mask color */
   pointer-events: none; /* Ensures it doesn't block interactions */
   mix-blend-mode: difference; /* Creates the masking/inversion effect */
   transform: translate(-50%, -50%);
