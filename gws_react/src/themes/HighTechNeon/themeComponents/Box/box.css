@@ -18,7 +18,7 @@
   background: var(--gradientBG1);
   overflow: hidden; /* Prevent content from overflowing */
   min-height: 275px;
-  border: var(--borderBeforeHover);
+  /* border: var(--borderBeforeHover); */
 }
 
 /* Column-based layout */
