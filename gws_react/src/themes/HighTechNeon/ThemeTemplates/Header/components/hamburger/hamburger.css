@@ -8,12 +8,14 @@
     justify-content: space-around;
     cursor: pointer;
     transition: transform 0.3s ease; /* Smooth transition for transform */
+
 }
 
 .hamburger-menu .line {
     height: 0.5px; /* Adjust height for better visibility */
     background-color: var(--maintext-color);
     transition: all 0.3s ease; /* Transition for all properties */
+    
 }
 
 .hamburger-menu .big {
