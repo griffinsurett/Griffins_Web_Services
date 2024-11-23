@@ -64,10 +64,10 @@ const Theme = () => {
           <Header toggleMenu={toggleMenu} /> {/* Pass toggleMenu to Header */}
           <div className="flex column item-align-center">
             <div className="content container">
-            {/* <Cursor /> */}
-              {/* <Hero1 /> */}
+            <Cursor />
+              <Hero1 />
               {/* <Hero2 /> */}
-              <Hero3 />
+              {/* <Hero3 /> */}
               <Services />
               {/* <About3 /> */}
               <About1 />
