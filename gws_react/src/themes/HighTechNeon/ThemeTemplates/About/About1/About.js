@@ -27,7 +27,7 @@ const About = () => {
         contentWrapClass="column"
         paragraphClass="flex justify-center column about-paragraphs responsive-center"
         paragraph1={aboutContent.paragraphs[0]}
-        paragraph1Class="top-paragraph p-xLarge bottom-space text-left half-column self-left"
+        paragraph1Class="top-paragraph p-xLarge font-weight-regular bottom-space text-left half-column self-left"
         paragraph2={aboutContent.paragraphs[1]}
         paragraph2Class="bottom-paragraph text-left half-column self-right negative-top responsive-right bottom-space"
         textSectionClass="smaller-bottom-space"

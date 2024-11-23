@@ -15,6 +15,8 @@ const ProjectItem = ({ project, index }) => {
       <IntersectionObserverComponent inViewClass={`fade-in-${animationClass}`} outViewClass={`fade-out-${animationClass}`}>
         <a
           href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="project-link"
           style={{
             backgroundImage: `url(${project.image})`,

@@ -16,7 +16,7 @@ const Menu = ({ isOpen, toggleMenu }) => {
 
   return (
     <div className={`menu-container ${isOpen ? "show" : ""}`}>
-      <nav className="menu-content flex justify-center item-align-center container">
+      <nav className="menu-content flex justify-left item-align-center header-foot-container">
         <ul className="header-menu-list flex column justify-center item-align-start">
           {menuItems.map((item, index) => (
             <MenuItem

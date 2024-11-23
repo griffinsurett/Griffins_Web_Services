@@ -20,16 +20,7 @@ const Footer = ({ className }) => {
   return (
     <footer className={`footer ${className} flex justify-center`}>
       <div className="header-foot-container flex justify-between item-align-center responsive">
-        <SocialIcons />
-
-        <p
-          className="flex justify-center item-align-center p-small"
-          id="footer-copyright"
-        >
-          {siteSettings.Copyright}
-        </p>
-
-        <div className="flex justify-center item-align-center">
+      <div className="flex justify-center item-align-center">
           <ul className="footer-menu flex justify-between p-small">
             {footerMenuItems.map((item, index) => (
               <MenuItem
@@ -42,6 +33,16 @@ const Footer = ({ className }) => {
             ))}
           </ul>
         </div>
+        
+        <p
+          className="flex justify-center item-align-center p-small"
+          id="footer-copyright"
+        >
+          {siteSettings.Copyright}
+        </p>
+
+        <SocialIcons />
+
       </div>
     </footer>
   );

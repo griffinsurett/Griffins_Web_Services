@@ -163,6 +163,18 @@ h6 {
   font-weight: var(--font-weight-paragraph);
 }
 
+.font-weight-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.font-weight-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-weight-paragraph {
+  font-weight: var(--font-weight-paragraph);
+}
+
 h2, h4 {
   /* color: var(--everdark-color1); */
 }
