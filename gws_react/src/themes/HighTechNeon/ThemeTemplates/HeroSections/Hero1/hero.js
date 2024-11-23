@@ -20,7 +20,7 @@ const Hero1 = () => {
       id="hero-section"
       className="flex item-align-center responsive hero-height section-gap"
     >
-      <div className="hero-left w60 text-left">
+      <div className="hero-left w50 text-left">
         {/* Use ContentTemplate for the hero section content */}
         <ContentTemplate
           isHero={true} // Ensure h1 is used for hero

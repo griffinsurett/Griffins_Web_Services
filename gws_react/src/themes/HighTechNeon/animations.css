@@ -359,4 +359,31 @@
   animation-delay: var(--delay-out, 0s);
 }
 }
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(0); /* Start at the original position */
+  }
+  to {
+    transform: translateY(-20px); /* Move up by 20px */
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease forwards; /* Smooth upward movement */
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(0); /* Start at the original position */
+  }
+  to {
+    transform: translateY(20px); /* Move down by 20px */
+  }
+}
+
+.fade-down {
+  animation: fadeDown 0.5s ease forwards; /* Smooth downward movement */
+}
+
 }
