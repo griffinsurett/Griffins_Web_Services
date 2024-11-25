@@ -20,6 +20,7 @@ import {
   faRobot,
   faGlobe,
   faCode,
+  faTools,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,6 +38,22 @@ const siteSettings = {
   },
 };
 
+const pages = [
+  {
+    id: "homepage",
+    sections: [
+      "hero",
+      "services",
+      "about",
+      "projects",
+      "testimonials",
+      "faq",
+      "contact",
+    ],
+    link: "/", // Ensure the homepage link is set to "/"
+  },
+];
+
 // Define collections separately
 const collections = [
   {
@@ -44,6 +61,10 @@ const collections = [
     collection: "about",
     heading: "Who We Are",
     title: "About Us",
+    hasPage: true,
+    link: "/about-us",
+    sections: ["hero", "about"],
+    redirectFrom: ["/about"],
     paragraphs: [
       "Your Jersey Shore-based Digital Powerhouse for Website Creation, Digital Marketing, Branding, IT Consulting, and more.",
       `Since 2019, the founder of ${siteSettings.siteTitle} has served as the Chief Technology Officer of i-75 CPA Review, providing expert web design, development, hosting, management, branding, and IT consulting. Through innovative strategies and tailored solutions, these efforts have helped the business grow by over 100x, establishing i-75 as a leader in its industry, and I am very much excited to do the same for your business.`,
@@ -64,26 +85,33 @@ const collections = [
     items: [
       {
         title: "Effective Communication",
-        description: "We ensure every step of the process is clear, collaborative, and focused on your goals.",
+        description:
+          "We ensure every step of the process is clear, collaborative, and focused on your goals.",
         icon: faComments, // Represents communication and collaboration
       },
       {
         title: "Custom Solutions",
-        description: "Our services are tailored to meet your unique challenges and business objectives.",
+        description:
+          "Our services are tailored to meet your unique challenges and business objectives.",
         icon: faCogs, // Represents customization and innovative solutions
       },
       {
         title: "Measurable Results",
-        description: "We deliver proven strategies that drive real growth and success for your business.",
+        description:
+          "We deliver proven strategies that drive real growth and success for your business.",
         icon: faChartBar, // Symbolizes measurable performance and results
       },
     ],
-  },    
+  },
   {
     id: 2,
     collection: "contact",
     heading: "Contact Us.",
     paragraph: `Discover answers to common questions about ${siteSettings.siteTitle}.`,
+    hasPage: true,
+    link: "/contact-us",
+    sections: ["hero", "contact"],
+    redirectFrom: ["/contact"],
     contactInfo: [
       {
         icon: faPhone,
@@ -135,59 +163,73 @@ const collections = [
     collection: "services",
     heading: "What We Offer",
     title: "Our Services",
+    hasPage: true,
+    itemsHasPage: true, // Indicates that individual items also have pages
+    link: "/services",
+    sections: ["hero", "services"],
+    redirectFrom: ["/service"],
     paragraph: "Explore our wide range of services.",
     button: { text: "Get Started", link: "#" },
     items: [
       {
-        icon: faPaintBrush, // Update this to a hosting/server-related icon if available
-        title: "Web Design",
+        icon: faPaintBrush,
+        title: "Web Design and Development",
         description:
-          "Create visually stunning, user-friendly website designs that captivate your audience and represent your brand effectively.",
-        href: "#web-design",
+          "Create visually stunning, user-friendly websites and web-apps that are robust, responsive, and built with cutting-edge technologies to captivate your audience and ensure seamless functionality.",
+        link: "/services/web-creation", // Link for the item
+        sections: ["hero", "about", "faq"], // Sections specific to this item
       },
       {
-        icon: faCode, // Magic-related for creative development
-        title: "Web Development",
+        icon: faGlobe,
+        title: "Web Hosting and Management",
         description:
-          "Build robust, responsive websites with cutting-edge technologies to ensure seamless functionality and performance.",
-        href: "#web-development",
+          "Provide secure and reliable web hosting alongside comprehensive site management to ensure your website stays online, updated, and performing at its best.",
+        link: "/services/web-hosting", // Link for the item
+        sections: ["hero", "pricing", "testimonials"], // Sections specific to this item
       },
       {
-        icon: faGlobe, // Globe-related for global hosting services
-        title: "Web Hosting",
-        description:
-          "Provide secure and reliable web hosting and web management solutions with ongoing maintenance to ensure your site stays online and updated.",
-        href: "#web-hosting-management",
-      },
-      {
-        icon: faWandMagicSparkles, // Paintbrush for design-related services
+        icon: faWandMagicSparkles,
         title: "Brand Design and Strategy",
         description:
-          "Your website is your brand's home. To connect and convert, your branding must be on point, which requires good logos, visuals, and strategies to ensure that you stand out.",
-        href: "#brand-design-strategy",
+          "Your website is your brand's home. To connect and convert, your branding must be on point, with exceptional logos, visuals, and strategies that make you stand out.",
+        link: "/services/branding", // Link for the item
+        sections: ["hero", "projects", "contact"], // Sections specific to this item
       },
       {
-        icon: faRobot, // Robot for tech/consulting services
-        title: "IT Consulting",
-        description:
-          "We provide expert consulting to guide you through all your tech needs, from IT solutions to leveraging AI, ensuring your business thrives in the digital age.",
-        href: "#it-consulting",
-      },
-      {
-        icon: faChartLine, // Chart for analytics and marketing
+        icon: faChartLine,
         title: "Digital Marketing",
         description:
           "Expand your reach with targeted marketing services, including SEO, social media, email campaigns, and analytics.",
-        href: "#digital-marketing",
+        link: "/services/digital-marketing", // Link for the item
+        sections: ["hero", "about", "testimonials"], // Sections specific to this item
+      },
+      {
+        icon: faRobot,
+        title: "IT Consulting",
+        description:
+          "We provide expert consulting to guide you through all your tech needs, from IT solutions to leveraging AI, ensuring your business thrives in the digital age.",
+        link: "/services/it-consulting", // Link for the item
+        sections: ["hero", "faq", "contact"], // Sections specific to this item
+      },
+      {
+        icon: faTools, // or a relevant infrastructure/setup icon
+        title: "Infrastructure Setup",
+        description:
+          "Set up the essential infrastructure for your website, including CRM integration, analytics setup, tag management, and other tools to ensure seamless tracking, reporting, and optimization.",
+        link: "/services/infrastructure-setup", // Link for the item
+        sections: ["hero", "projects", "faq"], // Sections specific to this item
       },
     ],
-  },
-
+  },   
   {
     id: 4,
     collection: "testimonials",
     heading: "Hear From Our Clients",
     title: "Our Testimonials",
+    hasPage: true, // Indicates that individual items also have pages
+    link: "/testimonials",
+    sections: ["hero", "testimonials"],
+    redirectFrom: ["/testimonial"],
     button: { text: "Get Started", link: "#" },
     items: [
       {
@@ -233,6 +275,9 @@ const collections = [
     collection: "projects",
     heading: "Our Work",
     title: "Our Projects",
+    hasPage: true, 
+    link: "/projects",
+    sections: ["hero", "projects"],
     paragraph:
       "Discover our recent projects and see how we've helped businesses like yours succeed.",
     button: { text: "More Projects", link: "#" },
@@ -387,10 +432,37 @@ const collections = [
   },
 ];
 
+// Content.js
+collections.forEach((collection) => {
+  if (collection.hasPage) {
+    // Add the main collection page
+    pages.push({
+      id: collection.collection,
+      sections: collection.sections,
+      link: collection.link,
+    });
+  }
+
+  // Add item-specific pages if `itemsHasPage` is true
+  if (collection.itemsHasPage && collection.items) {
+    collection.items.forEach((item) => {
+      if (item.link && item.sections) {
+        pages.push({
+          id: item.link, // Use the item's link as the page ID
+          sections: item.sections, // Use the item's specific sections
+          link: item.link, // The link for this item page
+        });
+      }
+    });
+  }
+});
+
+
 // Export Content as an object combining siteSettings and collections
 const Content = {
   siteSettings,
   collections,
+  pages,
 };
 
 export default Content;

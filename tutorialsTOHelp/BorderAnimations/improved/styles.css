@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.35s linear;
+  font-family: "poppins", sans-serif;
+}
+
+:root {
+    --color: red;
+    --border-size: 1rem;
+    --bg-color: #252525;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #111;
+}
+
+.card {
+    position: relative;
+    background-color: var(--bg-color);
+    width: 280px;
+    margin: 2rem;
+    border-radius: var(--border-size);
+    color: white;
+    display: grid;
+    place-content: center;
+    padding: 3rem 2rem;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.card::before, .card::after {
+    content: "";
+    position: absolute;
+}
+
+.card::before {
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from red 0deg, 
+        transparent 60deg, 
+        transparent 180deg, 
+        red 180deg, 
+        transparent 240deg,
+        );
+    inset: -50%;
+    z-index: -2;
+    
+}

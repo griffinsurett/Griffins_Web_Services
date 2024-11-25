@@ -37,7 +37,7 @@ const Services = () => {
               icon={service.icon} // Dynamically use the icon from Content.js
               title={service.title}
               description={service.description}
-              href={service.href}
+              link={service.link}
               index={index}
             />
           ))}

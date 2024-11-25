@@ -22,7 +22,7 @@ const ListItem = ({
   // Determine additional classes based on props
   const layoutClass = IconTop
     ? "column text-left"
-    : "item-align-start"; // Use global `column` or `row` class
+    : "item-align-center"; // Use global `column` or `row` class
 
   const iconClass = IconTop
     ? "styled-icon dynamic-border-effect hover-scale larger-bottom-space"
@@ -40,7 +40,7 @@ const ListItem = ({
   // Component structure
   const ListItemContent = (
     <IntersectionObserverComponent
-      className={listItemClasses}
+      className={`${listItemClasses} `}
       inViewClass="fade-in"
       outViewClass="fade-out"
     >
@@ -54,7 +54,7 @@ const ListItem = ({
       )}
       <div className={contentClass}>
         <TitleTag className={`small-top-space-desktop ${titleClasses}`}>{title}</TitleTag>
-        {/* {description && <p className="p-xSmall">{description}</p>} */}
+        {description && <p className="p-xSmall">{description}</p>}
       </div>
     </IntersectionObserverComponent>
   );

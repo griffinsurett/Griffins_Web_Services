@@ -5,11 +5,11 @@ import Icon from "../../../themeComponents/Icon/Icon";
 import Box from "../../../themeComponents/Box/Box";
 import "./service-box.css";
 
-const ServiceBox = ({ icon, title, description, href, index }) => {
+const ServiceBox = ({ icon, title, description, link, index }) => {
   return (
     <Box
       className="service-box flex item-align-center justify-center column text-center"
-      href={href}
+      link={link}
       staggeredAnimation={true}
       index={index}
       delayBase={index * 50}
@@ -30,7 +30,7 @@ ServiceBox.propTypes = {
   icon: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  href: PropTypes.string,
+  link: PropTypes.string,
   index: PropTypes.number.isRequired,
 };
 

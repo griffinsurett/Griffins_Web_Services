@@ -29,7 +29,7 @@
 
 @media (min-width: 1024px) {
     #hero-section {
-        /* justify-content: center; */
+        justify-content: space-between;
     }
 }
 

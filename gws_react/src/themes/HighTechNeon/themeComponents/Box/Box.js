@@ -7,7 +7,7 @@ import IntersectionObserverComponent from "../../ScrollAnimations";
 const Box = ({
   className,
   children,
-  href,
+  link,
   delayIn = 0,
   inViewClass = "scale-in",
   outViewClass = "scale-out",
@@ -16,7 +16,7 @@ const Box = ({
   delayBase = 150,
   maxColumns = 2, // New prop for column control
 }) => {
-  const boxClass = href
+  const boxClass = link
     ? "box-with-link dynamic-hover-border-effect hover-scale"
     : "box-no-link";
 
@@ -24,7 +24,7 @@ const Box = ({
 
   const BoxContent = <div>{children}</div>;
 
-  return href ? (
+  return link ? (
     <IntersectionObserverComponent
       inViewClass={inViewClass}
       outViewClass={outViewClass}
@@ -35,7 +35,7 @@ const Box = ({
       className={`box-wrapper flex wrap ${columnClass}`}
     >
       <a
-        href={href}
+        href={link}
         className={`box ${boxClass} ${className} flex item-align-center justify-center grow`}
       >
         {children}

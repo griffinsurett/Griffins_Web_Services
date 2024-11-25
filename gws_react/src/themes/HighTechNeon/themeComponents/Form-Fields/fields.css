@@ -3,7 +3,7 @@ input,
 textarea {
     padding: 15px 20px;
     /* background-color: var(--transparentFade-bg); */
-    background: var(--gradientBG1);
+    background: var(--boxGradient);
     color: var(--maintext-color);
     border: var(--borderBeforeHover);
     transition: 1s!important;

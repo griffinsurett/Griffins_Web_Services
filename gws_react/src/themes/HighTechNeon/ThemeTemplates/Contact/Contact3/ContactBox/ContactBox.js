@@ -10,7 +10,7 @@ const ContactBox = ({ icon, label, value, href, index }) => {
   return (
     <Box
       className="contact-box flex justify-center column text-center"
-      href={href}
+      link={href}
       staggeredAnimation={true}
       index={index}
       delayBase={index * 50}

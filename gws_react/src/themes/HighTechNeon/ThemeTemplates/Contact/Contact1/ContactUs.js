@@ -11,6 +11,8 @@ import "./contact-us.css";
 
 function ContactUs() {
   const contactContent = getCollection("contact");
+  console.log(contactContent.contactInfo);
+
 
   if (!contactContent) {
     return <div>Error: Contact content not found</div>;
@@ -34,11 +36,12 @@ function ContactUs() {
         textSectionClass="smaller-bottom-space"
       >
         <div className="contact-info top-space bottom-space">
-          {contactContent.contactInfo.map((info, index) => (
+          {contactContent.contactInfo?.map((info, index) => (
             <IconListItem
               key={index}
               hasIcon={true}
-              icon={info.icon} // Use the icon directly from the Content.js
+              isColumnMobile={true}
+              icon={info.icon}
               title={info.label}
               description={info.value}
               href={info.href}
