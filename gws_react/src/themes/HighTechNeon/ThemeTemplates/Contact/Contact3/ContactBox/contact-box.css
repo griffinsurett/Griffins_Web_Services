@@ -3,7 +3,7 @@
 /* Base contact box styles */
 .contact-box {
     padding: 20px;
-    background: var(--gradientBG1);
+    /* background: var(--gradientBG1); */
     color: var(--maintext-color);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
