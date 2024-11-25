@@ -116,7 +116,7 @@
   --darkBG-dynamicIconBG: transparent;
   --lightBG-dynamicIconBG: var(--gradientBG1);
   --darkBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--primary-color);
-  --lightBG-dynamicIconHover: var(--buttonandIconborderStyle) var(--light-shadow1);
+  --lightBG-dynamicIconHover: var(--buttonandIconborderStyle) none;
   --darkBG-dynamicButtonHover: var(--darkBG-dynamicIconHover);
   --lightBG-dynamicButtonHover: var(--buttonandIconborderStyle) var(--everdark-color1);
 }
@@ -559,7 +559,7 @@ a {
 }
 
 .dynamic-hover-border-effect:hover {
-  border: var(--dynamicIconBorder) !important;
+  border: var(--dynamicIconHover) !important;
   box-shadow: var(--boxShadow1) !important; /* Neon glow effect */
 }
 
