@@ -15,18 +15,8 @@ const getRoutePath = (item) => {
 };
 
 const DynamicRoutes = () => {
+  // Filter collections that define `hasPage: true`
   const collectionsWithPages = Content.collections.filter((c) => c.hasPage);
-
-  // Map all items with their prefixed and unprefixed routes
-  const itemRedirects = collectionsWithPages
-    .filter((collection) => collection.itemsHasPage)
-    .flatMap((collection) =>
-      collection.items.map((item) => {
-        const prefixedSlug = getRoutePath(item); // The full prefixed slug
-        const unprefixedSlug = `/${item.slug.split("/").pop()}`; // Extract last part of the slug
-        return { prefixedSlug, unprefixedSlug };
-      })
-    );
 
   return (
     <Routes>
@@ -53,7 +43,8 @@ const DynamicRoutes = () => {
         .flatMap((collection) =>
           collection.items.map((item) => {
             const itemPath = getRoutePath(item);
-            if (!itemPath) return null; // Skip items without a valid path
+            if (!itemPath) return null; // Skip external links or undefined paths
+
             return (
               <Route
                 key={itemPath}
@@ -61,7 +52,7 @@ const DynamicRoutes = () => {
                 element={
                   <PickTheme
                     pageId={itemPath}
-                    sections={item.sections || []} // Pass sections for rendering
+                    sections={item.sections} // Pass sections explicitly
                   />
                 }
               />
@@ -69,16 +60,7 @@ const DynamicRoutes = () => {
           })
         )}
 
-      {/* Unprefixed Slug Redirects */}
-      {itemRedirects.map(({ prefixedSlug, unprefixedSlug }) => (
-        <Route
-          key={`redirect-${unprefixedSlug}`}
-          path={unprefixedSlug}
-          element={<Navigate to={prefixedSlug} replace />}
-        />
-      ))}
-
-      {/* RedirectFrom Logic */}
+      {/* Redirect Logic */}
       {collectionsWithPages
         .filter(
           (collection) =>
@@ -93,9 +75,6 @@ const DynamicRoutes = () => {
             />
           ))
         )}
-
-      {/* Invalid Routes */}
-      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

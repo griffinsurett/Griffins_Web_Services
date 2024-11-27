@@ -11,17 +11,17 @@ const Projects = ({ data }) => {
       <p>{data.paragraph}</p>
       <div className="projects-list">
         {data.items.map((project) => (
-          <div key={project.id} className="project-item">
-            <img src={project.image} alt={project.name} />
-            <h3>{project.name}</h3>
+          <div key={project.slug} className="project-item">
+            <img src={project.image} alt={project.name || project.title} />
+            <h3>{project.name || project.title}</h3> {/* Render name or title */}
             <p>{project.description}</p>
-            {project.link ? (
-              <Link to={project.link} className="project-link">
+            {project.slug ? (
+              <Link to={project.slug} className="project-link">
                 Learn More
               </Link>
             ) : (
               <a
-                href={project.externalLink}
+                href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-link"
@@ -32,9 +32,9 @@ const Projects = ({ data }) => {
           </div>
         ))}
       </div>
-      {data.link && (
+      {data.slug && (
         <div className="section-link">
-          <Link to={data.link}>View All Projects</Link>
+          <Link to={data.slug}>View All Projects</Link>
         </div>
       )}
     </section>

@@ -16,7 +16,7 @@ export const getPageStructure = (pageId) => {
 
   const item = isItemPage ? collection.items.find((item) => item.slug === pageId) : null;
 
-  const title = item?.name || item?.title || collection?.title || page.title || "Untitled Page";
+  const title = item?.title || collection?.title || page.title || "Untitled Page";
   const description = item?.description || collection?.paragraph || "";
 
   // Track already added items to avoid duplicates globally

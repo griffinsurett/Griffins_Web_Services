@@ -487,31 +487,35 @@ relationalUtil.relate("services", "/web-creation", "projects", "/i-75-cpa-review
 relationalUtil.relate("services", "/web-creation", "projects", "/farias-demolition");
 relationalUtil.relate("services", "/web-creation", "projects", "/certified-bag-chasers");
 relationalUtil.relate("services", "/web-creation", "projects", "/koi-solar");
-relationalUtil.relate("services", "/web-creation", "projects", "/pronto-junk-removal");
-relationalUtil.relate("services", "/web-creation", "projects", "/koi-crest-marketing");
-relationalUtil.relate("services", "/web-hosting", "projects", "/i-75-cpa-review");
-relationalUtil.relate("services", "/web-hosting", "projects", "/farias-demolition");
-relationalUtil.relate("services", "/web-hosting", "projects", "/certified-bag-chasers");
-relationalUtil.relate("services", "/web-hosting", "projects", "/koi-solar");
-relationalUtil.relate("services", "/web-hosting", "projects", "/pronto-junk-removal");
-relationalUtil.relate("services", "/web-hosting", "projects", "/koi-crest-marketing");
+
 relationalUtil.relate("services", "/branding", "projects", "/certified-bag-chasers");
 relationalUtil.relate("projects", "/certified-bag-chasers", "services", "/branding");
+
 relationalUtil.relate("services", "/digital-marketing", "projects", "/koi-crest-marketing");
 relationalUtil.relate("projects", "/koi-crest-marketing", "services", "/digital-marketing");
+
+relationalUtil.relate("services", "/web-hosting", "projects", "/pronto-junk-removal");
 relationalUtil.relate("projects", "/pronto-junk-removal", "services", "/web-hosting");
+
 relationalUtil.relate("services", "/it-consulting", "projects", "/koi-solar");
 relationalUtil.relate("projects", "/koi-solar", "services", "/it-consulting");
+
 relationalUtil.relate("services", "/infrastructure-setup", "projects", "/certified-bag-chasers");
 relationalUtil.relate("projects", "/certified-bag-chasers", "services", "/infrastructure-setup");
+
+// Projects and Testimonials
 relationalUtil.relate("projects", "/i-75-cpa-review", "testimonials", "/darius-clark");
 relationalUtil.relate("testimonials", "/darius-clark", "projects", "/i-75-cpa-review");
+
 relationalUtil.relate("projects", "/certified-bag-chasers", "testimonials", "/arold-norelus");
 relationalUtil.relate("testimonials", "/arold-norelus", "projects", "/certified-bag-chasers");
+
 relationalUtil.relate("projects", "/farias-demolition", "testimonials", "/kenn-faria");
 relationalUtil.relate("testimonials", "/kenn-faria", "projects", "/farias-demolition");
+
 relationalUtil.relate("projects", "/pronto-junk-removal", "testimonials", "/anthony-gonzales");
 relationalUtil.relate("testimonials", "/anthony-gonzales", "projects", "/pronto-junk-removal");
+
 relationalUtil.relate("testimonials", "/tarun-kumar", "projects", "/koi-crest-marketing");
 relationalUtil.relate("projects", "/koi-crest-marketing", "testimonials", "/tarun-kumar");
 relationalUtil.relate("faq", 0, "services", "/web-creation"); // Is the domain name included with the website?
@@ -530,6 +534,7 @@ relationalUtil.relate("faq", 8, "services", "/it-consulting"); // What types of 
 relationalUtil.relate("faq", 9, "services", "/web-creation"); // How does your quote process work?
 relationalUtil.relate("faq", 9, "services", "/branding");
 relationalUtil.relate("faq", 9, "services", "/digital-marketing");
+
 // Infer indirect relationships
 relationalUtil.inferIndirectRelationships();
 
