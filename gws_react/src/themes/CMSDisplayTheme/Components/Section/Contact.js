@@ -3,7 +3,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Contact = ({ data }) => {
+const Contact = ({ data, showSectionLink }) => {
   if (!data) return <p>No Contact section data available.</p>;
 
   return (
@@ -29,6 +29,11 @@ const Contact = ({ data }) => {
         ))}
         <button type="submit">{data.button.text}</button>
       </form>
+      {showSectionLink && (
+        <div className="section-link">
+          <a href={data.slug}>Contact Us</a>
+        </div>
+      )}
     </section>
   );
 };

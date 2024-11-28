@@ -483,8 +483,8 @@ const relationalUtil = new RelationalUtil({ collections });
 
 // Adding more relations
 // Define bidirectional relationships
-relationalUtil.relate("services", "/web-creation", "projects", "/i-75-cpa-review");
-relationalUtil.relate("services", "/web-creation", "projects", "/farias-demolition");
+// relationalUtil.relate("services", "/web-creation", "projects", "/i-75-cpa-review");
+// relationalUtil.relate("services", "/web-creation", "projects", "/farias-demolition");
 relationalUtil.relate("services", "/web-creation", "projects", "/certified-bag-chasers");
 relationalUtil.relate("services", "/web-creation", "projects", "/koi-solar");
 relationalUtil.relate("services", "/web-creation", "projects", "/pronto-junk-removal");

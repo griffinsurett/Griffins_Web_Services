@@ -1,9 +1,8 @@
 // CMSDisplayTheme.js
-// CMSDisplayTheme.js
 import React, { useEffect, useState } from "react";
 import { getPageStructure } from "../../CMS/Utils/GetPageStructure";
-
-// Map section keys to their components (specific to this theme)
+import { getSiteSettings } from "../../CMS/Utils/GetSettings";
+import { shouldShowSectionLink } from "../../CMS/Utils/SectionUtils";
 import HomeHero from "./Components/Section/Hero";
 import GenericHero from "./Components/Section/Hero2";
 import About from "./Components/Section/About/About";
@@ -12,6 +11,7 @@ import Contact from "./Components/Section/Contact";
 import Testimonials from "./Components/Section/Testimonials";
 import Projects from "./Components/Section/Projects";
 import FAQ from "./Components/Section/FAQ";
+import Header from "./Components/Header";
 
 const sectionComponents = {
   hero: HomeHero,
@@ -29,41 +29,43 @@ const CMSDisplayTheme = ({ pageId }) => {
   useEffect(() => {
     const structure = getPageStructure(pageId);
     setPageStructure(structure);
-  }, [pageId]);
+  }, [pageId]); // Recalculate when pageId changes
 
   if (!pageStructure) {
     return <p>Loading...</p>;
   }
 
-  const { title, description, sections, siteSettings } = pageStructure;
+  const { title, description, sections } = pageStructure;
 
   return (
     <div className={`page-${pageId}`}>
+      <Header/>
       {pageId === "homepage" ? (
-        <sectionComponents.hero data={siteSettings} />
+        <HomeHero data={getSiteSettings()} />
       ) : (
         <GenericHero title={title} description={description} />
       )}
 
-      {sections.map(({ key, data, showLink }) => {
+      {sections.map(({ key, data }) => {
         const SectionComponent = sectionComponents[key];
         if (!SectionComponent) {
-          console.warn(`Section '${key}' is missing a component.`);
+          console.warn(`Section '${key}' is missing data or a component.`);
           return null;
         }
 
+        const showSectionLink = shouldShowSectionLink(data, pageId);
+
         return (
-          <div key={key} className={`section-${key}`}>
-            <SectionComponent data={data} />
-            {showLink && (
-              <div className="section-link">
-                <a href={data.slug}>View More</a>
-              </div>
-            )}
-          </div>
+          <SectionComponent
+            key={key}
+            data={data}
+            currentPageId={pageId}
+            showSectionLink={showSectionLink}
+          />
         );
       })}
     </div>
+
   );
 };
 

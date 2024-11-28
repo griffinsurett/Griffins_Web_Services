@@ -3,7 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-const Services = ({  data  }) => {
+const Services = ({  data, showSectionLink  }) => {
   if (!data) return <p>No Services section data available.</p>;
 
   return (
@@ -24,6 +24,11 @@ const Services = ({  data  }) => {
           </div>
         ))}
       </div>
+      {showSectionLink && (
+        <div className="section-link">
+          <Link to={data.slug}>Explore All Services</Link>
+        </div>
+      )}
     </section>
   );
 };

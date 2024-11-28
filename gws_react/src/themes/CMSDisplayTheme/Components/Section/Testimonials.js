@@ -1,8 +1,9 @@
 // Theme/Components/Sections/Testimonials.js
 // Testimonials.js
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Testimonials = ({ data }) => {
+const Testimonials = ({ data, showSectionLink }) => {
   if (!data) return <p>No Testimonials section data available.</p>;
 
   return (
@@ -18,6 +19,11 @@ const Testimonials = ({ data }) => {
           </div>
         ))}
       </div>
+      {showSectionLink && (
+        <div className="section-link">
+          <Link to={data.slug}>View All Testimonials</Link>
+        </div>
+      )}
     </section>
   );
 };

@@ -169,7 +169,7 @@ const collections = [
     hasPage: true,
     itemsHasPage: true, // Indicates that individual items also have pages
     slug: "/services",
-    sections: ["hero", "services", "projects", "about", "testimonials", "faq"],
+    sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
     redirectFrom: ["/service", "/our-services"],
     paragraph: "Explore our wide range of services.",
     button: { text: "Get Started", link: "#" },
@@ -180,7 +180,7 @@ const collections = [
         description:
           "Create visually stunning, user-friendly websites and web-apps that are robust, responsive, and built with cutting-edge technologies to captivate your audience and ensure seamless functionality.",
         slug: "/web-creation", // Link for the item
-        sections: ["hero", "services", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+        sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
       },
       {
         icon: faGlobe,
@@ -188,7 +188,7 @@ const collections = [
         description:
           "Provide secure and reliable web hosting alongside comprehensive site management to ensure your website stays online, updated, and performing at its best.",
           slug: "/web-hosting", // Link for the item
-          sections: ["hero", "services", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+          sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
         },
       {
         icon: faWandMagicSparkles,
@@ -196,15 +196,15 @@ const collections = [
         description:
           "Your website is your brand's home. To connect and convert, your branding must be on point, with exceptional logos, visuals, and strategies that make you stand out.",
           slug: "/branding", 
-        sections: ["hero", "projects","about", "faq"], // Sections specific to this item
-      },
+          sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
+        },
       {
         icon: faChartLine,
         title: "Digital Marketing",
         description:
           "Expand your reach with targeted marketing services, including SEO, social media, email campaigns, and analytics.",
           // slug: "/services/digital-marketing", 
-          sections: ["hero", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+          sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
         },
       {
         icon: faRobot,
@@ -212,16 +212,16 @@ const collections = [
         description:
           "We provide expert consulting to guide you through all your tech needs, from IT solutions to leveraging AI, ensuring your business thrives in the digital age.",
           slug: "/it-consulting", // Link for the item
-        sections: ["hero", "faq", "contact"], // Sections specific to this item
-      },
+          sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
+        },
       {
         icon: faTools, // or a relevant infrastructure/setup icon
         title: "Infrastructure Setup",
         description:
           "Set up the essential infrastructure for your website, including CRM integration, analytics setup, tag management, and other tools to ensure seamless tracking, reporting, and optimization.",
           slug: "/infrastructure-setup", // Link for the item
-        sections: ["hero", "projects", "faq"], // Sections specific to this item
-      },
+          sections: ["hero", "projects", "services", "about", "testimonials", "faq"],
+        },
     ],
   },   
   {
@@ -505,7 +505,6 @@ relationalUtil.relate("projects", "/koi-solar", "services", "/it-consulting");
 relationalUtil.relate("services", "/infrastructure-setup", "projects", "/certified-bag-chasers");
 relationalUtil.relate("projects", "/certified-bag-chasers", "services", "/infrastructure-setup");
 relationalUtil.relate("projects", "/i-75-cpa-review", "testimonials", "/darius-clark");
-relationalUtil.relate("testimonials", "/darius-clark", "projects", "/i-75-cpa-review");
 relationalUtil.relate("projects", "/certified-bag-chasers", "testimonials", "/arold-norelus");
 relationalUtil.relate("testimonials", "/arold-norelus", "projects", "/certified-bag-chasers");
 relationalUtil.relate("projects", "/farias-demolition", "testimonials", "/kenn-faria");

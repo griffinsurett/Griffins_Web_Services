@@ -11,6 +11,7 @@ import Contact from "./Components/Section/Contact";
 import Testimonials from "./Components/Section/Testimonials";
 import Projects from "./Components/Section/Projects";
 import FAQ from "./Components/Section/FAQ";
+import Header from "./Components/Header";
 
 const sectionComponents = {
   hero: HomeHero,
@@ -38,6 +39,7 @@ const CMSDisplayTheme = ({ pageId }) => {
 
   return (
     <div className={`page-${pageId}`}>
+      <Header/>
       {pageId === "homepage" ? (
         <HomeHero data={getSiteSettings()} />
       ) : (

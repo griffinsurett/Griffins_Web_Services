@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Projects = ({ data }) => {
+const Projects = ({ data, showSectionLink }) => {
   if (!data) return <p>No Projects section data available.</p>;
 
   return (
@@ -32,6 +32,11 @@ const Projects = ({ data }) => {
           </div>
         ))}
       </div>
+      {showSectionLink && (
+        <div className="section-link">
+          <Link to={data.slug}>View All Projects</Link>
+        </div>
+      )}
     </section>
   );
 };
