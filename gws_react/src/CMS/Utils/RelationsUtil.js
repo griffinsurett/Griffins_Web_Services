@@ -50,12 +50,10 @@ export class RelationalUtil {
     }
 
     if (typeof identifier === "number") {
-      // Handle index-based resolution
       return collection.items?.[identifier] || null;
     }
 
     if (typeof identifier === "string") {
-      // Handle slug-based resolution
       const resolvedSlug = this.resolveSlug(collectionName, identifier);
       return collection.items?.find((item) => item.slug === resolvedSlug) || null;
     }
@@ -145,6 +143,35 @@ export class RelationalUtil {
   }
 
   /**
+   * Automatically establish relationships between items in the same collection.
+   * Relationships are based on shared sections or other logical criteria.
+   * @param {string} collectionName - The name of the collection.
+   */
+  relateSameCollectionItems(collectionName) {
+    const collection = this.content.collections.find(
+      (col) => col.collection === collectionName
+    );
+
+    if (!collection || !collection.items) {
+      console.error(`Collection '${collectionName}' not found or has no items.`);
+      return;
+    }
+
+    collection.items.forEach((itemA, indexA) => {
+      collection.items.forEach((itemB, indexB) => {
+        if (indexA !== indexB) {
+          const sharedSections = itemA.sections.filter((section) =>
+            itemB.sections.includes(section)
+          );
+          if (sharedSections.length > 0) {
+            this.relate(collectionName, itemA.slug, collectionName, itemB.slug);
+          }
+        }
+      });
+    });
+  }
+
+  /**
    * Helper to capitalize the first letter of a string.
    * @param {string} string - The string to capitalize.
    * @returns {string} - The capitalized string.
@@ -168,14 +195,18 @@ export class RelationalUtil {
       );
       return [];
     }
-
+  
     const relationKey = `relatedTo${this.capitalize(targetCollection)}`;
     const relatedSlugs = entity[relationKey] || [];
-
-    return relatedSlugs.map((slug) =>
-      this.resolveEntity(targetCollection, slug)
-    ).filter(Boolean);
-  }
+  
+    // Exclude the current entity if fromCollection and targetCollection are the same
+    return relatedSlugs
+      .map((slug) => this.resolveEntity(targetCollection, slug))
+      .filter(
+        (relatedItem) =>
+          relatedItem && !(fromCollection === targetCollection && relatedItem.slug === entity.slug)
+      );
+  }  
 }
 
 export default RelationalUtil;

@@ -1,80 +1,44 @@
 // CMS/Utils/DynamicRoutes.js
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Content from "../Content";
 import PickTheme from "../PickTheme";
 
-/**
- * Helper to determine route path, prioritizing slug for internal routes
- * and falling back to link if no slug exists.
- */
-const getRoutePath = (item) => {
-  if (item.slug) return item.slug.startsWith("/") ? item.slug : `/${item.slug}`;
-  if (item.link && item.link.startsWith("/")) return item.link; // Internal link
-  return null; // External links should not be part of Routes
-};
-
 const DynamicRoutes = () => {
-  // Filter collections that define `hasPage: true`
-  const collectionsWithPages = Content.collections.filter((c) => c.hasPage);
+  const location = useLocation(); // Listen to the current location
+
+  useEffect(() => {
+    // Reactively handle any logic that must trigger on route change
+    // console.log("Navigated to", location.pathname);
+  }, [location]);
 
   return (
     <Routes>
-      {/* Homepage Route */}
-      <Route path="/" element={<PickTheme pageId="homepage" />} />
-
-      {/* Collection Routes */}
-      {collectionsWithPages.map((collection) => {
-        const collectionPath = getRoutePath(collection);
-        if (!collectionPath) return null; // Skip external links or undefined paths
-
-        return (
+      <Route path="/" element={<PickTheme key="homepage" pageId="homepage" />} />
+      {Content.collections
+        .filter((collection) => collection.hasPage)
+        .map((collection) => (
           <Route
-            key={collection.id}
-            path={collectionPath}
-            element={<PickTheme pageId={collection.collection} />}
+            key={collection.collection}
+            path={collection.slug}
+            element={<PickTheme key={collection.collection} pageId={collection.collection} />}
           />
-        );
-      })}
-
-      {/* Item-specific Routes */}
-      {collectionsWithPages
+        ))}
+      {Content.collections
         .filter((collection) => collection.itemsHasPage)
         .flatMap((collection) =>
           collection.items.map((item) => {
-            const itemPath = getRoutePath(item);
-            if (!itemPath) return null; // Skip external links or undefined paths
-
+            const itemPath = item.slug.startsWith("/") ? item.slug : `/${item.slug}`;
             return (
               <Route
-                key={itemPath}
+                key={item.slug}
                 path={itemPath}
-                element={
-                  <PickTheme
-                    pageId={itemPath}
-                    sections={item.sections} // Pass sections explicitly
-                  />
-                }
+                element={<PickTheme key={item.slug} pageId={item.slug} />}
               />
             );
           })
         )}
-
-      {/* Redirect Logic */}
-      {collectionsWithPages
-        .filter(
-          (collection) =>
-            collection.redirectFrom && collection.redirectFrom.length > 0
-        )
-        .flatMap((collection) =>
-          collection.redirectFrom.map((fromPath) => (
-            <Route
-              key={`redirect-${fromPath}`}
-              path={fromPath}
-              element={<Navigate to={getRoutePath(collection)} replace />}
-            />
-          ))
-        )}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

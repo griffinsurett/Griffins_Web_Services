@@ -1,8 +1,7 @@
-// Theme/Components/Sections/About.js
+// About.js
 import React from "react";
-import { Link } from "react-router-dom";
 
-const About = ({ data }) => {
+const About = ({ data, showSectionLink }) => {
   if (!data) return <p>No About section data available.</p>;
 
   return (
@@ -11,11 +10,6 @@ const About = ({ data }) => {
       {data.paragraphs.map((p, i) => (
         <p key={i}>{p}</p>
       ))}
-      {data.slug && (
-        <div className="section-link">
-          <Link to={data.slug}>Learn More About Us</Link>
-        </div>
-      )}
     </section>
   );
 };

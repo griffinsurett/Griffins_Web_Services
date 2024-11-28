@@ -1,4 +1,5 @@
 // Theme/Components/Sections/Contact.js
+// Contact.js
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -12,7 +13,7 @@ const Contact = ({ data }) => {
       <div className="contact-info">
         {data.contactInfo.map((info, i) => (
           <div key={i} className="contact-item">
-            <FontAwesomeIcon icon={info.icon} /> {/* Render the icon */}
+            <FontAwesomeIcon icon={info.icon} />
             <a href={info.href}>{info.value}</a>
           </div>
         ))}

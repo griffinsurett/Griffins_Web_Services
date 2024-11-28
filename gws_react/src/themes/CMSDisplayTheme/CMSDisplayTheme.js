@@ -1,7 +1,9 @@
-// Theme/CMSDisplayTheme.js
-import React from "react";
+// CMSDisplayTheme.js
+// CMSDisplayTheme.js
+import React, { useEffect, useState } from "react";
 import { getPageStructure } from "../../CMS/Utils/GetPageStructure";
-import { getSiteSettings } from "../../CMS/Utils/GetSettings";
+
+// Map section keys to their components (specific to this theme)
 import HomeHero from "./Components/Section/Hero";
 import GenericHero from "./Components/Section/Hero2";
 import About from "./Components/Section/About/About";
@@ -22,31 +24,44 @@ const sectionComponents = {
 };
 
 const CMSDisplayTheme = ({ pageId }) => {
-  const pageStructure = getPageStructure(pageId);
+  const [pageStructure, setPageStructure] = useState(null);
+
+  useEffect(() => {
+    const structure = getPageStructure(pageId);
+    setPageStructure(structure);
+  }, [pageId]);
 
   if (!pageStructure) {
-    return <p>Error: No structure found for page '{pageId}'.</p>;
+    return <p>Loading...</p>;
   }
 
-  const { title, description, sections } = pageStructure;
+  const { title, description, sections, siteSettings } = pageStructure;
 
   return (
     <div className={`page-${pageId}`}>
-      {/* Render Hero */}
       {pageId === "homepage" ? (
-        <HomeHero data={getSiteSettings()} />
+        <sectionComponents.hero data={siteSettings} />
       ) : (
         <GenericHero title={title} description={description} />
       )}
 
-      {/* Render Sections */}
-      {sections.map(({ key, data }) => {
+      {sections.map(({ key, data, showLink }) => {
         const SectionComponent = sectionComponents[key];
         if (!SectionComponent) {
-          console.warn(`Section '${key}' is missing data or a component.`);
+          console.warn(`Section '${key}' is missing a component.`);
           return null;
         }
-        return <SectionComponent key={key} data={data} />;
+
+        return (
+          <div key={key} className={`section-${key}`}>
+            <SectionComponent data={data} />
+            {showLink && (
+              <div className="section-link">
+                <a href={data.slug}>View More</a>
+              </div>
+            )}
+          </div>
+        );
       })}
     </div>
   );

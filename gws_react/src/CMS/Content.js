@@ -180,7 +180,7 @@ const collections = [
         description:
           "Create visually stunning, user-friendly websites and web-apps that are robust, responsive, and built with cutting-edge technologies to captivate your audience and ensure seamless functionality.",
         slug: "/web-creation", // Link for the item
-        sections: ["hero", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+        sections: ["hero", "services", "projects", "about", "testimonials", "faq"], // Sections specific to this item
       },
       {
         icon: faGlobe,
@@ -188,8 +188,8 @@ const collections = [
         description:
           "Provide secure and reliable web hosting alongside comprehensive site management to ensure your website stays online, updated, and performing at its best.",
           slug: "/web-hosting", // Link for the item
-        sections: ["hero", "projects","about", "faq"], // Sections specific to this item
-      },
+          sections: ["hero", "services", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+        },
       {
         icon: faWandMagicSparkles,
         title: "Brand Design and Strategy",
@@ -204,8 +204,8 @@ const collections = [
         description:
           "Expand your reach with targeted marketing services, including SEO, social media, email campaigns, and analytics.",
           // slug: "/services/digital-marketing", 
-        sections: ["hero", "projects","about", "faq"], // Sections specific to this item
-      },
+          sections: ["hero", "projects", "about", "testimonials", "faq"], // Sections specific to this item
+        },
       {
         icon: faRobot,
         title: "IT Consulting",

@@ -1,7 +1,8 @@
-// Theme/CMSDisplayTheme.js
-import React from "react";
+// CMSDisplayTheme.js
+import React, { useEffect, useState } from "react";
 import { getPageStructure } from "../../CMS/Utils/GetPageStructure";
 import { getSiteSettings } from "../../CMS/Utils/GetSettings";
+import { shouldShowSectionLink } from "../../CMS/Utils/SectionUtils";
 import HomeHero from "./Components/Section/Hero";
 import GenericHero from "./Components/Section/Hero2";
 import About from "./Components/Section/About/About";
@@ -22,31 +23,44 @@ const sectionComponents = {
 };
 
 const CMSDisplayTheme = ({ pageId }) => {
-  const pageStructure = getPageStructure(pageId);
+  const [pageStructure, setPageStructure] = useState(null);
+
+  useEffect(() => {
+    const structure = getPageStructure(pageId);
+    setPageStructure(structure);
+  }, [pageId]); // Recalculate when pageId changes
 
   if (!pageStructure) {
-    return <p>Error: No structure found for page '{pageId}'.</p>;
+    return <p>Loading...</p>;
   }
 
   const { title, description, sections } = pageStructure;
 
   return (
     <div className={`page-${pageId}`}>
-      {/* Render Hero */}
       {pageId === "homepage" ? (
         <HomeHero data={getSiteSettings()} />
       ) : (
         <GenericHero title={title} description={description} />
       )}
 
-      {/* Render Sections */}
       {sections.map(({ key, data }) => {
         const SectionComponent = sectionComponents[key];
         if (!SectionComponent) {
           console.warn(`Section '${key}' is missing data or a component.`);
           return null;
         }
-        return <SectionComponent key={key} data={data} />;
+
+        const showSectionLink = shouldShowSectionLink(data, pageId);
+
+        return (
+          <SectionComponent
+            key={key}
+            data={data}
+            currentPageId={pageId}
+            showSectionLink={showSectionLink}
+          />
+        );
       })}
     </div>
   );

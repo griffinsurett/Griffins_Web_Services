@@ -1,4 +1,4 @@
-// Theme/Components/Sections/Projects.js
+// Projects.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Projects = ({ data }) => {
         {data.items.map((project) => (
           <div key={project.slug} className="project-item">
             <img src={project.image} alt={project.name || project.title} />
-            <h3>{project.name || project.title}</h3> {/* Render name or title */}
+            <h3>{project.name || project.title}</h3>
             <p>{project.description}</p>
             {project.slug ? (
               <Link to={project.slug} className="project-link">
@@ -32,13 +32,9 @@ const Projects = ({ data }) => {
           </div>
         ))}
       </div>
-      {data.slug && (
-        <div className="section-link">
-          <Link to={data.slug}>View All Projects</Link>
-        </div>
-      )}
     </section>
   );
 };
 
 export default Projects;
+
