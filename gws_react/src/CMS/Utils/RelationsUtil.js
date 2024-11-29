@@ -43,22 +43,31 @@ export class RelationalUtil {
     const collection = this.content.collections.find(
       (col) => col.collection === collectionName
     );
-
+  
     if (!collection) {
       console.error(`Collection '${collectionName}' not found.`);
       return null;
     }
-
+  
     if (typeof identifier === "number") {
-      return collection.items?.[identifier] || null;
+      const item = collection.items?.[identifier];
+      if (!item) {
+        console.error(
+          `Index '${identifier}' is out of bounds for collection '${collectionName}'.`
+        );
+        return null;
+      }
+      return item; // Resolve by index
     }
-
+  
     if (typeof identifier === "string") {
       const resolvedSlug = this.resolveSlug(collectionName, identifier);
       return collection.items?.find((item) => item.slug === resolvedSlug) || null;
     }
-
-    console.error(`Invalid identifier '${identifier}' for collection '${collectionName}'.`);
+  
+    console.error(
+      `Invalid identifier '${identifier}' for collection '${collectionName}'.`
+    );
     return null;
   }
 
@@ -73,29 +82,29 @@ export class RelationalUtil {
   relate(fromCollection, fromIdentifier, toCollection, toIdentifier) {
     const fromEntity = this.resolveEntity(fromCollection, fromIdentifier);
     const toEntity = this.resolveEntity(toCollection, toIdentifier);
-
+  
     if (!fromEntity || !toEntity) {
       console.error(
         `Failed to create relationship: Invalid entities (${fromCollection}:${fromIdentifier} <-> ${toCollection}:${toIdentifier})`
       );
       return;
     }
-
+  
     const fromRelationKey = `relatedTo${this.capitalize(toCollection)}`;
     const toRelationKey = `relatedTo${this.capitalize(fromCollection)}`;
-
+  
     // Establish the relationship from `fromEntity` to `toEntity`
     fromEntity[fromRelationKey] = fromEntity[fromRelationKey] || [];
-    if (!fromEntity[fromRelationKey].includes(toEntity.slug)) {
-      fromEntity[fromRelationKey].push(toEntity.slug);
+    if (!fromEntity[fromRelationKey].includes(toEntity.slug || toEntity.id)) {
+      fromEntity[fromRelationKey].push(toEntity.slug || toEntity.id);
     }
-
+  
     // Establish the reverse relationship from `toEntity` to `fromEntity`
     toEntity[toRelationKey] = toEntity[toRelationKey] || [];
-    if (!toEntity[toRelationKey].includes(fromEntity.slug)) {
-      toEntity[toRelationKey].push(fromEntity.slug);
+    if (!toEntity[toRelationKey].includes(fromEntity.slug || fromEntity.id)) {
+      toEntity[toRelationKey].push(fromEntity.slug || fromEntity.id);
     }
-  }
+  }  
 
   /**
    * Automatically infer indirect relationships between entities.

@@ -1,6 +1,8 @@
 // CMS/Utils/GetPageStructure.js
+// CMS/Utils/GetPageStructure.js
 import Content from "../Content";
 import { getCollection } from "./GetCollection";
+import { shouldShowSectionLink } from "./SectionUtils";
 
 export const getPageStructure = (pageId) => {
   const page = Content.pages.find((p) => p.id === pageId);
@@ -9,7 +11,7 @@ export const getPageStructure = (pageId) => {
     return null;
   }
 
-  // Determine if the page is a collection page or an item page
+  // Preserve existing structure and extend it dynamically
   const collection = getCollection(pageId);
   const isCollectionPage = collection && collection.collection === pageId;
   const isItemPage = collection && collection.items?.some((item) => item.slug === pageId);
@@ -32,6 +34,7 @@ export const getPageStructure = (pageId) => {
       return {
         key: sectionKey,
         data: sectionData,
+        showSectionLink: shouldShowSectionLink(sectionData, pageId), // Add showSectionLink dynamically
       };
     }
 
@@ -42,6 +45,7 @@ export const getPageStructure = (pageId) => {
       return {
         key: sectionKey,
         data: null, // No data for this section
+        showSectionLink: false,
       };
     }
 
@@ -90,6 +94,7 @@ export const getPageStructure = (pageId) => {
     return {
       key: sectionKey,
       data: sectionData,
+      showSectionLink: shouldShowSectionLink(sectionData, pageId), // Add showSectionLink dynamically
     };
   });
 

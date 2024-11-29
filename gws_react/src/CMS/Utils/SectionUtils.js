@@ -16,3 +16,6 @@ export const shouldShowSectionLink = (data, currentPageId) => {
   // - OR the collection has items with valid slugs
   return !isCollectionPage && (isItemPage || (data.items?.some((item) => item.slug) || false));
 };
+
+
+

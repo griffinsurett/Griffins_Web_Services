@@ -1,6 +1,9 @@
 // CMSDisplayTheme.js
 import React, { useEffect, useState } from "react";
-import CMS from "../../CMS"; // Centralized CMS import
+import { useLocation } from "react-router-dom"; // To detect route changes
+import CMS from "../../CMS";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import HomeHero from "./Components/Section/Hero";
 import GenericHero from "./Components/Section/Hero2";
 import About from "./Components/Section/About/About";
@@ -9,7 +12,6 @@ import Contact from "./Components/Section/Contact";
 import Testimonials from "./Components/Section/Testimonials";
 import Projects from "./Components/Section/Projects";
 import FAQ from "./Components/Section/FAQ";
-import Header from "./Components/Header";
 
 const sectionComponents = {
   hero: HomeHero,
@@ -23,15 +25,14 @@ const sectionComponents = {
 
 const CMSDisplayTheme = ({ pageId }) => {
   const [pageStructure, setPageStructure] = useState(null);
+  const location = useLocation(); // Detect location changes
 
   useEffect(() => {
     const structure = CMS.getPageStructure(pageId);
     setPageStructure(structure);
-  }, [pageId]); // Recalculate when pageId changes
+  }, [pageId, location.pathname]); // Update on route change
 
-  if (!pageStructure) {
-    return <p>Loading...</p>;
-  }
+  if (!pageStructure) return <p>Loading...</p>;
 
   const { title, description, sections } = pageStructure;
 
@@ -43,25 +44,17 @@ const CMSDisplayTheme = ({ pageId }) => {
       ) : (
         <GenericHero title={title} description={description} />
       )}
-
-      {sections.map(({ key, data }) => {
+      {sections.map(({ key, data, showSectionLink }) => {
         const SectionComponent = sectionComponents[key];
         if (!SectionComponent) {
-          console.warn(`Section '${key}' is missing data or a component.`);
+          console.warn(`Missing component for section: '${key}'`);
           return null;
         }
-
-        const showSectionLink = CMS.shouldShowSectionLink(data, pageId);
-
         return (
-          <SectionComponent
-            key={key}
-            data={data}
-            currentPageId={pageId}
-            showSectionLink={showSectionLink}
-          />
+          <SectionComponent key={`${key}-${location.pathname}`} data={data} showSectionLink={showSectionLink} />
         );
       })}
+      <Footer />
     </div>
   );
 };
